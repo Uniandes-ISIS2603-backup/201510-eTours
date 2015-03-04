@@ -22,12 +22,12 @@
 			urlsProvider.registerUrl(context);
 		}]);
             
-            //Configuración módulo categoria
-	var calificacionesModule = angular.module('calificacionesModule', ['CrudModule', 'MockModule']);
+            //Configuración módulo noticia
+	var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
-	calificacionesModule.constant('calificaciones.context', 'calificaciones');
+	noticiaModule.constant('noticia.context', 'noticia');
 
-	calificacionesModule.config(['calificaciones.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
 })();
