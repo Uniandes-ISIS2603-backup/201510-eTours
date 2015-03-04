@@ -47,3 +47,13 @@ body {
     padding: 0;
     margin: 0;
 }
+#first-band {
+    background-color: rgb(246,246,246);
+}
+#item-first-band .btn {
+    background-color: rgb(87,207,191);
+    border: none;
+}
+#item-first-band .btn:hover {
+    color: rgb(13,29,28);
+}
