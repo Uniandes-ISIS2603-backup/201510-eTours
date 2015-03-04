@@ -5,8 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link href="src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="src/assets/css/style-override.css" rel="stylesheet" type="text/css">
+    <link href="src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/css-navbar-override.css">
+    <link rel="stylesheet" href="src/assets/css/css-footer-override.css">
+    <link rel="stylesheet" href="src/assets/css/css-general-override.css">
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -39,8 +41,8 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </form>
-            <li><a href="#">Ingresa</a></li>    
-            <li><a href="#">Únete</a></li>
+            <li><a href="#">Ingresa</a></li>
+            <li><a href="#" id="btn-signup">Únete</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -60,5 +62,10 @@
         <div id="flecha-abajo-rabbit"><span class="glyphicon glyphicon-menu-down"></span></div>
     </div>
     <div class="jumbotron"></div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">eTours es un startup Uniandino.</p>
+        </div>
+    </footer>
 </body>
 </html>
