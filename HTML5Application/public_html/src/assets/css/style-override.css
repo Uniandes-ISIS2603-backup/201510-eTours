@@ -1,3 +1,14 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+#jumbotron-fullscreen {
+    background-color: inherit;
+    font-size: 50px;
+    color: rgb(246,246,246);
+    font-weight: 100;
+    width: 100%;
+}
 body {
     padding-top: 90px;
 }
@@ -14,4 +25,39 @@ body {
 }
 #activo {
     color: rgb(13,29,28);
+}
+#contenedor-full-fondo {
+    background-image: url(../img/rabbit.png);
+    width:100%;
+    height:100%;
+    max-width:100%;
+    background-position:center;
+    background-size:cover;
+}
+#btn-all-rabbit {
+    position: absolute;
+    padding: 0 150px;
+    margin: 0;
+    bottom: 100px;
+    left: 0;
+}
+#btn-all-rabbit a {
+    font-size: 30px;
+    font-weight: 200;
+    border: none;
+    background-color: rgba(246,246,246,0.5);
+    height: 80px;
+}
+#btn-all-rabbit a:hover {
+    background-color: rgba(87,207,191,0.5);
+}
+#flecha-abajo-rabbit {
+    font-size: 30px;
+    color: WHITE;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
