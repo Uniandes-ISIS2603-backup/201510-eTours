@@ -1,0 +1,17 @@
+body {
+    padding-top: 90px;
+}
+#navigationBar, 
+#navigationBar a,
+#navigationBar form,
+#navigationBar img{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 0;
+    height: 90px;
+    line-height: 90px;
+    font-size: 18px;
+}
+#activo {
+    color: rgb(13,29,28);
+}
