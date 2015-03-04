@@ -3,12 +3,13 @@
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'calificacionesModule']);
                            
                         
-	mainApp.config(['$routeProvider', function ($routeProvider) {   
+	mainApp.config(['$routeProvider', function ($routeProvider) { 
+                        //EJEMPLO CALIFICACION
                         $routeProvider.when('/calificaciones', {
 				templateUrl: 'src/modules/calificaciones/calificaciones.tpl.html'
 			}).otherwise('/');
                         $routeProvider.when('/noticia', {
-				templateUrl: 'src/modules/Noticia/noticia.tpl.html'
+				templateUrl: 'src/modules/noticia/noticia.tpl.html'
 			}).otherwise('/');
                         
                         $routeProvider.when('/hotel', {
@@ -17,7 +18,7 @@
 		}]);            
             
       
-        //Configuración módulo calificaciones
+        //EJEMPLO Configuración módulo calificaciones
 	var calificacionesModule = angular.module('calificacionesModule', ['CrudModule', 'MockModule']);
 
 	calificacionesModule.constant('calificaciones.context', 'calificaciones');
