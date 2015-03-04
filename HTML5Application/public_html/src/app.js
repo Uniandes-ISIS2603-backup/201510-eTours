@@ -8,8 +8,8 @@
 				templateUrl: 'src/modules/sport/sport.tpl.html'
 			}).otherwise('/');
                         
-                        $routeProvider.when('/calificaciones', {
-				templateUrl: 'src/modules/calificaciones/calificaciones.tpl.html'
+                        $routeProvider.when('/hotel', {
+				templateUrl: 'src/modules/hotel/hotel.tpl.html'
 			}).otherwise('/');
 		}]);            
             
@@ -31,6 +31,15 @@
 	calificacionesModule.constant('calificaciones.context', 'calificaciones');
 
 	calificacionesModule.config(['calificaciones.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
+        //Configuración módulo hotel
+	var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
+
+	sportModule.constant('hotel.context', 'hoteles');
+
+	sportModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
 })();
