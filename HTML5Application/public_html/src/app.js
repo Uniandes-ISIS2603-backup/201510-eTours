@@ -1,8 +1,8 @@
 (function () {
 
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'calificacionesModule']);
-        
-
+                           
+                        
 	mainApp.config(['$routeProvider', function ($routeProvider) {   
                         $routeProvider.when('/calificaciones', {
 				templateUrl: 'src/modules/calificaciones/calificaciones.tpl.html'
@@ -10,6 +10,10 @@
                         $routeProvider.when('/noticia', {
 				templateUrl: 'src/modules/Noticia/noticia.tpl.html'
 			}).otherwise('/');
+                        
+                        $routeProvider.when('/hotel', {
+				templateUrl: 'src/modules/hotel/hotel.tpl.html'
+                        }).otherwise('/');
 		}]);            
             
       
@@ -28,6 +32,15 @@
 	noticiaModule.constant('noticia.context', 'noticia');
 
 	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
+        //Configuración módulo hotel
+	var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
+
+	hotelModule.constant('hotel.context', 'hoteles');
+
+	hotelModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
 })();
