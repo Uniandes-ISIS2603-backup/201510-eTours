@@ -1,19 +1,23 @@
 (function () {
 
-	var mainApp = angular.module('mainApp', ['ngRoute', 'noticiaModule', 'calificacionesModule']);
+	var mainApp = angular.module('mainApp', ['ngRoute', 'noticiaModule', 'calificacionesModule', 'eventoModule']);
                            
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
                         //EJEMPLO CALIFICACION
                         $routeProvider.when('/calificaciones', {
 				templateUrl: 'src/modules/calificaciones/calificaciones.tpl.html'
-			}).otherwise('/');
+			});
                         $routeProvider.when('/noticia', {
 				templateUrl: 'src/modules/noticia/noticia.tpl.html'
-			}).otherwise('/');
+			});
                         
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
+                        });
+        
+        $routeProvider.when('/evento', {
+				templateUrl: 'src/modules/evento/evento.tpl.html'
                         }).otherwise('/');
 		}]);            
             
