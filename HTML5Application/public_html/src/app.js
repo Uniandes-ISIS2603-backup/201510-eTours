@@ -8,14 +8,23 @@
 				templateUrl: 'src/modules/noticia/noticia.tpl.html'
 			             });
 =======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+				templateUrl: 'src/modules/noticia/noticia.tpl.html'
+			             });
+=======
 				templateUrl: '../src/modules/evento/evento.tpl.html'
 			}).otherwise('/');
+=======
+				templateUrl: '../src/modules/noticia/noticia.tpl.html'
+			});
+>>>>>>> Stashed changes
+>>>>>>> FETCH_HEAD
                         
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
                         });
         
->>>>>>> FETCH_HEAD
                            $routeProvider.when('/paquete', {
 				templateUrl: '..src/modules/paquete/paquete.tpl.html'
                         });
@@ -24,10 +33,8 @@
                         }).otherwise('/');
                         
 		}]);            
-<<<<<<< HEAD
             //Configuración módulo noticia
 	var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
-=======
             
       
         //EJEMPLO Configuración módulo calificaciones
@@ -38,14 +45,12 @@
 	calificacionesModule.config(['calificaciones.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
-            
->>>>>>> FETCH_HEAD
-
+        
           var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
-	calificacionesModule.constant('noticia.context', 'noticia');
+	noticiaModule.constant('noticia.context', 'noticia');
 
-	calificacionesModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);  
   //Configuración módulo paquete

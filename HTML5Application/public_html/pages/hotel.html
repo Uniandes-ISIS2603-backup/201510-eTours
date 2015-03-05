@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link href="..//src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../src/assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/assets/css/css-navbar-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-footer-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-general-override.css">
@@ -20,7 +20,8 @@
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-    <script src="../src/modules/noticia/noticia.ctrl.js"></script>
+    <script src="../src/modules/evento/evento.mod.js"></script>
+    <script src="../src/modules/evento/evento.ctrl.js"></script>
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -44,12 +45,12 @@
             <li><a href="#">Compra</a></li>
             <li><a href="#">Participa</a></li>        
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
-                Comunidad  <span class="sr-only">(current)</span><span class="caret"></span>     
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Comunidad <span class="caret"></span>     
             </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="./eventos.html" id="dropped-button-nav">Eventos</a></li>
-            <li><a href="#" id="dropped-button-nav">Noticias</a></li>
+            <li><a href="#" id="dropped-button-nav">Eventos</a></li>
+            <li><a href="./noticias.html" id="dropped-button-nav">Noticias</a></li>
           </ul>
         </li>
           </ul>
@@ -62,20 +63,19 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </form>
-            <li><a href="./login.html">Ingresa</a></li>
+            <li><a href="#">Ingresa</a></li>
             <li><a href="#" id="btn-signup">Únete</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class="jumbotron">
+        <div class="jumbotron">
         <div class="container">
-            <h1>¡Noticias de interes!</h1>
-            </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default"><a href="#/noticia">Cargar noticia</a></button>
-              <div ng-view></div>
+            <a class="button btn-default" href="#/hotel">Módulo de hoteles</a>
+             <div ng-view></div>
+
+        </div>
+            
     </div>
 </body>
 </html>
