@@ -29,7 +29,7 @@
     <script type="text/javascript">$(document).ready(function(){
     document.getElementById("showEvents").click();
 });</script>
-    
+    <link rel="stylesheet" href="../src/modules/evento/evento.css">
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -77,13 +77,11 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        <div class="jumbotron">
+        <div class="jumbotron" id="jumbotron-de-eventos">
         <div class="container">
             <a id="showEvents" class="button btn-default" href="#/evento"></a>
-             <div ng-view>
-            
+            <div ng-view>            
             </div>
-
         </div>
             
     </div>

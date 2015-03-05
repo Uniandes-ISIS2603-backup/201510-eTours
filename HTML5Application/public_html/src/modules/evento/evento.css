@@ -1,0 +1,24 @@
+
+#nav-eventos {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+#header banda-navegacion {
+    width: 100%;
+}
+
+#jumbotron-de-eventos {
+    background-color: transparent;
+}
+
+body {
+    background-image: url(https://unsplash.imgix.net/photo-1415769663272-8504c6cc02b3?q=75&fm=jpg&s=99c648079a4cbf654e4e575705fd3164);
+    background-size: cover;
+}
+
+#panel-body-timeline {
+    background-color: rgba(246,246,246,0.3);
+    margin-left: 15px;
+    margin-right: 15px;
+}
