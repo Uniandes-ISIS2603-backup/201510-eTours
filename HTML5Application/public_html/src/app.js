@@ -9,8 +9,8 @@
 				templateUrl: 'src/modules/calificaciones/calificaciones.tpl.html'
 			});
                         $routeProvider.when('/noticia', {
-				templateUrl: 'src/modules/noticia/noticia.tpl.html'
-			});
+				templateUrl: '../src/modules/evento/evento.tpl.html'
+			}).otherwise('/');;
                         
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
@@ -31,14 +31,7 @@
 			urlsProvider.registerUrl(context);
 		}]);
             
-            //Configuración módulo noticia
-	var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
-	noticiaModule.constant('noticia.context', 'noticia');
-
-	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
-			urlsProvider.registerUrl(context);
-		}]);
             
   //Configuración módulo calificaciones
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
