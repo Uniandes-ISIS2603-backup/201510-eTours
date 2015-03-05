@@ -4,7 +4,7 @@
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
                         $routeProvider.when('/noticia', {
-				templateUrl: 'src/modules/noticia/noticia.tpl.html'
+				templateUrl: '../src/modules/noticia/noticia.tpl.html'
 			             });
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
