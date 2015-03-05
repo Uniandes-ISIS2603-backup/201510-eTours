@@ -6,7 +6,7 @@
 
 
                         $routeProvider.when('/hotel', {
-				templateUrl: 'src/modules/hotel/hotel.tpl.html'
+				templateUrl: '../src/modules/hotel/hotel.tpl.html'
                         }).otherwise('/');
         
                            $routeProvider.when('/paquete', {
