@@ -40,6 +40,15 @@
 			urlsProvider.registerUrl(context);
 		}]);
             
+  //Configuración módulo calificaciones
+	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
+
+	paqueteModule.constant('paquete.context', 'paquete');
+
+	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
         //Configuración módulo hotel
 	var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
 
