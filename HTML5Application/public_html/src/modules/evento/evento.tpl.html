@@ -1,6 +1,6 @@
 <div ng-controller="eventoCtrl as eventoCtrl">
 	<div id="header">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" role="navigation" id="nav-eventos">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -26,9 +26,7 @@
 	<div ng-hide="eventoCtrl.editMode">
         <div id="wrapper">
 
-        <!-- Navigation -->
-        
-
+        <!-- Navigation -->        
             <!-- /.row -->
             
             <!-- /.row -->
@@ -36,7 +34,7 @@
                 <div class="col">
                     <!-- /.panel -->
                     <!-- /.panel -->
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" id="panel-body-timeline">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Calendario de eventos proximos
                         </div>
@@ -45,9 +43,9 @@
                             <ul class="timeline">
 <!--                                NG-repeat y cada evento es un li-->
                                 <li ng-repeat="record in records">
-                                    <div class="timeline-badge danger"><i><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></i>
+                                    <div class="timeline-badge primary"><i><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></i>
                                     </div>
-                                    <div class="timeline-panel">
+                                    <div class="timeline-panel" style="background-color:rgba(246,246,246, 0.7);">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">{{record.fecha}}</h4>
                                             <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{record.hora}}</small>
