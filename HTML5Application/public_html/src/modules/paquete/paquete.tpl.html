@@ -7,7 +7,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</button>
+					
 					<a class="navbar-brand" href="#">Paquete</a>
 				</div>
 
@@ -21,7 +21,6 @@
 			<thead>
 				<tr>
 					<th>
-						<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
 				<label for="name">Incluido: </label>
 					<font color="red">Hotel, Transportes </font>
@@ -31,6 +30,12 @@
 						<div class="form-group">
 				<label for="minAge"> Costo: </label>
 					<font color="red">$1'000.000 </font>
+			</div>
+			</th>
+                        			<th>
+			<div class="form-group">
+				<label for="name">Descuento: </label>
+					<font color="red">2 </font>
 			</div>
 			</th>
 					<th>
@@ -49,11 +54,10 @@
 			<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Comprar</button>
 		            </th>               
 				</tr>
-			</thead>
-	<thead>
+			
+	            
 				<tr>
 					<th>
-						<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
 		    <label for="name">Incluido: </label>
 				<font color="red">Estadia, Pasajes </font>
@@ -63,6 +67,12 @@
 						<div class="form-group">
 				<label for="minAge"> Costo: </label>
 				 <font color="red">$250.000 </font>
+			</div>
+			</th>
+                        			<th>
+			<div class="form-group">
+				<label for="name">Descueto </label>
+					<font color="red"> 2% </font>
 			</div>
 			</th>
 					<th>
@@ -84,12 +94,5 @@
 			</thead>
 		</table>
 	</div>
-	<div ng-hide="paqueteCtrl.editMode">
-		<form name="countryForm" role="form">
-		
-		
-		
-               
-		</form>
-	</div>
+</div>
 </div>
