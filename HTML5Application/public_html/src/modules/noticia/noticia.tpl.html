@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">noticia</a>
+					<a class="navbar-brand" href="#"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,11 +19,21 @@
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                        <button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.maxRecord()"><span class="glyphicon glyphicon-refresh"></span> Max</button>
-                                        
 				</div>
 			</div>
 		</nav>
+	</div>
+        <div ng-show="noticiaCtrl.editMode" id="evento-edit-mode">
+		<form name="eventoForm" role="form">
+                <div class="input-group" align="left">
+                <span class="label label-default" >Titulo:</span>
+                <p></p>
+                 <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" id="titulo">
+                 <p></p>
+                 <span class="label label-default" >Entrada:</span>
+                <p></p>
+                 <body g_editable="true" hidefocus="true" contenteditable="true" class="editable " id="postingComposeBox" style="min-width: 0px; width: 653px;" role="textbox"><p><br></p></body>
+                </div>
+		</form>
 	</div>
 </div>
