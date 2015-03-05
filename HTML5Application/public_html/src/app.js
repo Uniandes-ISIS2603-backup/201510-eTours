@@ -4,8 +4,18 @@
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
                         $routeProvider.when('/noticia', {
+<<<<<<< HEAD
 				templateUrl: 'src/modules/noticia/noticia.tpl.html'
 			             });
+=======
+				templateUrl: '../src/modules/evento/evento.tpl.html'
+			}).otherwise('/');
+                        
+                        $routeProvider.when('/hotel', {
+				templateUrl: 'src/modules/hotel/hotel.tpl.html'
+                        });
+        
+>>>>>>> FETCH_HEAD
                            $routeProvider.when('/paquete', {
 				templateUrl: '..src/modules/paquete/paquete.tpl.html'
                         });
@@ -14,15 +24,30 @@
                         }).otherwise('/');
                         
 		}]);            
+<<<<<<< HEAD
             //Configuración módulo noticia
 	var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
+=======
+            
+      
+        //EJEMPLO Configuración módulo calificaciones
+	var calificacionesModule = angular.module('calificacionesModule', ['CrudModule', 'MockModule']);
 
-	noticiaModule.constant('noticia.context', 'noticia');
+	calificacionesModule.constant('calificaciones.context', 'calificaciones');
 
-	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	calificacionesModule.config(['calificaciones.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
             
+>>>>>>> FETCH_HEAD
+
+          var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
+
+	calificacionesModule.constant('noticia.context', 'noticia');
+
+	calificacionesModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);  
   //Configuración módulo paquete
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 
