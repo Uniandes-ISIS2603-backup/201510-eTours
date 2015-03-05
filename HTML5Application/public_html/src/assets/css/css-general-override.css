@@ -31,8 +31,8 @@ body {
 #btn-all-rabbit a {
     font-size: 30px;
     font-weight: 200;
-    border: none;
     background-color: rgba(246,246,246,0);
+    border-bottom-width: thin;
     color: WHITE;
     font-weight: 100;
     height: 80px;
