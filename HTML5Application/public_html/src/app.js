@@ -4,12 +4,17 @@
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
                         $routeProvider.when('/noticia', {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 				templateUrl: 'src/modules/noticia/noticia.tpl.html'
 			             });
 =======
 				templateUrl: '../src/modules/evento/evento.tpl.html'
 			}).otherwise('/');
+=======
+				templateUrl: '../src/modules/noticia/noticia.tpl.html'
+			});
+>>>>>>> Stashed changes
                         
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
@@ -43,9 +48,9 @@
 
           var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
-	calificacionesModule.constant('noticia.context', 'noticia');
+	noticiaModule.constant('noticia.context', 'noticia');
 
-	calificacionesModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);  
   //Configuración módulo paquete
