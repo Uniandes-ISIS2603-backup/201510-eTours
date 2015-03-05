@@ -40,9 +40,9 @@
 
           var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
-	calificacionesModule.constant('noticia.context', 'noticia');
+	noticiaModule.constant('noticia.context', 'noticia');
 
-	calificacionesModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);  
   //Configuración módulo paquete
