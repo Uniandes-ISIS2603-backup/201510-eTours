@@ -16,9 +16,15 @@
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
                         });
         
+                           $routeProvider.when('/paquete', {
+				templateUrl: '..src/modules/paquete/paquete.tpl.html'
+                        });
+        
+        
                         $routeProvider.when('/evento', {
 				templateUrl: '../src/modules/evento/evento.tpl.html'
                         }).otherwise('/');
+                        
 		}]);            
             
       
@@ -33,7 +39,7 @@
             
 
             
-  //Configuración módulo calificaciones
+  //Configuración módulo paquete
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 
 	paqueteModule.constant('paquete.context', 'paquete');
