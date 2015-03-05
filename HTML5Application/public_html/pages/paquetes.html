@@ -20,8 +20,8 @@
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-    <script src="../src/modules/evento/evento.mod.js"></script>
-    <script src="../src/modules/evento/evento.ctrl.js"></script>
+    
+    <script src="../src/modules/evento/paquete.ctrl.js"></script>
     
     <!-- Timeline CSS -->
     <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
@@ -29,7 +29,6 @@
     <script type="text/javascript">$(document).ready(function(){
     document.getElementById("showEvents").click();
 });</script>
-    <link rel="stylesheet" href="../src/modules/evento/evento.css">
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -77,12 +76,18 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        <div class="jumbotron" id="jumbotron-de-eventos">
-        <div class="container">
-            <a id="showEvents" class="button btn-default" href="#/paquete"></a>
-            <div ng-view>            
-            </div>
-        </div>
+   
+            
+                
+     
+   
+            <ul class="nav nav-pills nav-stacked">
+					<li><a href="#/paquete">Paquete</a></li>
+                                    
+
+				</ul>
+            
+               <div ng-view>     
             
     </div>
 </body>
