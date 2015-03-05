@@ -10,52 +10,95 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Evento</a>
+					<a class="navbar-brand" href="#">Eventos eTours</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="evento-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
-					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-                                        <button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.mostPopulated()"><span class="glyphicon glyphicon-star"></span> Most Populated</button>
-					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
+					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Calendario</button>
+					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 				</div>
 			</div>
 		</nav>
 	</div>
-    <div ng-show="eventoCtrl.showMost"><label class="label-default">El pais con la mayor poblacion es: {{mostPopulated}}</label></div>
 	<div ng-hide="eventoCtrl.editMode">
-		<table class="table table-striped table-bordered">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Poblacion</th>
-                                        <th>Opciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="record in records">
-					<td>{{record.name}}</td>
-					<td>{{record.poblacion}}</td>
-					<td>
-						<button class="btn btn-default btn-sm" ng-click="eventoCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-						<button class="btn btn-default btn-sm" ng-click="eventoCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+        <div id="wrapper">
+
+        <!-- Navigation -->
+        
+
+            <!-- /.row -->
+            
+            <!-- /.row -->
+            <div class="row">
+                <div class="col">
+                    <!-- /.panel -->
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Calendario de eventos proximos
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <ul class="timeline">
+<!--                                NG-repeat y cada evento es un li-->
+                                <li ng-repeat="record in records">
+                                    <div class="timeline-badge danger"><i><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">{{record.fecha}}</h4>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{record.hora}}</small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>{{record.contenido}}</p>
+                                        </div>
+                                         <hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-gear"></i>  <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a ng-click="eventoCtrl.editRecord(record)">Editar evento</a>
+                                                    </li>
+                                                    <li><a ng-click="eventoCtrl.deleteRecord(record)">Eliminar evnto</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+                
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        <!-- /#page-wrapper -->
+
+    </div>
 	</div>
 	<div ng-show="eventoCtrl.editMode">
 		<form name="eventoForm" role="form">
-			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
-				<label for="name">Nombre</label>
-				<input id="name" class="form-control" type="text" ng-model="currentRecord.name"/>
+				<label for="name">Fecha</label>
+				<input id="name" class="form-control datepicker" type="date" ng-model="currentRecord.fecha"/>
 			</div>
 			<div class="form-group">
-				<label for="minAge">Poblacion</label>
-				<input id="minAge" class="form-control" type="number" ng-model="currentRecord.poblacion"/>
+				<label for="hora">Hora</label>
+				<input id="hora" class="form-control" type="number" ng-model="currentRecord.hora"/>
+			</div>
+            <div class="form-group">
+				<label for="contenido">Descripcion actividad: </label>
+				<input id="contenido" class="form-control" type="text" ng-model="currentRecord.contenido"/>
 			</div>
 		</form>
 	</div>
