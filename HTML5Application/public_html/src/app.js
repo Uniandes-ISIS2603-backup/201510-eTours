@@ -1,5 +1,5 @@
 (function () {
-	var mainApp = angular.module('mainApp', ['ngRoute', 'noticiaModule', 'calificacionesModule', 'eventoModule']);
+	var mainApp = angular.module('mainApp', ['ngRoute', 'noticiaModule', 'calificacionesModule', 'eventoModule','paqueteModule']);
                            
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
@@ -11,7 +11,7 @@
                         }).otherwise('/');
         
                            $routeProvider.when('/paquete', {
-				templateUrl: '..src/modules/paquete/paquete.tpl.html'
+				templateUrl: '../src/modules/paquete/paquete.tpl.html'
                         }).otherwise('/');
                         
                         
@@ -43,11 +43,12 @@
   //Configuración módulo paquete
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 
-	paqueteModule.constant('paquete.context', 'paquete');
+	paqueteModule.constant('paquete.context', 'paquetes');
 
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
+            
          
         
 })();
