@@ -20,9 +20,17 @@
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-    <script src="../src/modules/evento/evento.mod.js"></script>
-    <script src="../src/modules/evento/evento.ctrl.js"></script>
-</head>   
+    <script src="../src/modules/hotel/hotel.mod.js"></script>
+    <script src="../src/modules/hotel/hotel.ctrl.js"></script>
+    
+    <!-- Timeline CSS -->
+    <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
+    
+    <script type="text/javascript">$(document).ready(function(){
+    document.getElementById("listarHoteles").click();
+    });</script>
+    
+</head>    
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
       <div class="container-fluid">
@@ -71,7 +79,7 @@
     </nav>
         <div class="jumbotron">
         <div class="container">
-            <a class="button btn-default" href="#/hotel">Módulo de hoteles</a>
+            <a class="button btn-default" id="listarHoteles" href="#/hotel">Cargar Módulo</a>
              <div ng-view></div>
 
         </div>

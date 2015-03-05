@@ -8,11 +8,13 @@
 			             });
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
-                        });
+                        }).otherwise('/');
         
                            $routeProvider.when('/paquete', {
 				templateUrl: '..src/modules/paquete/paquete.tpl.html'
-                        });
+                        }).otherwise('/');
+                        
+                        
                         $routeProvider.when('/evento', {
 				templateUrl: '../src/modules/evento/evento.tpl.html'
                         }).otherwise('/');
@@ -46,4 +48,6 @@
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
+         
+        
 })();
