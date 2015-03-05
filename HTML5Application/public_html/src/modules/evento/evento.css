@@ -22,3 +22,8 @@ body {
     margin-left: 15px;
     margin-right: 15px;
 }
+
+#evento-edit-mode {
+    background-color: rgba(246,246,246,0.5);
+    padding: 10px;
+}
