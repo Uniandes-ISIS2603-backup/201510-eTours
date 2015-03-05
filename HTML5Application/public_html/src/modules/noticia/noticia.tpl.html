@@ -4,30 +4,26 @@
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#noticia-navbar">
-						<span class="sr-only">Toggle navigation</span>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span ng-hide="noticiaCtrl.editMode">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Noticia</a>
+					<a class="navbar-brand" href="#">noticia</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="evento-navbar">
+				<div class="collapse navbar-collapse" id="country-navbar">
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.mostPopulated()"><span class="glyphicon glyphicon-star"></span> Most Populated</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                        <button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.maxRecord()"><span class="glyphicon glyphicon-refresh"></span> Max</button>
+                                        
 				</div>
 			</div>
 		</nav>
-        </div>
-	<div ng-hide="noticiaCtrl.editMode">
-		
-	</div>
-	<div ng-show="noticiaCtrl.editMode">
-		
 	</div>
 </div>

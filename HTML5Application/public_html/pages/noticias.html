@@ -21,6 +21,10 @@
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
     <script src="../src/modules/noticia/noticia.ctrl.js"></script>
+    
+    <script type="text/javascript">$(document).ready(function(){
+    document.getElementById("cargarNoticias").click();
+});</script>
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -70,13 +74,13 @@
     </nav>
     <div class="jumbotron">
         <div class="container">
-            <h1>¡Noticias de interes!</h1>
+            <h1>¡Tus noticias!</h1>
             </div>
-    </div>
-    <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default"><a href="#/noticia">Cargar noticia</a></button>
-            
+         
     </div> 
-    <div ng-view></div>
+    <div class="noticias">
+        <a id="cargarNoticias" class="button btn-default" href="#/noticia"></a>
+        <div ng-view>  </div>
+    </div>
 </body>
 </html>
