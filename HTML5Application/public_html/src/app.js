@@ -4,27 +4,8 @@
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
                         $routeProvider.when('/noticia', {
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 				templateUrl: 'src/modules/noticia/noticia.tpl.html'
 			             });
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-				templateUrl: 'src/modules/noticia/noticia.tpl.html'
-			             });
-=======
-				templateUrl: '../src/modules/evento/evento.tpl.html'
-			}).otherwise('/');
-=======
-				templateUrl: '../src/modules/noticia/noticia.tpl.html'
-			});
->>>>>>> Stashed changes
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
-                        
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
                         });
