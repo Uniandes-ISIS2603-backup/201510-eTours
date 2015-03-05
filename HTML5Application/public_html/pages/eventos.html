@@ -22,6 +22,14 @@
 	<script src="../src/shared/mocks/mock.svc.js"></script>
     <script src="../src/modules/evento/evento.mod.js"></script>
     <script src="../src/modules/evento/evento.ctrl.js"></script>
+    
+    <!-- Timeline CSS -->
+    <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
+    
+    <script type="text/javascript">$(document).ready(function(){
+    document.getElementById("showEvents").click();
+});</script>
+    
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
@@ -63,7 +71,7 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </form>
-            <li><a href="#">Ingresa</a></li>
+            <li><a href="./login.html">Ingresa</a></li>
             <li><a href="#" id="btn-signup">Únete</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -71,8 +79,10 @@
     </nav>
         <div class="jumbotron">
         <div class="container">
-            <a class="button btn-default" href="#/evento">Cargar eventos</a>
-             <div ng-view></div>
+            <a id="showEvents" class="button btn-default" href="#/evento"></a>
+             <div ng-view>
+            
+            </div>
 
         </div>
             
