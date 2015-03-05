@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Eventos eTours</a>
+					<a class="navbar-brand">Eventos eTours</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,9 +35,11 @@
                     <!-- /.panel -->
                     <!-- /.panel -->
                     <div class="panel panel-default" id="panel-body-timeline">
+
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Calendario de eventos proximos
                         </div>
+
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
@@ -84,7 +86,7 @@
 
     </div>
 	</div>
-	<div ng-show="eventoCtrl.editMode">
+	<div ng-show="eventoCtrl.editMode" id="evento-edit-mode">
 		<form name="eventoForm" role="form">
 			<div class="form-group">
 				<label for="name">Fecha</label>

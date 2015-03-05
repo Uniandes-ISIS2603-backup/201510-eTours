@@ -3,20 +3,26 @@
                            
                         
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
-                                     
+
+
                         $routeProvider.when('/hotel', {
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
                         }).otherwise('/');
         
                            $routeProvider.when('/paquete', {
 				templateUrl: '..src/modules/paquete/paquete.tpl.html'
+
                         }).otherwise('/');      
-                        
+             
                         $routeProvider.when('/evento', {
 				templateUrl: '../src/modules/evento/evento.tpl.html'
                         }).otherwise('/');
                         
 		}]);            
+
+            //Configuración módulo noticia
+	var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
+
             
       mainApp.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider.when('/noticia', {
@@ -33,7 +39,9 @@
 			urlsProvider.registerUrl(context);
 		}]);
         
-         //Configuración módulo noticia
+
+
+
           var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 
 	noticiaModule.constant('noticia.context', 'noticia');
@@ -58,4 +66,6 @@
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
+
+
 })();
