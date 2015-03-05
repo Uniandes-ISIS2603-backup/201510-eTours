@@ -16,8 +16,8 @@
 				templateUrl: 'src/modules/hotel/hotel.tpl.html'
                         });
         
-        $routeProvider.when('/evento', {
-				templateUrl: 'src/modules/evento/evento.tpl.html'
+                        $routeProvider.when('/evento', {
+				templateUrl: '../src/modules/evento/evento.tpl.html'
                         }).otherwise('/');
 		}]);            
             
