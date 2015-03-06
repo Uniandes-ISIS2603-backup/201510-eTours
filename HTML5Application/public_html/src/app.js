@@ -1,7 +1,13 @@
 (function () {
 	var mainApp = angular.module('mainApp', ['ngRoute', 'noticiaModule', 'calificacionesModule', 'eventoModule','paqueteModule']);         
 
+<<<<<<< HEAD
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
+=======
+                        $routeProvider.when('/hotel', {
+				templateUrl: '../src/modules/hotel/hotel.tpl.html'
+                        }).otherwise('/');
+>>>>>>> FETCH_HEAD
         
         $routeProvider.when('/hotel', {templateUrl: 'src/modules/hotel/hotel.tpl.html'}).otherwise('/');
         
