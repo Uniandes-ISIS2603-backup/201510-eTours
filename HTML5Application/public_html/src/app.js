@@ -1,13 +1,13 @@
 (function () {
 
-	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
+	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule', 'servicioModule', 'noticiaModule', 'paqueteModule']);
         
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
         $routeProvider
-        .when('/hotel', {
-            templateUrl: '../src/modules/hotel/hotel.tpl.html'
+        .when('/servicio', {
+            templateUrl: '../src/modules/servicio/servicio.tpl.html'
         }).
         when('/paquete', {
             templateUrl: '../src/modules/paquete/paquete.tpl.html'
@@ -29,10 +29,10 @@
         urlsProvider.registerUrl(context);
     }]);
 
-    //Configuración del módulo hotel
-    var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
-    hotelModule.constant('hotel.context', 'hoteles');
-    hotelModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+    //Configuración del módulo servicio
+    var servicioModule = angular.module('servicioModule', ['CrudModule', 'MockModule']);
+    servicioModule.constant('servicio.context', 'servicios');
+    servicioModule.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
     
