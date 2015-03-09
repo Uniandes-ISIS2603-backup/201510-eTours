@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link href="..//src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../src/assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/assets/css/css-navbar-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-footer-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-general-override.css">
@@ -14,65 +14,24 @@
 	<script src="../src/assets/libs/angular.min.js"></script>
 	<script src="../src/assets/libs/angular-mocks.js"></script>
 	<script src="../src/assets/libs/angular-route.min.js"></script>
-	<script src="../src/assets/libs/restangular.min.js"></script>  
-    <script src="../src/assets/libs/angular-ngStorage.min.js"></script>  
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script>   
+	<script src="../src/assets/libs/restangular.min.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script> 
+    <script src="../src/assets/libs/angular-local-storage.js"></script>  
     <script src="../src/app.js"></script>
     <script src="../src/shared/crud/crud.mod.js"></script>
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-    <script src="../src/modules/login/login.ctrl.js"></script>
-    <script src="../src/modules/noticia/noticia.ctrl.js"></script>
+    <script src="../src/modules/hotel/hotel.ctrl.js"></script>
+    
+    <!-- Timeline CSS -->
+    <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
+    
     <script type="text/javascript">$(document).ready(function(){
-    document.getElementById("showEvents").click();
+    document.getElementById("listarHoteles").click();
     });</script>
-    <style>
-        body {
-        background-color: #444;
-        background: url(../src/assets/img/beach.jpeg) no-repeat center center fixed;
-        background-size: cover;
-        
-    }
-    .form-signin input[type="text"] {
-        margin-bottom: 5px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    .form-signin .form-control {
-        position: relative;
-        font-size: 16px;
-        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-        height: auto;
-        padding: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    .vertical-offset-100 {
-        padding-top: 100px;
-    }
-    .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    }
-    .panel {
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    }
-    </style>
-</head>   
+    
+</head>    
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
       <div class="container-fluid">
@@ -85,7 +44,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-              <img alt="eTours" src="..//src/assets/img/backpack.png">
+              <img alt="eTours" src="../src/assets/img/backpack.png">
           </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,11 +54,11 @@
             <li><a href="#">Compra</a></li>
             <li><a href="#">Participa</a></li>        
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
-                Comunidad  <span class="sr-only">(current)</span><span class="caret"></span>     
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Comunidad <span class="caret"></span>     
             </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="./eventos.html" id="dropped-button-nav">Eventos</a></li>
+            <li><a href="#" id="dropped-button-nav">Eventos</a></li>
             <li><a href="./noticias.html" id="dropped-button-nav">Noticias</a></li>
           </ul>
         </li>
@@ -119,12 +78,13 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <body>
+        <div class="jumbotron">
+        <div class="container">
+            <a class="button btn-default" id="listarHoteles" href="#/hotel"></a>
+             <div ng-view></div>
+
+        </div>
             
-        </body>
+    </div>
 </body>
-<div class="container">
-    <a id="showEvents" class="button btn-default" href="#/login"></a>
-    <div ng-view></div>
-</div>
 </html>
