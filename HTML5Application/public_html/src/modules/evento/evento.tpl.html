@@ -85,11 +85,14 @@
 		<form name="eventoForm" role="form">
 			<div class="form-group">
 				<label for="name">Fecha</label>
-				<input id="name" class="form-control datepicker" type="date" ng-model="currentRecord.fecha"/>
+				<input id="name" class="form-control datepicker" type="date" 
+				ng-model="currentRecord.fecha" 
+				required
+				ng-minlenght="4"/>
 			</div>
 			<div class="form-group">
 				<label for="hora">Hora</label>
-				<input id="hora" class="form-control" type="number" ng-model="currentRecord.hora"/>
+				<input id="hora" class="form-control" type="number" ng-model="currentRecord.hora" required/>
 			</div>
             <div class="form-group">
 				<label for="contenido">Descripcion actividad: </label>
