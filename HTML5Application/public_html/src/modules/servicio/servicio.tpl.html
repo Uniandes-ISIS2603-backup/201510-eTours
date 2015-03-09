@@ -27,7 +27,8 @@
         <div ng-hide="servicioCtrl.editMode">
 
         <div class="col-sm-6 col-md-4" id="item-first-band" ng-repeat="record in records">
-            <div ng-if="(record.id-1)/3==0"></br></div>
+            <div ng-if="(record.id-1)/3==0"></br></div>  
+            
           <div class="thumbnail">
            <h2 align="center">{{record.tipoServicio}}:{{record.nombre}}</h2>
            
