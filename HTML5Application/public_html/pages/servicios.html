@@ -5,34 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link href="../src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="..//src/assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/assets/css/css-navbar-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-footer-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-general-override.css">
     
-        <script src="../src/assets/libs/underscore-min.js"></script>
+    <script src="../src/assets/libs/underscore-min.js"></script>
 	<script src="../src/assets/libs/angular.min.js"></script>
 	<script src="../src/assets/libs/angular-mocks.js"></script>
 	<script src="../src/assets/libs/angular-route.min.js"></script>
-	<script src="../src/assets/libs/restangular.min.js"></script>
-        <script src="../src/assets/libs/angular-local-storage.js"></script>  
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script> 
-    
-        <script src="../src/app.js"></script>
+	<script src="../src/assets/libs/restangular.min.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script> 
+    <script src="../src/assets/libs/angular-ngStorage.min.js"></script>  
+    <script src="../src/app.js"></script>
     <script src="../src/shared/crud/crud.mod.js"></script>
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-        <script src="../src/modules/servicio/servicio.ctrl.js"></script>
-    
-    <!-- Timeline CSS -->
-    <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
+    <script src="../src/modules/servicio/servicio.ctrl.js"></script>
     
     <script type="text/javascript">$(document).ready(function(){
-    document.getElementById("listarServicios").click();
-    });</script>
-    
-</head>    
+    document.getElementById("cargarServicios").click();
+});</script>
+</head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
       <div class="container-fluid">
@@ -55,37 +50,44 @@
             <li><a href="#">Compra</a></li>
             <li><a href="#">Participa</a></li>        
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                Comunidad <span class="caret"></span>     
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
+                Comunidad  <span class="sr-only">(current)</span><span class="caret"></span>     
             </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#" id="dropped-button-nav">Eventos</a></li>
+            <li><a href="./eventos.html" id="dropped-button-nav">Eventos</a></li>
             <li><a href="./noticias.html" id="dropped-button-nav">Noticias</a></li>
+            <li><a href="#" id="dropped-button-nav">Servicios</a></li>
           </ul>
         </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          </ul>
+          <ul class="nav navbar-nav navbar-right" ng-controller="authStatus">
             <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Buscar">
                 </div>
-            <button type="submit" class="btn btn-default">
+            <button type="submit" class="btn btn-default" >
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </form>
-            <li><a href="#">Ingresa</a></li>
-            <li><a href="#" id="btn-signup">Únete</a></li>
+            <li><a href="./login.html" ng-hide="loggedIn">Ingresa</a></li>
+            <li><a href="#" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a ng-show="loggedIn">{{username}}</a></li>
+            <li><a href="#/logout" id="btn-signup" ng-show="loggedIn">LogOut</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        <div class="jumbotron">
-        <div class="container">
-            <a class="button btn-default" id="listarServicios" href="#/servicio"></a>
-             <div ng-view></div>
-
-        </div>
-            
+    <div class="jumbotron">
+        <div class="container" align="center">
+            <h1>Servicios ofertados en e-Tours</h1>
+            </div>
+         
+    </div> 
+    <div class="servicios" align="center">
+        <a id="cargarServicios" class="button btn-default" href="#/servicio"></a>
+        <div ng-view>  </div>
     </div>
 </body>
 </html>

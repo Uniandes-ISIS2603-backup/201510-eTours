@@ -1,37 +1,41 @@
 <div ng-controller="servicioCtrl as servicioCtrl">
 	<div id="header">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" role="navigation" id="nav-servicios">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#servicio-navbar">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Servicios</a>
-				</div>  
+					<a class="navbar-brand">Servicios eTours</a>
+				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="country-navbar">
-                                        
-					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
-					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				<div class="collapse navbar-collapse" id="servicio-navbar">
+					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear servicio</button>
+					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar </button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 				</div>
 			</div>
 		</nav>
 	</div>
     
         <div ng-hide="servicioCtrl.editMode">
+
         <div class="col-sm-6 col-md-4" id="item-first-band" ng-repeat="record in records">
+            <div ng-if="(record.id-1)/3==0"></br></div>
           <div class="thumbnail">
            <h2 align="center">{{record.tipoServicio}}:{{record.nombre}}</h2>
-           <img ng-if="{{record.tipo}}==hotel" src="../src/assets/img/salto-chile.png" alt="{{record.nombre}}">
-           <img ng-if="{{record.tipo}}==paseo" src="../src/assets/img/paseo.jpg" alt="{{record.nombre}}">
-           <img ng-if="{{record.tipo}}==alimentacion" src="../src/assets/img/alimentacion.jpg" alt="{{record.nombre}}">
+           
+           <div ng-if="record.tipoServicio=='alimentacion'" ><img  src="../src/assets/img/alimentacion.jpg" alt="{{record.nombre}}" class="thumbnail img-thumbnail"></div>
+           <div ng-if="record.tipoServicio=='paseo'" ><img  src="../src/assets/img/paseo.jpg" alt="{{record.nombre}}" class="thumbnail img-thumbnail"></div>
+           <div ng-if="record.tipoServicio=='hotel'" ><img  src="../src/assets/img/salto-chile.png" alt="{{record.nombre}}" class="thumbnail img-thumbnail"></div>
+           
+           
             <div class="caption">
                 <h3> El increíble servicio de {{record.nombre}} por tan solo ${{record.precio}}  </h3>
              <p>{{record.descripcion}}</p>
@@ -105,9 +109,9 @@
                         <div class="form-group">
                                 Tipo de servicio: 
                                 <input type="text" ng-model="currentRecord.tipoServicio">
-                                <input type="radio" form="agregarServicio" id="svc_hotel"  ng-model="currentRecord.tipoServicio" ng-value="hotel" class="form-group" />Hotel
-                                <input type="radio" form="agregarServicio"  id="svc_alimentacion" ng-model="currentRecord.tipoServicio" ng-value="alimentacion"  class="form-group-lg"/> Alimentación 
-                                <input type="radio" form="agregarServicio"  id="svc_paseo" ng-model="currentRecord.tipoServicio" ng-value="paseo" checked="false"  class="form-group-sm"/>Paseo
+                                <input type="radio" form="agregarServicio" id="svc_hotel"  ng-model="currentRecord.tipoServicioR" ng-value="hotel" class="form-group" />Hotel
+                                <input type="radio" form="agregarServicio"  id="svc_alimentacion" ng-model="currentRecord.tipoServicioR" ng-value="alimentacion"  class="form-group-lg"/> Alimentación 
+                                <input type="radio" form="agregarServicio"  id="svc_paseo" ng-model="currentRecord.tipoServicioR" ng-value="paseo" checked="false"  class="form-group-sm"/>Paseo
 			</div>
                         <div ng-if="currentRecord.tipoServicio=='paseo'" >
                             <label>Guía ecológico:"</label>
@@ -129,6 +133,7 @@
                         </div>
                         
                         <div ng-if="currentRecord.tipoServicio=='alimentacion'" >
+                            
                             <label>Tipos de Comida ofrecidos:"</label>
                             <input  type="text" ng-model="currentRecord.tiposComida" class="form-control"/>
                             <label>Número de la mesa ofertada:</label>

@@ -1,5 +1,5 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
@@ -18,6 +18,9 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule',
         }). 
         when('/evento', {
             templateUrl: '../src/modules/evento/evento.tpl.html'
+        }).
+        when('/servicio', {
+            templateUrl: '../src/modules/servicio/servicio.tpl.html'
         }).
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
@@ -38,6 +41,13 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule',
     var eventoModule = angular.module('eventoModule', ['CrudModule', 'MockModule']);
     eventoModule.constant('evento.context', 'eventos');
     eventoModule.config(['evento.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+
+    //Configuración módulo servicio
+    var servicioModule = angular.module('servicioModule', ['CrudModule', 'MockModule']);
+    servicioModule.constant('servicio.context', 'servicios');
+    servicioModule.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
