@@ -1,0 +1,182 @@
+<div ng-controller="servicioCtrl as servicioCtrl">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Servicios</a>
+				</div>  
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="country-navbar">
+                                        
+					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+    
+        <div ng-hide="servicioCtrl.editMode">
+        <div class="col-sm-6 col-md-4" id="item-first-band" ng-repeat="record in records">
+          <div class="thumbnail">
+           <h2 align="center">{{record.tipoServicio}}:{{record.nombre}}</h2>
+           <img ng-if="{{record.tipo}}==hotel" src="../src/assets/img/salto-chile.png" alt="{{record.nombre}}">
+           <img ng-if="{{record.tipo}}==paseo" src="../src/assets/img/paseo.jpg" alt="{{record.nombre}}">
+           <img ng-if="{{record.tipo}}==alimentacion" src="../src/assets/img/alimentacion.jpg" alt="{{record.nombre}}">
+            <div class="caption">
+                <h3> El increíble servicio de {{record.nombre}} por tan solo ${{record.precio}}  </h3>
+             <p>{{record.descripcion}}</p>
+             <p>Ubicado en {{record.direccion}}</p>
+             <p>Teléfono {{record.telefono}}</p>
+             <div ng-if="record.tipoServicio=='paseo'" >
+                 <p>El paseo ecológico estará guiado por {{record.guia}}</p>
+                 <p>Punto de encuentro: {{record.encuentro}}
+                    el día {{record.fecha}} y a las {{record.horaSalida}} (Favor llegar puntual)</p>
+                 <p>Para realizar el paseo necesitaremos {{record.cantidadMinima}} personas inscritas</p>
+                 <p>Aporte por persona:{{record.costo}}</p>
+                 <p>Caminaremos durante {{record.duracion}} y 
+                    durante el paseo visitaremos los siguientes lugares: {{record.puntos}}</p>
+            </div>
+             
+             <div ng-if="record.tipoServicio=='alimentacion'" >
+                 <p>{{record.nombre}} te ofrece las comidas {{record.tiposComida}} para que te deleites durante tu estadía"</p>
+                 <p>Detalles de la oferta:</br>
+                     Número de la mesa :{{record.mesa}}</br>
+                     Cantidad de personas: {{record.cantidadMinima}}-{{record.cantidadMaxima}}</br>
+                     Costo aproximado por plato: ${{record.costo}}</br>
+                     <label ng-if="{{record.mesaNino}}==true">Contamos con mesa para tus bebés</label>
+                 </p>
+                 <p>La oferta principal del restaurante {{record.nombre}} se compone de {{record.platos}}</br>
+                     Horario de atención del restaurante: {{record.horario}}</p>
+            </div>
+            
+             <div ng-if="record.tipoServicio=='hotel'" >
+                 <p><strong>Habitación {{record.tipoHabitacion}}:</strong>{{record.descripcion}}</p>
+                 <p>Hora de ingreso: {{record.horarioEntrada}} </br>Hora de salida:{{record.horarioSalida}}</br>          
+                     Personas por habitación: {{record.cantidadMinima}}-{{record.cantidadMaxima}}</br>   
+                     Costo de la habitación por noche: ${{record.costo}}
+                 </p>
+                 <p>¿Qué incluye la oferta?</br>
+                     {{record.servicios}}
+                 </p>
+                            
+            </div>
+            
+             <p align="center">
+                <a href="#" class="btn btn-primary" role="button">Reservar</a>
+                <a class="btn btn-primary" role="button" ng-click="servicioCtrl.editRecord(record)">Editar</a>
+                <a class="btn btn-primary" role="button" ng-click="servicioCtrl.deleteRecord(record)">Remover</a>
+             </p>
+            </div>
+          </div>
+         </div>
+        </div>   
+    
+	
+	<div ng-show="servicioCtrl.editMode">
+		<form name="agregarServicio" id="agregarServicio">
+			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+			<div class="form-group">
+				<label for="name">Nombre del servicio</label>
+				<input id="name" class="form-control" type="text" ng-model="currentRecord.nombre"/>
+			</div>
+			
+			<div class="form-group">
+				<label>Descripción:</label>
+				<input class="form-control" type="text" ng-model="currentRecord.descripcion"/>
+			</div>
+                        <div class="form-group">
+				<label >Dirección:</label>
+				<input  class="form-control" type="text" ng-model="currentRecord.direccion"/>
+			</div>
+                        <div class="form-group">
+				<label >Telefono:</label>
+				<input  class="form-control" type="text" ng-model="currentRecord.telefono"/>
+                        </div>
+                        <div class="form-group">
+                                Tipo de servicio: 
+                                <input type="text" ng-model="currentRecord.tipoServicio">
+                                <input type="radio" form="agregarServicio" id="svc_hotel"  ng-model="currentRecord.tipoServicio" ng-value="hotel" class="form-group" />Hotel
+                                <input type="radio" form="agregarServicio"  id="svc_alimentacion" ng-model="currentRecord.tipoServicio" ng-value="alimentacion"  class="form-group-lg"/> Alimentación 
+                                <input type="radio" form="agregarServicio"  id="svc_paseo" ng-model="currentRecord.tipoServicio" ng-value="paseo" checked="false"  class="form-group-sm"/>Paseo
+			</div>
+                        <div ng-if="currentRecord.tipoServicio=='paseo'" >
+                            <label>Guía ecológico:"</label>
+                            <input  type="text" ng-model="currentRecord.guia" class="form-control"/>
+                            <label>Punto de encuentro o salida:</label>
+                            <input type="text" ng-model="currentRecord.encuentro" class="form-control"/>
+                            <label>Hora de encuentro o salida:</label>
+                            <input type="text" ng-model="currentRecord.horaSalida" class="form-control"/>
+                            <label>Fecha de realización:</label>
+                            <input type="text" ng-model="currentRecord.fecha" class="form-control"/>
+                            <label>Cantidad de personas requerida:</label>
+                            <input type="number" ng-model="currentRecord.cantidadMinima" class="form-control"/>
+                            <label>Costo por persona:</label>
+                            <input type="number" ng-model="currentRecord.costo" class="form-control"/>
+                            <label>Duración del recorrido:</label>
+                            <input type="number" ng-model="currentRecord.duracion" class="form-control"/>
+                            <label>Puntos de interés durante el recorrido:</label>
+                            <input type="text" ng-model="currentRecord.puntos" class="form-control"/>
+                        </div>
+                        
+                        <div ng-if="currentRecord.tipoServicio=='alimentacion'" >
+                            <label>Tipos de Comida ofrecidos:"</label>
+                            <input  type="text" ng-model="currentRecord.tiposComida" class="form-control"/>
+                            <label>Número de la mesa ofertada:</label>
+                            <input type="text" ng-model="currentRecord.mesa" class="form-control"/>
+                            <label>Horario de atención:</label>
+                            <input type="text" ng-model="currentRecord.horario" class="form-control"/>
+                            <label>Cantidad de personas mínima:</label>
+                            <input type="number" ng-model="currentRecord.cantidadMinima" class="form-control"/>
+                            <label>Cantidad de personas máxima:</label>
+                            <input type="number" ng-model="currentRecord.cantidadMaxima" class="form-control"/>
+                            <label>Costo aproximado por plato:</label>
+                            <input type="number" ng-model="currentRecord.costo" class="form-control"/>
+                            <label>Platos principales de la oferta</label>
+                            <input type="text" ng-model="currentRecord.platos" class="form-control"/>
+                            <label>Mesa para niños</label>
+                            <input type="checkbox" ng-model="currentRecord.mesaNino"/>
+                        </div>
+                        
+                        <div ng-if="currentRecord.tipoServicio=='hotel'" >
+                            <label>Tipo de Habitación:</label>
+                            <input  type="text" ng-model="currentRecord.tipoHabitacion" class="form-control"/>
+                            <label>Descripción de la Habitación:</label>
+                            <input type="text" ng-model="currentRecord.descripcion" class="form-control"/>
+                            <label>Número de habitación:</label>
+                            <input type="text" ng-model="currentRecord.habitacion" class="form-control"/>
+                            <label>Horario de entrada (Ckeck in):</label>
+                            <input type="text" ng-model="currentRecord.horarioEntrada" class="form-control" placeholder="HH:MM"/>
+                            <label>Horario de salida (Ckeck out):</label>
+                            <input type="text" ng-model="currentRecord.horarioSalida" class="form-control" placeholder="HH:MM"/>
+                            <label>Cantidad de personas mínima:</label>
+                            <input type="number" ng-model="currentRecord.cantidadMinima" class="form-control"/>
+                            <label>Cantidad de personas máxima:</label>
+                            <input type="number" ng-model="currentRecord.cantidadMaxima" class="form-control"/>
+                            <label>Costo por noche:</label>
+                            <input type="number" ng-model="currentRecord.costo" class="form-control"/>
+                            <label>Servicios incluídos:</label>
+                            <input type="text" ng-model="currentRecord.servicios" class="form-control"/>
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Cargar imagen</label>
+                            <input type="file" ng-model="currentRecord.imagen" class="form-control"/>
+                        </div>
+                        
+                        {{currentRecord}}
+		</form>
+	</div>
+</div>
+
+
