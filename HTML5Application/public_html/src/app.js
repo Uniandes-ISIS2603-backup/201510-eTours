@@ -1,6 +1,6 @@
 (function () {
 
-	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule', 'servicioModule', 'noticiaModule', 'paqueteModule']);
+	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule','loginModule', 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
         
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
@@ -8,7 +8,8 @@
         $routeProvider
         .when('/servicio', {
             templateUrl: '../src/modules/servicio/servicio.tpl.html'
-        .when('/login', {
+        }).
+        when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
         }).
         when('/hotel', {
@@ -22,10 +23,13 @@
         }).
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
-        }).otherwise({
+         }).otherwise({
             redirectTo: '/'
-        });
-    }]);
+         });
+    }]); 
+       
+   
+        
 
     //Configuración modulo login
     var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
