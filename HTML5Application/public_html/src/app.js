@@ -1,35 +1,27 @@
-(function () {
-
-	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule','loginModule', 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
-        
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'eventoModule', 'noticiaModule', 'paqueteModule', 'servicioModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
         $routeProvider
-        .when('/servicio', {
-            templateUrl: '../src/modules/servicio/servicio.tpl.html'
-        }).
-        when('/login', {
+        .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
         }).
-        when('/hotel', {
-            templateUrl: '../src/modules/hotel/hotel.tpl.html'
-        }).
+        
         when('/paquete', {
             templateUrl: '../src/modules/paquete/paquete.tpl.html'
         }). 
         when('/evento', {
             templateUrl: '../src/modules/evento/evento.tpl.html'
         }).
+        when('/servicio', {
+        templateUrl: '../src/modules/servicio/servicio.tpl.html'
+        }).
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
-         }).otherwise({
+        }).otherwise({
             redirectTo: '/'
-         });
-    }]); 
-       
-   
-        
+        });
+    }]);
 
     //Configuración modulo login
     var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
@@ -45,13 +37,7 @@
         urlsProvider.registerUrl(context);
     }]);
 
-    //Configuración del módulo servicio
-    var servicioModule = angular.module('servicioModule', ['CrudModule', 'MockModule']);
-    servicioModule.constant('servicio.context', 'servicios');
-    servicioModule.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
-        urlsProvider.registerUrl(context);
-    }]);
-    
+       
     //Configuración módulo noticia
     var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 	noticiaModule.constant('noticia.context', 'noticia');
@@ -63,6 +49,13 @@
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 	paqueteModule.constant('paquete.context', 'paquetes');
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+
+    //Configuración módulo servicio
+	var paqueteServicio = angular.module('servicioModule', ['CrudModule', 'MockModule']);
+	paqueteServicio.constant('servicio.context', 'servicios');
+	paqueteServicio.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
