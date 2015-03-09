@@ -54,7 +54,7 @@
           </ul>
         </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" ng-controller="authStatus">
             <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Buscar">
@@ -63,8 +63,10 @@
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </form>
-            <li><a href="./pages/login.html">Ingresa</a></li>
-            <li><a href="#" id="btn-signup">Únete</a></li>
+            <li><a href="./pages/login.html" ng-hide="loggedIn">Ingresa</a></li>
+            <li><a href="#" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a ng-show="loggedIn">{{username}}</a></li>
+            <li><a href="#/logout" id="btn-signup" ng-show="loggedIn">LogOut</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

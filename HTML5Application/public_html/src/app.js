@@ -1,10 +1,14 @@
-	var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
+(function() {
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
         $routeProvider
         .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
+        }).
+        when('/logout', {
+            controller: 'logoutController'
         }).
         when('/hotel', {
             templateUrl: '../src/modules/hotel/hotel.tpl.html'
@@ -17,7 +21,8 @@
         }).
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
-        }).otherwise({
+        }).
+        otherwise({
             redirectTo: '/'
         });
     }]);
@@ -61,7 +66,7 @@
     //$cookies para crear cookies
     //$cookieStore para actualizar o eliminar
     //$location para cargar otras rutas
-    mainApp.factory("auth", function($cookies, $cookieStore, $location, $localStorage, $window)
+    mainApp.factory("auth", function($location, $localStorage, $window)
     {
         return{
             login : function(username, password)
@@ -73,10 +78,15 @@
                 //mandamos a la home
                 $window.location.href = '../public_html/index.html';
             },
+            logout : function()
+            {
+                delete $localStorage.username;
+                delete $localStorage.password;
+                
+                $window.location.href = '../index.html';
+            },
             checkStatus : function()
             {
-                console.log($localStorage.username);
-                console.log($localStorage.password);
                 //creamos un array con las rutas que queremos controlar
                 var rutasPrivadas = ["/login"];
                 if(this.in_array($location.path(),rutasPrivadas) && typeof($localStorage.username) == "undefined")
@@ -104,7 +114,7 @@
         }
     });
 
-    mainApp.controller('loginCtrl', function($scope,auth) 
+    mainApp.controller('loginCtrl', function($scope, auth) 
     {
         //la función login que llamamos en la vista llama a la función
         //login de la factoria auth pasando lo que contiene el campo
@@ -113,8 +123,35 @@
         {
             auth.login($scope.username, $scope.password);
         }
-
     });
+    
+    mainApp.controller('logoutController', function($scope, auth, $localStorage)
+    {
+        $scope.username = $localStorage.username;
+        $scope.password = $localStorage.password;
+        console.log($scope.username);
+        $scope.logout = function()
+        {
+            auth.logout();
+            console.log($localStorage.username);
+        }
+    });
+
+    mainApp.controller('authStatus', function($scope, $localStorage)
+    {
+        if(typeof($localStorage.username) == undefined)
+        {
+            $scope.loggedIn = false;
+            console.log("hola");
+
+        }
+        if(typeof($localStorage.username) != undefined)
+        {
+            $scope.loggedIn = true;
+            $scope.username = $localStorage.username;
+        }
+    });
+    
     //mientras corre la aplicación, comprobamos si el usuario tiene acceso a la ruta a la que está accediendo
     mainApp.run(function($rootScope, auth)
     {
@@ -126,3 +163,4 @@
             auth.checkStatus();
         })
     })
+    })();
