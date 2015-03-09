@@ -28,14 +28,48 @@
         <div ng-hide="servicioCtrl.editMode">
         <div class="col-sm-6 col-md-4" id="item-first-band" ng-repeat="record in records">
           <div class="thumbnail">
-           <h2 align="center">{{record.nombre}}</h2>
+           <h2 align="center">{{record.tipoServicio}}:{{record.nombre}}</h2>
            <img src="../src/assets/img/salto-chile.png" alt="{{record.nombre}}">
             <div class="caption">
-                <h3> Una noche en {{record.nombre}} por tan solo ${{record.precio}}</h3>
+                <h3> El increíble servicio de {{record.nombre}} por tan solo ${{record.precio}}  </h3>
              <p>{{record.descripcion}}</p>
              <p>Ubicado en {{record.direccion}}</p>
              <p>Teléfono {{record.telefono}}</p>
-             <p>
+             <div ng-if="record.tipoServicio=='paseo'" >
+                 <p>El paseo ecológico estará guiado por {{record.guia}}</p>
+                 <p>Punto de encuentro: {{record.encuentro}}
+                    el día {{record.fecha}} y a las {{record.horaSalida}} (Favor llegar puntual)</p>
+                 <p>Para realizar el paseo necesitaremos {{record.cantidadMinima}} personas inscritas</p>
+                 <p>Aporte por persona:{{record.costo}}</p>
+                 <p>Caminaremos durante {{record.duracion}} y 
+                    durante el paseo visitaremos los siguientes lugares: {{record.puntos}}</p>
+            </div>
+             
+             <div ng-if="record.tipoServicio=='alimentacion'" >
+                 <p>{{record.nombre}} te ofrece las comidas {{record.tiposComida}} para que te deleites durante tu estadía"</p>
+                 <p>Detalles de la oferta:</br>
+                     Número de la mesa :{{record.mesa}}</br>
+                     Cantidad de personas: {{record.cantidadMinima}}-{{record.cantidadMaxima}}</br>
+                     Costo aproximado por plato: ${{record.costo}}</br>
+                     <label ng-if="{{record.mesaNino}}==true">Contamos con mesa para tus bebés</label>
+                 </p>
+                 <p>La oferta principal del restaurante {{record.nombre}} se compone de {{record.platos}}</br>
+                     Horario de atención del restaurante: {{record.horario}}</p>
+            </div>
+            
+             <div ng-if="record.tipoServicio=='hotel'" >
+                 <p><strong>Habitación {{record.tipoHabitacion}}:</strong>{{record.descripcion}}</p>
+                 <p>Hora de ingreso: {{record.horarioEntrada}} </br>Hora de salida:{{record.horarioSalida}}</br>          
+                     Personas por habitación: {{record.cantidadMinima}}-{{record.cantidadMaxima}}</br>   
+                     Costo de la habitación por noche: ${{record.costo}}
+                 </p>
+                 <p>¿Qué incluye la oferta?</br>
+                     {{record.servicios}}
+                 </p>
+                            
+            </div>
+            
+             <p align="center">
                 <a href="#" class="btn btn-primary" role="button">Reservar</a>
                 <a class="btn btn-primary" role="button" ng-click="servicioCtrl.editRecord(record)">Editar</a>
                 <a class="btn btn-primary" role="button" ng-click="servicioCtrl.deleteRecord(record)">Remover</a>
@@ -80,6 +114,8 @@
                             <input type="text" ng-model="currentRecord.encuentro" class="form-control"/>
                             <label>Hora de encuentro o salida:</label>
                             <input type="text" ng-model="currentRecord.horaSalida" class="form-control"/>
+                            <label>Fecha de realización:</label>
+                            <input type="text" ng-model="currentRecord.fecha" class="form-control"/>
                             <label>Cantidad de personas requerida:</label>
                             <input type="number" ng-model="currentRecord.cantidadMinima" class="form-control"/>
                             <label>Costo por persona:</label>
