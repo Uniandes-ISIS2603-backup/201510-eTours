@@ -1,7 +1,6 @@
 (function () {
 
-	var mainApp = angular.module('mainApp', ['ngRoute', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
-        
+	var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
