@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 (function() {
 var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
-=======
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'eventoModule', 'noticiaModule', 'paqueteModule', 'servicioModule']);
->>>>>>> origin/master
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
@@ -11,24 +7,17 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'e
         .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
         }).
-<<<<<<< HEAD
         when('/logout', {
             controller: 'logoutController'
         }).
         when('/hotel', {
             templateUrl: '../src/modules/hotel/hotel.tpl.html'
         }).
-=======
-        
->>>>>>> origin/master
         when('/paquete', {
             templateUrl: '../src/modules/paquete/paquete.tpl.html'
         }). 
         when('/evento', {
             templateUrl: '../src/modules/evento/evento.tpl.html'
-        }).
-        when('/servicio', {
-        templateUrl: '../src/modules/servicio/servicio.tpl.html'
         }).
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
@@ -52,7 +41,13 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'e
         urlsProvider.registerUrl(context);
     }]);
 
-       
+    //Configuración del módulo hotel
+    var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
+    hotelModule.constant('hotel.context', 'hoteles');
+    hotelModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
     //Configuración módulo noticia
     var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
 	noticiaModule.constant('noticia.context', 'noticia');
@@ -64,13 +59,6 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'e
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 	paqueteModule.constant('paquete.context', 'paquetes');
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
-        urlsProvider.registerUrl(context);
-    }]);
-
-    //Configuración módulo servicio
-	var paqueteServicio = angular.module('servicioModule', ['CrudModule', 'MockModule']);
-	paqueteServicio.constant('servicio.context', 'servicios');
-	paqueteServicio.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
@@ -175,4 +163,4 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngCookies', 'ngStorage', 'e
             auth.checkStatus();
         })
     })
-    })();
+})();
