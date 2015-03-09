@@ -84,9 +84,8 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
                 //creamos la cookie con el nombre que nos han pasado
                 $localStorage.username = username;
                 $localStorage.password = password;
-
                 //mandamos a la home
-                $window.location.href = '../public_html/index.html';
+                $window.location.href = '../index.html';
             },
             logout : function()
             {
@@ -99,12 +98,12 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             {
                 //creamos un array con las rutas que queremos controlar
                 var rutasPrivadas = ["/login"];
-                if(this.in_array($location.path(),rutasPrivadas) && typeof($localStorage.username) == "undefined")
+                if(this.in_array($location.path(),rutasPrivadas) && $localStorage.username == "undefined")
                 {
                     $location.path("/login");
                 }
                 //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
-                if(this.in_array($location.path(),rutasPrivadas) && typeof($localStorage.username) != "undefined")
+                if(this.in_array($location.path(),rutasPrivadas) && $localStorage.username != "undefined")
                 {
                     $window.location.href = '../index.html';
                 }
@@ -149,13 +148,11 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
 
     mainApp.controller('authStatus', function($scope, $localStorage)
     {
-        if(typeof($localStorage.username) == undefined)
+        if($localStorage.username == undefined)
         {
             $scope.loggedIn = false;
-            console.log("hola");
-
         }
-        if(typeof($localStorage.username) != undefined)
+        if($localStorage.username != undefined)
         {
             $scope.loggedIn = true;
             $scope.username = $localStorage.username;
