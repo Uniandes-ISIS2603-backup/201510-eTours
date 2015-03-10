@@ -7,9 +7,6 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
         }).
-        when('/logout', {
-            controller: 'logoutController'
-        }).
         when('/hotel', {
             templateUrl: '../src/modules/hotel/hotel.tpl.html'
         }).
@@ -76,7 +73,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     //$cookies para crear cookies
     //$cookieStore para actualizar o eliminar
     //$location para cargar otras rutas
-    mainApp.factory("auth", function($location, $localStorage, $window)
+    mainApp.factory("auth", function($location, $localStorage, $window, $timeout)
     {
         return{
             login : function(username, password)
@@ -85,27 +82,38 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
                 $localStorage.username = username;
                 $localStorage.password = password;
                 //mandamos a la home
-                $window.location.href = '../index.html';
+                
+                $timeout(function () {
+                    $window.location.href = '../../public_html/index.html';
+                }, 110);
             },
             logout : function()
             {
                 delete $localStorage.username;
                 delete $localStorage.password;
                 
-                $window.location.href = '../index.html';
+                $timeout(function () {
+                    $window.location.href = '../../public_html/index.html';
+                }, 110);
             },
             checkStatus : function()
             {
+                console.log($localStorage.username);
                 //creamos un array con las rutas que queremos controlar
                 var rutasPrivadas = ["/login"];
-                if(this.in_array($location.path(),rutasPrivadas) && $localStorage.username == "undefined")
+                if(this.in_array($location.path(),rutasPrivadas))
                 {
-                    $location.path("/login");
-                }
-                //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
-                if(this.in_array($location.path(),rutasPrivadas) && $localStorage.username != "undefined")
-                {
-                    $window.location.href = '../index.html';
+                   if(typeof($localStorage.username) == "undefined")
+                    {
+                        console.log("1");
+                        $location.path("/login");
+                    }
+                    else
+                    {
+                        console.log($localStorage.username);
+                        console.log("2");
+                        $window.location.href = '../index.html';
+                    }
                 }
             },
             in_array : function(needle, haystack)
@@ -133,29 +141,23 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             auth.login($scope.username, $scope.password);
         }
     });
-    
-    mainApp.controller('logoutController', function($scope, auth, $localStorage)
-    {
-        $scope.username = $localStorage.username;
-        $scope.password = $localStorage.password;
-        console.log($scope.username);
-        $scope.logout = function()
-        {
-            auth.logout();
-            console.log($localStorage.username);
-        }
-    });
 
-    mainApp.controller('authStatus', function($scope, $localStorage)
+    mainApp.controller('authStatus', function($scope, $localStorage, auth)
     {
         if($localStorage.username == undefined)
         {
             $scope.loggedIn = false;
+            delete $scope.username;
         }
         if($localStorage.username != undefined)
         {
             $scope.loggedIn = true;
             $scope.username = $localStorage.username;
+        }
+        $scope.logout = function()
+        {
+            auth.logout();
+            console.log($localStorage.username);
         }
     });
     
