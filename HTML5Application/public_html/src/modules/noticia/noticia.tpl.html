@@ -48,15 +48,14 @@
                     <div class="input-group" align="left">
                         <span class="label label-default" >Titulo:</span> 
                          <p></p>
-                        <input id="titulo" class="form-control" type="text" aria-describedby="basic-addon2" rows="3" ng-model="currentRecord.titulo"/>
+                        <input id="titulo" class="form-control" type="text" aria-describedby="basic-addon2" rows="3" ng-model="currentRecord.titulo" style="margin: 0px; width: 462px;"/>
                     </div>        
                     <p></p>
                     <div class="input-group" align="left">
                         <span class="label label-default" >Entrada:</span>
                         <p></p>
-                        <div class="jumbotron">
-                        <textarea class="form-control" ng-model="currentRecord.entrada" ></textarea>
-                        </div>
+                        <textarea class="form-control ng-pristine ng-valid ng-touched" ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
+                        </textarea>
                     </div>
                 </form>       
 	</div>   
