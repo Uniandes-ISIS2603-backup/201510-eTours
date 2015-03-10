@@ -13,7 +13,7 @@
 }
 
 body {
-    background-image: url(https://unsplash.imgix.net/photo-1415769663272-8504c6cc02b3?q=75&fm=jpg&s=99c648079a4cbf654e4e575705fd3164);
+    background-image: url("../../assets/img/baloons.jpeg");
     background-size: cover;
 }
 
