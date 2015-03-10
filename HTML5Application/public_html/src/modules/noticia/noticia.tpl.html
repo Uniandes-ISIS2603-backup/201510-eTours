@@ -23,17 +23,52 @@
 			</div>
 		</nav>
 	</div>
+        <div ng-hide="noticiaCtrl.editMode">
+                   <table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Titulo</th>
+					<th>Entrada</th>       
+                                        <th>Otros</th>
+				</tr>
+			</thead>
+			<tbody>
+                            <tr ng-repeat="record in records">
+                               <div class="col-lg-4">
+                                    <div class="panel panel-green">
+                                       <td>  
+                                           <div class="panel-heading">
+                                            {{record.titulo}}
+                                            </div>       
+                                        </td>
+                                        <td
+                                            <div class="panel-body">
+                                                <p>{{record.entrada}}</p>
+                                            </div>
+                                        </td>
+                                    </div>
+                                </div>
+                                <td>
+                                    <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                                    <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+                                </td>
+                            </tr>
+			</tbody>
+                    </table>
+	</div>
         <div ng-show="noticiaCtrl.editMode" id="evento-edit-mode">
 		<form name="eventoForm" role="form">
-                <div class="input-group" align="left">
-                <span class="label label-default" >Titulo:</span>
-                <p></p>
-                 <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" id="titulo">
-                 <p></p>
-                 <span class="label label-default" >Entrada:</span>
-                <p></p>
-                 <body g_editable="true" hidefocus="true" contenteditable="true" class="editable " id="postingComposeBox" style="min-width: 0px; width: 653px;" role="textbox"><p><br></p></body>
-                </div>
-		</form>
-	</div>
+                    <div class="input-group" align="left">
+                        <span class="label label-default" >Titulo:</span> 
+                         <p></p>
+                        <input id="titulo" class="form-control" type="text" aria-describedby="basic-addon2" rows="3" ng-model="currentRecord.titulo"/>
+                    </div>        
+                    <p></p>
+                    <div class="input-group" align="left">
+                        <span class="label label-default" >Entrada:</span>
+                        <p></p>
+                        <textarea class="form-control" ng-model="currentRecord.entrada" ></textarea>
+                    </div>
+                </form>       
+	</div>   
 </div>
