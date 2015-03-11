@@ -13,8 +13,10 @@
 }
 
 body {
-    background-image: url("../../assets/img/baloons.jpeg");
+    background-color: BLACK;
+    background-image: url("../../assets/img/VW-events.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #panel-body-timeline {
