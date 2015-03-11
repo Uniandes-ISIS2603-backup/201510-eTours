@@ -78,9 +78,11 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         return{
             login : function(username, password)
             {
+                
                 //creamos la cookie con el nombre que nos han pasado
                 $localStorage.username = username;
                 $localStorage.password = password;
+                $localStorage.role = "admin";
                 //mandamos a la home
                 
                 $timeout(function () {
@@ -91,6 +93,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             {
                 delete $localStorage.username;
                 delete $localStorage.password;
+                delete $localStorage.role;
                 
                 $timeout(function () {
                     $window.location.href = '../../public_html/index.html';
@@ -98,20 +101,16 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             },
             checkStatus : function()
             {
-                console.log($localStorage.username);
                 //creamos un array con las rutas que queremos controlar
                 var rutasPrivadas = ["/login"];
                 if(this.in_array($location.path(),rutasPrivadas))
                 {
                    if(typeof($localStorage.username) == "undefined")
                     {
-                        console.log("1");
                         $location.path("/login");
                     }
                     else
                     {
-                        console.log($localStorage.username);
-                        console.log("2");
                         $window.location.href = '../index.html';
                     }
                 }
@@ -153,6 +152,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         {
             $scope.loggedIn = true;
             $scope.username = $localStorage.username;
+            $scope.userRole = $localStorage.role;
         }
         $scope.logout = function()
         {

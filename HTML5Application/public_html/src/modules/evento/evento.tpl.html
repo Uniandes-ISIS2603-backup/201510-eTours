@@ -15,9 +15,9 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="evento-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
+					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()" ><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
 					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Calendario</button>
-					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 			</div>
             <div class="form-group">
 				<label for="contenido">Descripcion actividad: </label>
-				<input id="contenido" class="form-control" type="text" ng-model="currentRecord.contenido"/>
+				<input id="contenido" class="form-control" type="text" ng-model="currentRecord.contenido" required/>
 			</div>
 		</form>
 	</div>

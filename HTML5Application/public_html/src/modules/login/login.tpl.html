@@ -8,17 +8,17 @@
                 </div>
             </div>
             <div class="panel-body" href="#/login">
-                <form accept-charset="UTF-8" role="form" class="form-signin">
+                <form accept-charset="UTF-8" role="form" class="form-signin" id="form-signin" name="form" >
                     <fieldset>
                         <label class="panel-login">
                         <div class="login_result"></div>
                         </label>
-                        <input class="form-control" placeholder="Username" id="username" type="text" required ng-model="username">
-                        <input class="form-control" placeholder="Password" id="password" type="password" required ng-model="password">
+                        <input class="form-control" placeholder="Username" id="username" type="text" ng-model="username" required>
+                        <input class="form-control" placeholder="Password" id="password" type="password" ng-model="password" required>
                         <br></br>
                         <input class="btn btn-lg btn-success btn-block" type="submit" id="btn-login" value="Login »" 
-                        ng-click="login(username)">
-                        </fieldset>
+                        ng-disabled="form.$invalid" ng-click="login(username)">
+                    </fieldset>
                 </form>
             </div>
             </div>
