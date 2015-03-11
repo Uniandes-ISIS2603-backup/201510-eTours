@@ -50,25 +50,15 @@
             <li><a href="#">Compra</a></li>
             <li><a href="#">Participa</a></li>        
             <li class="dropdown">
-<<<<<<< Updated upstream
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
-                Comunidad  <span class="sr-only">(current)</span><span class="caret"></span>     
-            </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="./eventos.html" id="dropped-button-nav">Eventos</a></li>
-=======
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 Comunidad <span class="caret"></span>     
             </a>
-              <ul class="dropdown-menu" role="menu">
+          <ul class="dropdown-menu" role="menu">
             <li><a href="#" id="dropped-button-nav" ng-show="userRole==='admin'">Eventos</a></li>
->>>>>>> Stashed changes
             <li><a href="./noticias.html" id="dropped-button-nav">Noticias</a></li>
-            <li><a href="#" id="dropped-button-nav">Servicios</a></li>
+            <li><a href="./servicios.html" id="dropped-button-nav">Servicios</a></li>
           </ul>
         </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
@@ -80,23 +70,12 @@
             </button>
           </form>
             <li><a href="./login.html" ng-hide="loggedIn">Ingresa</a></li>
-            <li><a href="#" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a href="./registro.html" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
             <li><a ng-show="loggedIn">{{username}}</a></li>
             <li><a href="" id="btn-signup" ng-show="loggedIn" ng-click="logout()">LogOut</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>
-            
-    </div>
-    
-       <a id="paquetes"class="navbar-brand" href="#/paquete" ><font color="black">Crear Paquete</font></a> 
-   <div ng-hide = "paquetes">  </div>
-        <div ng-view = true>  </div>
-          
-
-    </div>
-    
-    
+    </nav>    
 </body>
 </html>

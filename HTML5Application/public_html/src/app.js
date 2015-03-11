@@ -1,11 +1,14 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule', 'signupModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
         $routeProvider
         .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
+        }).
+        when('/signup', {
+            templateUrl: '../src/modules/signup/signup.tpl.html'
         }).
         when('/hotel', {
             templateUrl: '../src/modules/hotel/hotel.tpl.html'
@@ -31,6 +34,13 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
     loginModule.constant('login.context', 'login');
     loginModule.config(['login.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuración módulo signup
+    var signupModule = angular.module('signupModule', ['CrudModule', 'MockModule']);
+    signupModule.constant('signup.context', 'signups');
+    signupModule.config(['signup.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
@@ -70,8 +80,6 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     }]);
 
     //factoria que controla la autentificación, devuelve un objeto
-    //$cookies para crear cookies
-    //$cookieStore para actualizar o eliminar
     //$location para cargar otras rutas
     mainApp.factory("auth", function($location, $localStorage, $window, $timeout)
     {

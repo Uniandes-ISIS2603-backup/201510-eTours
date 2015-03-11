@@ -21,6 +21,10 @@
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
+    <script src="../src/modules/signup/signup.ctrl.js"></script>
+    <script type="text/javascript">$(document).ready(function(){
+    document.getElementById("showSignup").click();
+    });</script>
     <style>
         body {
         background-color: #444;
@@ -49,7 +53,7 @@
         box-sizing: border-box;
     }
     .vertical-offset-100 {
-        padding-top: 100px;
+        padding-top: 50px;
     }
     .img-responsive {
     display: block;
@@ -116,5 +120,9 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    </body>
+    <div class="container">
+        <a id="showSignup" class="button btn-default" href="#/signup"></a>
+        <div ng-view></div>
+    </div>
+</body>
 </html>
