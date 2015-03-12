@@ -15,8 +15,10 @@
                     $scope.inverted='';
                 }
             }
-            
+                        
             this.formatFecha = function(fechaEvento){
+                
+                fechaEvento = new Date(fechaEvento);
                 
                 var weekday = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
                 
@@ -32,7 +34,7 @@
                 
                 return fechaString;
                 
-            }
+            };
             
 		}]);
 })();
