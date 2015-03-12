@@ -15,3 +15,7 @@
     color: rgb(87,207,191);
     margin-right: 10px;
 }
+
+#navigationBar a:hover{
+    color: rgb(13,29,28);
+}

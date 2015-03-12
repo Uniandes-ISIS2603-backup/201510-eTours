@@ -21,15 +21,55 @@
 	<script src="../src/shared/crud/crud.svc.js"></script>
 	<script src="../src/shared/mocks/mock.mod.js"></script>
 	<script src="../src/shared/mocks/mock.svc.js"></script>
-    <script src="../src/modules/evento/evento.ctrl.js"></script>
-    
-    <!-- Timeline CSS -->
-    <link href="../src/assets/css/extra/timeline.css" rel="stylesheet">
-    
+    <script src="../src/modules/signup/signup.ctrl.js"></script>
     <script type="text/javascript">$(document).ready(function(){
-    document.getElementById("showEvents").click();
-});</script>
-    <link rel="stylesheet" href="../src/modules/evento/evento.css">
+    document.getElementById("showSignup").click();
+    });</script>
+    <style>
+        body {
+        background-color: #444;
+        background: url(../src/assets/img/beach-vigilant.jpeg) no-repeat center center fixed;
+        background-size: cover;
+        
+    }
+    .form-signin input[type="text"] {
+        margin-bottom: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .vertical-offset-100 {
+        padding-top: 50px;
+    }
+    .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    }
+    .panel {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+    </style>
 </head>   
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar" ng-controller="authStatus">
@@ -73,20 +113,16 @@
             </button>
           </form>
             <li><a href="./login.html" ng-hide="loggedIn">Ingresa</a></li>
-            <li><a href="./registro.html" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a href="#" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
             <li><a ng-show="loggedIn">{{username}}</a></li>
             <li><a href="" id="btn-signup" ng-show="loggedIn" ng-click="logout()">LogOut</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        <div class="jumbotron" id="jumbotron-de-eventos">
-        <div class="container">
-            <a id="showEvents" class="button btn-default" href="#/evento"></a>
-            <div ng-view>            
-            </div>
-        </div>
-            
+    <div class="container">
+        <a id="showSignup" class="button btn-default" href="#/signup"></a>
+        <div ng-view></div>
     </div>
 </body>
 </html>

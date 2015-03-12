@@ -15,9 +15,9 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="evento-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
+					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.createRecord()" ><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
 					<button class="btn btn-default navbar-btn" ng-hide="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Calendario</button>
-					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 					<button class="btn btn-default navbar-btn" ng-show="eventoCtrl.editMode" ng-click="eventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 				</div>
 			</div>
@@ -39,17 +39,18 @@
                         <div class="panel-body">
                             <ul class="timeline">
 <!--                                NG-repeat y cada evento es un li-->
-                                <li ng-repeat="record in records">
+                                {{eventoCtrl.initTimeline()}}
+                                <li ng-class="inverted" ng-repeat="record in records">
                                     <div class="timeline-badge primary"><i><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></i>
                                     </div>
                                     <div class="timeline-panel" style="background-color:rgba(246,246,246, 0.7);">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">{{record.fecha}}</h4>
+                                            <h4 class="timeline-title wordwrap">{{record.fecha}}</h4>
                                             <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{record.hora}}</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>{{record.contenido}}</p>
+                                            <p class="wordwrap">{{record.contenido}}</p>
                                         </div>
                                          <hr>
                                             <div class="btn-group">
@@ -64,6 +65,7 @@
                                                 </ul>
                                             </div>
                                     </div>
+                                    {{eventoCtrl.count()}}
                                 </li>
                                 
                             </ul>
@@ -92,11 +94,11 @@
 			</div>
 			<div class="form-group">
 				<label for="hora">Hora</label>
-				<input id="hora" class="form-control" type="number" ng-model="currentRecord.hora" required/>
+				<input id="hora" class="form-control" type="text" ng-model="currentRecord.hora" required placeholder="hh:mm am/pm"/>
 			</div>
             <div class="form-group">
 				<label for="contenido">Descripcion actividad: </label>
-				<input id="contenido" class="form-control" type="text" ng-model="currentRecord.contenido"/>
+				<input id="contenido" class="form-control" type="text" ng-model="currentRecord.contenido" required/>
 			</div>
 		</form>
 	</div>

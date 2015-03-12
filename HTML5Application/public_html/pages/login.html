@@ -3,13 +3,13 @@
 <head>
     <title>eTours</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../src/assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link href="..//src/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../src/assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/assets/css/css-navbar-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-footer-override.css">
     <link rel="stylesheet" href="../src/assets/css/css-general-override.css">
-    
     <script src="../src/assets/libs/underscore-min.js"></script>
 	<script src="../src/assets/libs/angular.min.js"></script>
 	<script src="../src/assets/libs/angular-mocks.js"></script>
@@ -74,7 +74,7 @@
     </style>
 </head>   
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar">
+    <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar" ng-controller="authStatus">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -95,18 +95,17 @@
             <li><a href="#">Compra</a></li>
             <li><a href="#">Participa</a></li>        
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  class="active">
                 Comunidad  <span class="sr-only">(current)</span><span class="caret"></span>     
             </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="./eventos.html" id="dropped-button-nav">Eventos</a></li>
+            <li><a href="./eventos.html" id="dropped-button-nav" ng-show="userRole==='admin'">Eventos</a></li>
             <li><a href="./noticias.html" id="dropped-button-nav">Noticias</a></li>
             <li><a href="./servicios.html" id="dropped-button-nav">Noticias</a></li>
           </ul>
         </li>
           </ul>
-          </ul>
-          <ul class="nav navbar-nav navbar-right" ng-controller="authStatus">
+          <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Buscar">
@@ -116,19 +115,16 @@
             </button>
           </form>
             <li><a href="./login.html" ng-hide="loggedIn">Ingresa</a></li>
-            <li><a href="#" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a href="./registro.html" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
             <li><a ng-show="loggedIn">{{username}}</a></li>
             <li><a href="#/logout" id="btn-signup" ng-show="loggedIn">LogOut</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <body>
-            
-        </body>
+    <div class="container">
+        <a id="showEvents" class="button btn-default" href="#/login"></a>
+        <div ng-view></div>
+    </div>
 </body>
-<div class="container">
-    <a id="showEvents" class="button btn-default" href="#/login"></a>
-    <div ng-view></div>
-</div>
 </html>

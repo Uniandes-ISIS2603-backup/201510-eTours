@@ -13,8 +13,10 @@
 }
 
 body {
-    background-image: url(https://unsplash.imgix.net/photo-1415769663272-8504c6cc02b3?q=75&fm=jpg&s=99c648079a4cbf654e4e575705fd3164);
+    background-color: BLACK;
+    background-image: url("../../assets/img/VW-events.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #panel-body-timeline {
@@ -28,3 +30,10 @@ body {
     padding: 10px;
 }
 
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}

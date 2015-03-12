@@ -1,11 +1,14 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule', 'signupModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
         $routeProvider
         .when('/login', {
             templateUrl: '../src/modules/login/login.tpl.html'
+        }).
+        when('/signup', {
+            templateUrl: '../src/modules/signup/signup.tpl.html'
         }).
         when('/hotel', {
             templateUrl: '../src/modules/hotel/hotel.tpl.html'
@@ -31,6 +34,13 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
     loginModule.constant('login.context', 'login');
     loginModule.config(['login.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuración módulo signup
+    var signupModule = angular.module('signupModule', ['CrudModule', 'MockModule']);
+    signupModule.constant('signup.context', 'signups');
+    signupModule.config(['signup.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
@@ -70,17 +80,17 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     }]);
 
     //factoria que controla la autentificación, devuelve un objeto
-    //$cookies para crear cookies
-    //$cookieStore para actualizar o eliminar
     //$location para cargar otras rutas
     mainApp.factory("auth", function($location, $localStorage, $window, $timeout)
     {
         return{
             login : function(username, password)
             {
+                
                 //creamos la cookie con el nombre que nos han pasado
                 $localStorage.username = username;
                 $localStorage.password = password;
+                $localStorage.role = "admin";
                 //mandamos a la home
                 
                 $timeout(function () {
@@ -91,6 +101,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             {
                 delete $localStorage.username;
                 delete $localStorage.password;
+                delete $localStorage.role;
                 
                 $timeout(function () {
                     $window.location.href = '../../public_html/index.html';
@@ -98,20 +109,16 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
             },
             checkStatus : function()
             {
-                console.log($localStorage.username);
                 //creamos un array con las rutas que queremos controlar
                 var rutasPrivadas = ["/login"];
                 if(this.in_array($location.path(),rutasPrivadas))
                 {
                    if(typeof($localStorage.username) == "undefined")
                     {
-                        console.log("1");
                         $location.path("/login");
                     }
                     else
                     {
-                        console.log($localStorage.username);
-                        console.log("2");
                         $window.location.href = '../index.html';
                     }
                 }
@@ -153,6 +160,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         {
             $scope.loggedIn = true;
             $scope.username = $localStorage.username;
+            $scope.userRole = $localStorage.role;
         }
         $scope.logout = function()
         {
