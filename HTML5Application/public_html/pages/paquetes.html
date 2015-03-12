@@ -25,7 +25,7 @@
     <script src="../src/modules/servicio/servicio.ctrl.js"></script>
     
     <script type="text/javascript">$(document).ready(function(){
-    document.getElementById("cargarServicios").click();
+    document.getElementById("cargarPaquetes").click();
 });</script>
 </head>   
 <body>
@@ -76,6 +76,10 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>    
+    </nav> 
+     <div class="paquetes" align="center">
+        <a id="cargarPaquetes" class="button btn-default" href="#/paquete"></a>
+        <div ng-view>  </div>
+    </div>
 </body>
 </html>
