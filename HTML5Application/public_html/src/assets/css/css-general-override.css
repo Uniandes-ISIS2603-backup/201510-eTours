@@ -13,7 +13,7 @@ body {
     padding-top: 90px;
 }
 #contenedor-full-fondo {
-    background-image: url(../img/skyline-man.jpeg);
+    background-color: BLACK;
     width:100%;
     height:100%;
     max-width:100%;
@@ -67,4 +67,8 @@ body {
 #btn-login:hover {
     background-color: rgba(87,207,191,0.8);
     border-color: rgb(87,207,191);
+}
+
+#black-flash {
+    background-color: BLACK;
 }

@@ -22,6 +22,26 @@
 	<script src="./src/shared/mocks/mock.mod.js"></script>
 	<script src="./src/shared/mocks/mock.svc.js"></script>
 	<script src="./src/assets/libs/angular-ngStorage.min.js"></script>
+	
+	<script type="text/javascript">
+        $(window).load(function() {          
+            var i =0;
+            var images = ['./src/assets/img/skyline-man.jpeg','./src/assets/img/beach-guitar.jpeg'];
+            var image = $('#contenedor-full-fondo');
+            //Initial Background image setup
+            image.css('background-image', 'url(./src/assets/img/beach-guitar.jpeg)');
+            //Change image at regular intervals
+            setInterval(function(){  
+                image.fadeOut(1000, function () {
+                    image.css('background-image', 'url(' + images [i++] +')');
+                image.fadeIn(1000);
+                });
+                if(i == images.length)
+                    i = 0;
+            }, 5000);           
+        });
+</script>
+	
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar" ng-controller="authStatus">
