@@ -16,5 +16,23 @@
                 }
             }
             
+            this.formatFecha = function(fechaEvento){
+                
+                var weekday = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+                
+                var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                                    "Julio", "Augosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                
+                
+                var dia = fechaEvento.getDate();                
+                var nombreMes = monthNames[fechaEvento.getMonth()];
+                var nombreDia = weekday[fechaEvento.getDay()];
+                
+                 var fechaString = nombreDia+', '+dia+' de '+nombreMes;
+                
+                return fechaString;
+                
+            }
+            
 		}]);
 })();
