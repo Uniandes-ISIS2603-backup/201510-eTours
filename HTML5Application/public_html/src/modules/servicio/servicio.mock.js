@@ -7,7 +7,7 @@
             $httpBackend.whenGET('webresources/' + context + '/categoria/:'+ idCat).respond(function (idCat) 
             {
                 var respuesta;
-                var collection = mockRecords[context];
+                var collection = mockRecords[context];      
                 for (var i in collection) 
                 {
                     if (collection[i].categoria=='hotel' && idCat==1) 
