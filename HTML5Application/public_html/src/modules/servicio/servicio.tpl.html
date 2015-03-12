@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand">Servicios eTours</a>
+                                    <a class="navbar-brand" style="margin: 10px; padding: 20px">Servicios eTours</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,7 +30,7 @@
             <div ng-if="(record.id-1)/3==0"></br></div>  
             
           <div class="thumbnail">
-           <h2 align="center">{{record.tipoServicio}}:{{record.nombre}}</h2>
+           <h2>{{record.tipoServicio}}:{{record.nombre}}</h2>
            
            <div ng-if="record.tipoServicio=='alimentacion'" ><img  src="../src/assets/img/alimentacion.jpg" alt="{{record.nombre}}" class="thumbnail img-thumbnail"></div>
            <div ng-if="record.tipoServicio=='paseo'" ><img  src="../src/assets/img/paseo.jpg" alt="{{record.nombre}}" class="thumbnail img-thumbnail"></div>
