@@ -17,6 +17,13 @@
 				<div class="collapse navbar-collapse" id="country-navbar">
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                                        <div class="form-group input-group" ng-hide="noticiaCtrl.editMode">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 				</div>
@@ -35,7 +42,10 @@
                         <div class="panel-body">
                             <p>Entrada: </p>
                             <p>{{record.entrada}}</p>
+                            <p>{{record.fechaInicial}}</p>
+                            <p>{{record.fechaFinal}}</p>
                         </div>
+                        
                         <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                         <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
                     </div>       
@@ -54,8 +64,19 @@
                     <div class="input-group" align="left">
                         <span class="label label-default" >Entrada:</span>
                         <p></p>
-                        <textarea class="form-control ng-pristine ng-valid ng-touched" ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
+                        <textarea class="form-control ng-pristine ng-valid ng-touched" required ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
                         </textarea>
+                        <p></p>
+                        <span class="label label-default" >Fecha inicial:</span><p></p>
+                        <input id="name" class="form-control datepicker" type="date" 
+				ng-model="currentRecord.fechaInicial" 
+				required/>
+                        <p></p>
+                        <span class="label label-default" >Fecha final:</span>
+                        <p></p>
+                        <input id="name" class="form-control datepicker" type="date" 
+				ng-model="currentRecord.fechaFinal" 
+				required/>
                     </div>
                 </form>       
 	</div>   
