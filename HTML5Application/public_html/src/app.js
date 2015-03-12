@@ -79,6 +79,9 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         urlsProvider.registerUrl(context);
     }]);
 
+
+
+
     //factoria que controla la autentificación, devuelve un objeto
     //$location para cargar otras rutas
     mainApp.factory("auth", function($location, $localStorage, $window, $timeout)
@@ -140,7 +143,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
 
     mainApp.controller('loginCtrl', function($scope, auth) 
     {
-        //la función login que llamamos en la vista llama a la función
+        //la función login que llamamos en la vista llama a la función x
         //login de la factoria auth pasando lo que contiene el campo
         //de texto del formulario
         $scope.login = function()
