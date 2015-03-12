@@ -79,6 +79,9 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         urlsProvider.registerUrl(context);
     }]);
 
+
+
+
     //factoria que controla la autentificación, devuelve un objeto
     //$location para cargar otras rutas
     mainApp.factory("auth", function($location, $localStorage, $window, $timeout)

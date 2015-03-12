@@ -7,4 +7,18 @@
 			this.fetchRecords();
 		}]);
             
+
+            
+            
+serviciosRecords.fetchRecords().then(function(data){
+$scope.serviciosRecords = data;
+});
+
+            
+            
+            
+            
+            
+            
+            
    })();   
