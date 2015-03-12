@@ -7,6 +7,9 @@
             $httpBackend.whenGET('webresources/' + context + '/categoria/:'+ idCat).respond(function (idCat) 
             {
                 var respuesta;    
+                
+                
+                
                 var collection = mockRecords[context];      
                 for (var i in collection) 
                 {
