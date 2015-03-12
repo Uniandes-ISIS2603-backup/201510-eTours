@@ -4,5 +4,17 @@
 			this.url = context;
 			CRUDUtils.extendCtrl(this, $scope);
 			this.fetchRecords();
+        
+            this.initTimeline = function(){
+                $scope.inverted='timeline-inverted';
+            }
+            this.count = function(){
+                if ($scope.inverted==''){
+                    $scope.inverted='timeline-inverted';
+                }else{
+                    $scope.inverted='';
+                }
+            }
+            
 		}]);
 })();
