@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.eTours.Noticia.logic.api;
 
+import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaDTO;
+import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaPageDTO;
 import java.util.Date;
 import java.util.List;
 

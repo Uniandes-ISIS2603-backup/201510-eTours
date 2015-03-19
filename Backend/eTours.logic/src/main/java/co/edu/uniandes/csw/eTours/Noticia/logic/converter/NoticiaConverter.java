@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.eTours.Noticia.logic.converter;
 
 import co.edu.uniandes.csw.eTours.Noticia.entity.NoticiaEntity;
+import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaDTO;
 import java.util.ArrayList;
 import java.util.List;
 
