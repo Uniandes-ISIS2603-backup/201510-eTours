@@ -10,13 +10,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-public class CountryLogic implements ICountryLogic{
+public class ServicioLogic implements IServicioLogic{
 
     @PersistenceContext(unitName = "SportClassPU")
     protected EntityManager entityManager;
 
-    public CountryDTO createCountry(CountryDTO country) {
-        CountryEntity entity = CountryConverter.persistenceDTO2Entity(country);
+    public ServicioDTO createServicio(ServicioDTO servicio) {
+        ServicioEntity entity = ServicioConverter.persistenceDTO2Entity(country);
         entityManager.persist(entity);
         return CountryConverter.entity2PersistenceDTO(entity);
     }
