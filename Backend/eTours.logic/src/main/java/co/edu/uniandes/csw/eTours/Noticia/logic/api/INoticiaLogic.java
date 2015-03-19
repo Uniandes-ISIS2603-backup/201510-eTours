@@ -26,7 +26,7 @@ public interface INoticiaLogic
     
     public void updateNoticia(NoticiaDTO details);
     
-    public List<NoticiaDTO> getNoticiasFechas(Date fechaInicial, Date fechaFinal);
+    public List<NoticiaDTO> getNoticiasFecha(Date fechaInicial);
     
     public NoticiaPageDTO getNoticia(Integer page, Integer maxRecords);
 }

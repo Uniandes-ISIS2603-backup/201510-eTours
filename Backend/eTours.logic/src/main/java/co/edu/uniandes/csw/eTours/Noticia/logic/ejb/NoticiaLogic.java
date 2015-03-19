@@ -49,8 +49,9 @@ public class NoticiaLogic implements INoticiaLogic{
         NoticiaConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<NoticiaDTO> getNoticiasFechas(Date fechaInicial, Date fechaFinal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<NoticiaDTO> getNoticiasFecha(Date fechaInicial) {
+        Query q = entityManager.createQuery("select u from PaqueteEntity u where fechaInicial="+fechaInicial);
+         return NoticiaConverter.persistenceDTO2EntityList(q.getResultList());
     }
 
     public NoticiaPageDTO getNoticia(Integer page, Integer maxRecords) {
