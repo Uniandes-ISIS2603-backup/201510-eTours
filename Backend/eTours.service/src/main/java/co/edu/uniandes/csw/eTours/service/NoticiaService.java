@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.eTours.service;
 import co.edu.uniandes.csw.eTours.Noticia.logic.api.INoticiaLogic;
 import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaDTO;
 import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaPageDTO;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -61,5 +63,11 @@ public class NoticiaService
      @PUT
     public void updateNoticia(@PathParam("titulo") String titulo, NoticiaDTO not) {
         noticiaLogicService.updateNoticia(not);
+    }
+    
+    @GET
+    @Path("{fechaInicial}")
+    public List<NoticiaDTO> getNoticias(@PathParam("fechaInicial") Date fechaInicial) {
+        return noticiaLogicService.getNoticiasFecha(fechaInicial);
     }
 }
