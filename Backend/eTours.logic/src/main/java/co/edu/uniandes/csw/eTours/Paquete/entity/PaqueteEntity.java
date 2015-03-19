@@ -3,15 +3,20 @@ package co.edu.uniandes.csw.eTours.Paquete.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import java.util.ArrayList;
+import java.util.List;
+import co.edu.uniandes.csw.eTours.Servicio.logic.entity.ServicioEntity;
 @Entity
 public class PaqueteEntity {
 
     @Id
-    @GeneratedValue(generator = "Country")
+    @GeneratedValue(generator = "Paquete")
     private Long id;
-    private String name;
-    private Integer population;
+    private Double descount;
+    private ArrayList<ServicioEntity> servicios = new ArrayList<ServicioEntity>();
+
+     
+    
 
     public Long getId() {
         return id;
@@ -21,19 +26,23 @@ public class PaqueteEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Double getDescuento() {
+        return descount;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescuento(Double descuento) {
+        this.descount = descuento;
     }
-
-    public Integer getPopulation() {
-        return population;
+    
+    public List getServices()
+    {
+        return servicios;
     }
-
-    public void setPopulation(Integer population) {
-        this.population = population;
+    
+    public void addServices(ServicioEntity pServicio)
+    {
+    
+        servicios.add(pServicio);
     }
+    
 }
