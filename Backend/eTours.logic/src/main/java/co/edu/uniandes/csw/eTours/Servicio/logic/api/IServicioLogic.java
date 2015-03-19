@@ -34,20 +34,28 @@ import java.util.List;
 public interface IServicioLogic {
 
     public ServicioDTO createServicio(ServicioDTO detail);
-
-    public List<ServicioDTO> getServicios();
     
-    public List<ServicioDTO> getServiciosProveedor(Long id_Proveedor);
-    
-    public List<ServicioDTO> getServiciosCategoria(String nombreCategoria);
-    
-    public List<ServicioDTO> getServiciosProveedorCategoria(Long id_Proveedor, String nombreCategoria);
-
-    public ServicioPageDTO getServicios(Integer page, Integer maxRecords);
-
     public ServicioDTO getServicio(Long id);
 
     public void deleteServicio(Long id);
 
     public void updateServicio(ServicioDTO detail);
+
+    public List<ServicioDTO> getServicios();
+            
+    public ServicioPageDTO getServicios(Integer page, Integer maxRecords);
+    
+    public List<ServicioDTO> getServiciosProveedor(Long id_Proveedor);
+    
+    public ServicioPageDTO getServiciosProveedor( Long id_Proveedor, Integer page, Integer maxRecords);
+    
+    public List<ServicioDTO> getServiciosCategoria(int idCategoria);
+    
+    public ServicioPageDTO getServiciosCategoria( int idCategoria, Integer page, Integer maxRecords);
+    
+    public List<ServicioDTO> getServiciosProveedorCategoria(Long id_Proveedor, int idCategoria);
+
+    public ServicioPageDTO getServiciosProveedorCategoria(Long id_Proveedor, int idCategoria, Integer page, Integer maxRecords);
+
+    
 }
