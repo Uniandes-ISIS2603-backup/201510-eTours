@@ -50,8 +50,8 @@ public class NoticiaLogic implements INoticiaLogic{
     }
 
     public List<NoticiaDTO> getNoticiasFecha(Date fechaInicial) {
-        Query q = entityManager.createQuery("select u from PaqueteEntity u where fechaInicial="+fechaInicial);
-         return NoticiaConverter.persistenceDTO2EntityList(q.getResultList());
+        Query q = entityManager.createQuery("select u from NoticiaEntity u where u.fechaInicial="+fechaInicial);
+         return NoticiaConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public NoticiaPageDTO getNoticia(Integer page, Integer maxRecords) {
