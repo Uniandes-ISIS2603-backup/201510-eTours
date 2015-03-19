@@ -23,7 +23,7 @@ import javax.persistence.Query;
  */
 public class EventoLogic implements IEventoLogic{
     
-    @PersistenceContext(unitName = "EventoClassPU")
+    @PersistenceContext(unitName = "eToursClassPU")
     protected EntityManager entityManager;
     
     private static final int INICIO = 1;

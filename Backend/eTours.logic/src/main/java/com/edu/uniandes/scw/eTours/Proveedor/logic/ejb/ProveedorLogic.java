@@ -13,7 +13,7 @@ import javax.persistence.Query;
 
 public class ProveedorLogic implements IPaqueteLogic{
 
-    @PersistenceContext(unitName = "PaquetePU")
+    @PersistenceContext(unitName = "eToursClassPU")
     protected EntityManager entityManager;
 
     public PaqueteDTO createPaquete(PaqueteDTO paquete) {

@@ -21,7 +21,7 @@ import javax.persistence.Query;
  * @author estudiante
  */
 public class NoticiaLogic implements INoticiaLogic{
-    @PersistenceContext(unitName = "NoticiaPU")
+    @PersistenceContext(unitName = "eToursClassPU")
     protected EntityManager entityManager;
 
     public NoticiaDTO createNoticia(NoticiaDTO details) {

@@ -57,7 +57,7 @@ public class EventoService {
     }
     
     @DELETE
-    @Path("{id")
+    @Path("{id}")
     public void deleteEvento(@PathParam("id") Long id){
         eventoLogicService.deleteEvento(id);
     }
