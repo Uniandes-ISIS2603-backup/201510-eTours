@@ -34,9 +34,15 @@ public class PaqueteEntity {
         this.descount = descuento;
     }
     
-    public List getServices()
+    public ArrayList<ServicioEntity>  getServices()
     {
         return servicios;
+    }
+    
+    public void setServices(ArrayList<ServicioEntity> pServicios)
+    {
+    
+        this.servicios =pServicios; 
     }
     
     public void addServices(ServicioEntity pServicio)

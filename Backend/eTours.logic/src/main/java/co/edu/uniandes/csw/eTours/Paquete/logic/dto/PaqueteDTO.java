@@ -1,15 +1,16 @@
 package co.edu.uniandes.csw.eTours.Paquete.logic.dto;
 
+import co.edu.uniandes.csw.eTours.Servicio.logic.entity.ServicioEntity;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class PaqueteDTO {
+   
     private Long id;
-
-    private String name;
-
-    private Integer population;
-
+    
+   private Double descount;
+    private ArrayList<ServicioEntity> servicios = new ArrayList<ServicioEntity>();
     public Long getId() {
         return id;
     }
@@ -18,19 +19,29 @@ public class PaqueteDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Double getDescuento() {
+        return descount;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescuento(Double descuento) {
+        this.descount = descuento;
     }
-
-    public Integer getPopulation() {
-        return population;
+    
+    public ArrayList<ServicioEntity> getServices()
+    {
+        return servicios;
     }
-
-    public void setPopulation(Integer population) {
-        this.population = population;
+    
+    public void setServices(ArrayList<ServicioEntity> pServicios)
+    {
+    
+        this.servicios =pServicios; 
     }
+    
+    public void addServices(ServicioEntity pServicio)
+    {
+    
+        servicios.add(pServicio);
+    }
+    
 }

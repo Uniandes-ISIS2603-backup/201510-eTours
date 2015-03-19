@@ -12,25 +12,26 @@ import javax.persistence.Query;
 
 public class PaqueteLogic implements IPaqueteLogic{
 
-    @PersistenceContext(unitName = "SportClassPU")
+    @PersistenceContext(unitName = "PaquetePU")
     protected EntityManager entityManager;
 
-    public PaqueteDTO createPaquete(PaqueteDTO country) {
-        PaqueteEntity entity = PaqueteConverter.persistenceDTO2Entity(country);
+    public PaqueteDTO createPaquete(PaqueteDTO paquete) {
+        PaqueteEntity entity = PaqueteConverter.persistenceDTO2Entity(paquete);
         entityManager.persist(entity);
         return PaqueteConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<PaqueteDTO> getPaquetes() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+    public List<PaqueteDTO> getPaquetes() 
+    {
+        Query q = entityManager.createQuery("select u from PaqueteEntity u");
         return PaqueteConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public PaquetePageDTO getPaquete(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from CountryEntity u");
+        Query count = entityManager.createQuery("select count(u) from PaqueteEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from PaqueteEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
@@ -50,19 +51,16 @@ public class PaqueteLogic implements IPaqueteLogic{
         entityManager.remove(entity);
     }
 
-    public void updatePaquete(PaqueteDTO country) {
-        PaqueteEntity entity = entityManager.merge(PaqueteConverter.persistenceDTO2Entity(country));
+    public void updatePaquete(PaqueteDTO pauqete) {
+        PaqueteEntity entity = entityManager.merge(PaqueteConverter.persistenceDTO2Entity(pauqete));
         PaqueteConverter.entity2PersistenceDTO(entity);
     }
 
     public List<PaqueteDTO> getServices() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MAX(v.population) from CountryEntity v)");
-         PaqueteConverter.entity2PersistenceDTO((PaqueteEntity)query.getSingleResult());
+        Query query = entityManager.createQuery("select u.servicios from PaqueteEntity u");
+         PaqueteConverter.entity2PersistenceDTO((PaqueteEntity)query.getResultList());
          return null;
     }
 
-    public PaqueteDTO getLeastPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MIN(v.population) from CountryEntity v)");
-        return PaqueteConverter.entity2PersistenceDTO((PaqueteEntity)query.getSingleResult());
-    }
+  
 }

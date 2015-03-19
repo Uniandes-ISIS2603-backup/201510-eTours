@@ -14,13 +14,14 @@ import java.util.List;
  *
  * @author afesguerra
  */
-public class PaqueteConverter {
+public class PaqueteConverter 
+{
     public static PaqueteDTO entity2PersistenceDTO(PaqueteEntity entity) {
         if (entity != null) {
             PaqueteDTO dto = new PaqueteDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setPopulation(entity.getPopulation());
+            dto.setDescuento(entity.getDescuento());
+            dto.setServices(entity.getServices());
             return dto;
         } else {
             return null;
@@ -32,9 +33,9 @@ public class PaqueteConverter {
             PaqueteEntity entity = new PaqueteEntity();
             entity.setId(dto.getId());
 
-            entity.setName(dto.getName());
+            entity.setDescuento(dto.getDescuento());
 
-            entity.setPopulation(dto.getPopulation());
+            entity.setServices(dto.getServices());
 
             return entity;
         } else {
