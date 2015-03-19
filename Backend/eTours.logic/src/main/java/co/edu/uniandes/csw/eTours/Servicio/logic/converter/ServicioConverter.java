@@ -35,12 +35,54 @@ import java.util.List;
 public class ServicioConverter {
 
     public static ServicioDTO entity2PersistenceDTO(ServicioEntity entity) {
+        /**
+          
+            id: '' /*Tipo Number
+            nombre: '' /*Tipo String
+            precio: '' /*Tipo Number*
+            descripción: '' /*Tipo String
+            categoria: '' /*Tipo Number
+            precio: '' /*Tipo Number*
+            descripcion: '' /*Tipo String*
+            categoria: '' /*Tipo Number
+            direccion: '' /*Tipo String*
+            telefono: '' /*Tipo String*
+            habitacion: '' /*Tipo Number*
+            cantMin: '' /*Tipo Number*
+            cantMax: '' /*Tipo Number*
+            telefono: '' /*Tipo String*
+            guia: '' /*Tipo String*
+            cantidadPersonas: '' /*Tipo Number*
+            puntoEncuentro: '' /*Tipo String*
+            fechaPaseo: '' /*Tipo Date*
+            mesa: '' /*Tipo Number*
+            horaInicio: '' /*Tipo String*
+            horaFin: '' /*Tipo String*
+            idProveedor: '' /* Tipo Number
+         */
+        
+     
+    
         if (entity != null) {
             ServicioDTO dto = new ServicioDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setMinAge(entity.getMinAge());
-            dto.setMaxAge(entity.getMaxAge());
+            dto.setNombre(entity.getNombre());
+            dto.setDescripcion(entity.getDescripcion());
+            dto.setCategoria(entity.getCategoria());
+            dto.setPrecio(entity.getPrecio());
+            dto.setDireccion(entity.getDireccion());
+            dto.setTelefono(entity.getTelefono());
+            dto.setHabitacion(entity.getHabitacion());
+            dto.setCantMax(entity.getCantMax());
+            dto.setCantMin(entity.getCantMin());
+            dto.setGuia(entity.getGuia());
+            dto.setCantidadPersonas(entity.getCantidadPersonas());
+            dto.setPuntoEncuentro(entity.getPuntoEncuentro());
+            dto.setFechaPaseo(entity.getFechaPaseo());
+            dto.setMesa(entity.getMesa());
+            dto.setHoraFin(entity.getHoraFin());
+            dto.setHoraInicio(entity.getHoraInicio());
+            dto.setIdProveedor(entity.getIdProveedor());
             return dto;
         } else {
             return null;
@@ -48,18 +90,34 @@ public class ServicioConverter {
     }
 
     public static ServicioEntity persistenceDTO2Entity(ServicioDTO dto) {
-        if (dto != null) {
+        if (dto != null) 
+        {
             ServicioEntity entity = new ServicioEntity();
             entity.setId(dto.getId());
 
-            entity.setName(dto.getName());
-
-            entity.setMinAge(dto.getMinAge());
-
-            entity.setMaxAge(dto.getMaxAge());
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setCategoria(dto.getCategoria());
+            entity.setPrecio(dto.getPrecio());
+            entity.setDireccion(dto.getDireccion());
+            entity.setTelefono(dto.getTelefono());
+            entity.setHabitacion(dto.getHabitacion());
+            entity.setCantMax(dto.getCantMax());
+            entity.setCantMin(dto.getCantMin());
+            entity.setGuia(dto.getGuia());
+            entity.setCantidadPersonas(dto.getCantidadPersonas());
+            entity.setPuntoEncuentro(dto.getPuntoEncuentro());
+            entity.setFechaPaseo(dto.getFechaPaseo());
+            entity.setMesa(dto.getMesa());
+            entity.setHoraFin(dto.getHoraFin());
+            entity.setHoraInicio(dto.getHoraInicio());
+            entity.setIdProveedor(dto.getIdProveedor());
 
             return entity;
-        } else {
+        } 
+        else 
+        {
             return null;
         }
     }
