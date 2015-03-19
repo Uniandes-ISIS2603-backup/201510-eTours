@@ -27,6 +27,6 @@ public interface IEventoLogic {
 
     public void updateEvento(EventoDTO detail);
     
-    public String formatFecha(int tipo, Long id);
+    public String formatFecha(int tipo, Long id) throws Exception;
     
 }
