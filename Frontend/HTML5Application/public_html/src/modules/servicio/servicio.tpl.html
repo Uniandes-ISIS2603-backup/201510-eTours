@@ -1,4 +1,5 @@
 <div ng-controller="servicioCtrl as servicioCtrl">
+	<div class="container">
 	<div id="header">
 		<nav class="navbar navbar-default" role="navigation" id="nav-servicios">
 			<div class="container-fluid">
@@ -88,13 +89,12 @@
     
 	
 	<div ng-show="servicioCtrl.editMode">
-		<form name="agregarServicio" id="agregarServicio">
+	    <form name="agregarServicio" id="agregarServicio">
 			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
 				<label for="name">Nombre del servicio</label>
 				<input id="name" class="form-control" type="text" ng-model="currentRecord.nombre"/>
 			</div>
-			
 			<div class="form-group">
 				<label>Descripción:</label>
 				<input class="form-control" type="text" ng-model="currentRecord.descripcion"/>
@@ -109,14 +109,12 @@
                         </div>
                         <div class="form-group">
                                 Tipo de servicio: 
-                                <select ng-model="currentRecord.tipoServicio">
+                                <select class="form-control" ng-model="currentRecord.tipoServicio">
                                     <option value="paseo">Paseo</option>
                                     <option value="hotel">Hotel</option>
                                     <option value="alimentacion">Alimentacion</option>
                                 </select>
-                                
-                                
-			</div>
+			            </div>
                         <div ng-if="currentRecord.tipoServicio==='paseo'" >
                             <label>Guía ecológico:"</label>
                             <input  type="text" ng-model="currentRecord.guia" class="form-control"/>
@@ -181,10 +179,9 @@
                         <div class="form-group">
                             <label>Cargar imagen</label>
                             <input type="file" ng-model="currentRecord.imagen" class="form-control"/>
-                        </div>
-                        
-                        {{currentRecord}}
+                        </div>                        
 		</form>
+	</div>
 	</div>
 </div>
 
