@@ -1,13 +1,13 @@
-package co.edu.uniandes.csw.SportGroup.country.logic.dto;
+package co.edu.uniandes.csw.eTours.Paquete.logic.dto;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class CountryPageDTO {
+public class PaquetePageDTO {
     private Long totalRecords;
 
-    private List<CountryDTO> records;
+    private List<PaqueteDTO> records;
 
     public Long getTotalRecords() {
         return totalRecords;
@@ -17,11 +17,11 @@ public class CountryPageDTO {
         this.totalRecords = totalRecords;
     }
 
-    public List<CountryDTO> getRecords() {
+    public List<PaqueteDTO> getRecords() {
         return records;
     }
 
-    public void setRecords(List<CountryDTO> records) {
+    public void setRecords(List<PaqueteDTO> records) {
         this.records = records;
     }
 }

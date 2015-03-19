@@ -1,13 +1,16 @@
-package co.edu.uniandes.csw.SportGroup.country.logic.dto;
+package co.edu.uniandes.csw.eTours.Paquete.entity;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@XmlRootElement
-public class CountryDTO {
+@Entity
+public class PaqueteEntity {
+
+    @Id
+    @GeneratedValue(generator = "Country")
     private Long id;
-
     private String name;
-
     private Integer population;
 
     public Long getId() {

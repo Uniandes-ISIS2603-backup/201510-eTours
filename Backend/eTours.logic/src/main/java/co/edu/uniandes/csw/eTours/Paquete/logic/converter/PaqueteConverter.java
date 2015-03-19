@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.eTours.Paquete.logic.converter;
 
-import co.edu.uniandes.csw.eTours.Paquete.logic.dto.CountryDTO;
-import co.edu.uniandes.csw.eTours.Paquete.entity.CountryEntity;
+import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaqueteDTO;
+import co.edu.uniandes.csw.eTours.Paquete.entity.PaqueteEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +14,10 @@ import java.util.List;
  *
  * @author afesguerra
  */
-public class CountryConverter {
-    public static CountryDTO entity2PersistenceDTO(CountryEntity entity) {
+public class PaqueteConverter {
+    public static PaqueteDTO entity2PersistenceDTO(PaqueteEntity entity) {
         if (entity != null) {
-            CountryDTO dto = new CountryDTO();
+            PaqueteDTO dto = new PaqueteDTO();
             dto.setId(entity.getId());
             dto.setName(entity.getName());
             dto.setPopulation(entity.getPopulation());
@@ -27,9 +27,9 @@ public class CountryConverter {
         }
     }
 
-    public static CountryEntity persistenceDTO2Entity(CountryDTO dto) {
+    public static PaqueteEntity persistenceDTO2Entity(PaqueteDTO dto) {
         if (dto != null) {
-            CountryEntity entity = new CountryEntity();
+            PaqueteEntity entity = new PaqueteEntity();
             entity.setId(dto.getId());
 
             entity.setName(dto.getName());
@@ -42,17 +42,17 @@ public class CountryConverter {
         }
     }
 
-    public static List<CountryDTO> entity2PersistenceDTOList(List<CountryEntity> entities) {
-        List<CountryDTO> dtos = new ArrayList<CountryDTO>();
-        for (CountryEntity entity : entities) {
+    public static List<PaqueteDTO> entity2PersistenceDTOList(List<PaqueteEntity> entities) {
+        List<PaqueteDTO> dtos = new ArrayList<PaqueteDTO>();
+        for (PaqueteEntity entity : entities) {
             dtos.add(entity2PersistenceDTO(entity));
         }
         return dtos;
     }
 
-    public static List<CountryEntity> persistenceDTO2EntityList(List<CountryDTO> dtos) {
-        List<CountryEntity> entities = new ArrayList<CountryEntity>();
-        for (CountryDTO dto : dtos) {
+    public static List<PaqueteEntity> persistenceDTO2EntityList(List<PaqueteDTO> dtos) {
+        List<PaqueteEntity> entities = new ArrayList<PaqueteEntity>();
+        for (PaqueteDTO dto : dtos) {
             entities.add(persistenceDTO2Entity(dto));
         }
         return entities;
