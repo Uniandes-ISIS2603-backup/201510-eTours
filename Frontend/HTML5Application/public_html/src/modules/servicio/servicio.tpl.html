@@ -109,11 +109,13 @@
                         </div>
                         <div class="form-group">
                                 Tipo de servicio: 
-                                <input type="text" ng-model="currentRecord.tipoServicio">
+                                <select ng-model="currentRecord.tipoServicio">
+                                    <option value="paseo">Paseo</option>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="alimentacion">Alimentaci�n</option>
+                                </select>
                                 
-                                <input type="radio" form="agregarServicio" id="svc_hotel"  ng-model="currentRecord.tipoServicioR" ng-value="hotel" class="form-group" />Hotel
-                                <input type="radio" form="agregarServicio"  id="svc_alimentacion" ng-model="currentRecord.tipoServicioR" ng-value="alimentacion"  class="form-group-lg"/> Alimentación 
-                                <input type="radio" form="agregarServicio"  id="svc_paseo" ng-model="currentRecord.tipoServicioR" ng-value="paseo" checked="false"  class="form-group-sm"/>Paseo
+                                
 			</div>
                         <div ng-if="currentRecord.tipoServicio==='paseo'" >
                             <label>Guía ecológico:"</label>
