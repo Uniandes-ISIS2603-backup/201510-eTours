@@ -88,4 +88,40 @@ public class ServicioLogic implements IServicioLogic {
         ServicioEntity entity = entityManager.merge(ServicioConverter.persistenceDTO2Entity(sport));
         ServicioConverter.entity2PersistenceDTO(entity);
     }
+
+    public ServicioDTO createServicio(ServicioDTO detail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<ServicioDTO> getServicios() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<ServicioDTO> getServiciosProveedor(Long id_Proveedor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<ServicioDTO> getServiciosCategoria(String nombreCategoria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<ServicioDTO> getServiciosProveedorCategoria(Long id_Proveedor, String nombreCategoria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ServicioPageDTO getServicios(Integer page, Integer maxRecords) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ServicioDTO getServicio(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void deleteServicio(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void updateServicio(ServicioDTO detail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
