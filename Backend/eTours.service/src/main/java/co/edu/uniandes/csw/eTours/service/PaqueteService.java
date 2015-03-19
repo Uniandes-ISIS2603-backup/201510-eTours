@@ -52,8 +52,8 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/paquete")
 public class PaqueteService {
-
-    @Inject
+    
+    @Inject 
     protected IPaqueteLogic paqueteLogicService;
 
     @POST

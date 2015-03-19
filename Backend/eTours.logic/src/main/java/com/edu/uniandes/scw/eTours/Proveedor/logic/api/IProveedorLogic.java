@@ -16,17 +16,17 @@ import java.util.List;
  */
 public interface IProveedorLogic {
 
-     public PaqueteDTO createPaquete(PaqueteDTO detail);
+    public PaqueteDTO createPaquete(PaqueteDTO detail);
        
     
-     public List<PaqueteDTO> getPaquetes();
+    public List<PaqueteDTO> getPaquetes();
     
     
     public PaquetePageDTO getPaquete(Integer page, Integer maxRecords);
 
        
     
-public PaqueteDTO getPaquete(Long id);
+    public PaqueteDTO getPaquete(Long id);
 
 
     public void deletePaquete(Long id);

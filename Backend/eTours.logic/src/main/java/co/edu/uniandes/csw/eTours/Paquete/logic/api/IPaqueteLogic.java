@@ -25,7 +25,7 @@ public interface IPaqueteLogic {
 
        
     
-public PaqueteDTO getPaquete(Long id);
+    public PaqueteDTO getPaquete(Long id);
 
 
     public void deletePaquete(Long id);
