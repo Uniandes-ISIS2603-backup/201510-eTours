@@ -1,5 +1,5 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelModule', 'noticiaModule', 'paqueteModule', 'signupModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelesModule', 'noticiaModule', 'paqueteModule', 'signupModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
@@ -25,11 +25,21 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         when('/noticia', {
             templateUrl: '../src/modules/noticia/noticia.tpl.html'
         }).
+        when('/hoteles', {
+            templateUrl: '../src/modules/hoteles/hoteles.tpl.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
     }]);
 
+    //Configuracion modulo hoteles
+    var hotelesModule = angular.module('hotelesModule', ['CrudModule', 'MockModule']);
+    hotelesModule.constant('hotel.context', 'hoteles');
+    hotelesModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
     //Configuración modulo login
     var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
     loginModule.constant('login.context', 'login');
@@ -55,13 +65,6 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
     var servicioModule = angular.module('servicioModule', ['CrudModule', 'MockModule']);
     servicioModule.constant('servicio.context', 'servicios');
     servicioModule.config(['servicio.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
-        urlsProvider.registerUrl(context);
-    }]);
-
-    //Configuración del módulo hotel
-    var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
-    hotelModule.constant('hotel.context', 'hoteles');
-    hotelModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
     
