@@ -6,13 +6,14 @@
 			CRUDUtils.extendCtrl(this, $scope);
 			this.fetchRecords();  
                         
-                        this.darTitulo= function(nTitulo)
+                        this.darTitulo= function()
                                 {
                                     titulos = [];
+                                    t=$scope.record.nTitulo;
                                     for(var i =0;i< $scope.records.length;i++)
                                     {
                                         var actual = $scope.records[i];
-                                        if(actual.titulo===nTitulo)
+                                        if(actual.titulo===t)
                                         {
                                            titulos.push(actual);
                                         }

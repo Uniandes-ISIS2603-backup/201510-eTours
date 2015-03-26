@@ -19,8 +19,8 @@
 				<div class="collapse navbar-collapse" id="country-navbar">
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
                                         <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo(ng-model.nTitulo)"><span class="glyphicon glyphicon-refresh"></span> Dar por titulo</button>
-                                        <input type="text" id="nTitulo" ng-hide="noticiaCtrl.editMode" class="form-control" required="">
+                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo()"><span class="glyphicon glyphicon-refresh"></span> Dar por titulo</button>
+                                        <input type="text" id="nTitulo" ng-model="record.nTitulo" ng-hide="noticiaCtrl.editMode" class="form-control" required="">
                                         
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
