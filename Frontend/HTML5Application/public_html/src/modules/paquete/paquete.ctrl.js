@@ -9,9 +9,7 @@
 
             
             
-paqueteRecords.fetchRecords().then(function(data){
-$scope.paqueteRecords = data;
-});
+
 
              this.armarListaScope = function($scope){
                 

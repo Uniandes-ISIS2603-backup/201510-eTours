@@ -1,6 +1,6 @@
 (function () 
 {
-var mocksModule = angular.module('paqueteModule', ['paqueteCtrl']);
+var mocksModule = angular.module('paqueteModule');
 
 	mocksModule.run(['$httpBackend', 'MockModule.urls', function ($httpBackend, urls) {
 			function mockUrls(url) {
