@@ -1,18 +1,32 @@
 <div ng-controller="hotelesCtrl as hotelesCtrl">
     <div class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6" ng-repeat="record in records">
-                        <div class="contenedor">
-                            <h1>{{record.nombre}}</h1>
-                            <img src="../src/assets/img/VW.jpeg" alt="" id="xxx">
-                            <a href="" class="btn btn-default btn-lg" id="btnCartCatalog">{{record.precio}}</a>
+        <ul class="list-group">
+            <li ng-repeat="record in records">
+                <div class="panel panel-default" id="myPanel">
+                    <div class="panel-heading" id="encabezado">
+                        <h4>{{record.nombre}}</h4>
+                    </div>
+                    <div class="panel-body" id="cuerpo">
+                       <div class="panel-info">
+                            <h5>{{record.descripcion}}</h5>
+                        </div><br>
+                        <div class="panel-foto" style="text-align:center;">
+                            <img id="xxx" src="../src/assets/img/buceo.png" alt="">
+                            <img id="xxx" src="../src/assets/img/arctic.png" alt="">
+                            <img id="xxx" src="../src/assets/img/beach-guitar.jpeg" alt="">
+                            <img id="xxx" src="../src/assets/img/beach.jpeg" alt="">
+                            <img id="xxx" src="../src/assets/img/alimentacion.jpg" alt="">
+                        </div><br>
+                        <div class="panel-button" style="text-align:center;">
+                            <button class="btn btn-default btn-lg">Reservar</button>
+                            <button class="btn btn-default btn-lg">Informacion</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </li>
+        </ul>
     </div>
-    <div class="container" style="background-color:rgba(246,246,246,0.5); padding-top:15px;">
+    <div class="container">
     <nav class="navbar navbar-default" role="navigation" id="nav-eventos">
 		<div class="container-fluid">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -41,9 +55,6 @@
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Descripcion del Hotel" id="descripcion" ng-model="currentRecord.descripcion">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Precio Por Noche" id="precio" ng-model="currentRecord.precio">
             </div>
         </form>
     </div>

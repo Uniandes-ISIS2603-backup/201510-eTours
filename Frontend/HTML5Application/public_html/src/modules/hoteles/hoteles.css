@@ -3,8 +3,8 @@
 }
 
 #xxx {
-    width: 180px;
-    height: 180px;
+    width: 280px;
+    height: 200px;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 5px;
@@ -20,6 +20,7 @@
 
 .header {
     padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #encabezado {
@@ -32,4 +33,16 @@
 
 #cuerpo {
     background-color: rgba(246,246,246,0.3);
+}
+.contenedor {
+    background-color:rgba(246,246,246,0.4);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+
+
+#btnCartCatalog:hover{
+    
 }
