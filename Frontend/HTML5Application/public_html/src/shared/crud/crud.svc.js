@@ -1,7 +1,7 @@
 (function () {
 	var crud = angular.module('CrudModule');
 
-	crud.factory('CRUDUtils', ['Restangular', function (RestAngular) {
+	crud.factory('CRUDUtils', ['Restangular', function (RestAngular, $localStorage) {
 			function CRUD($scope) {
 				this.api = RestAngular.all(this.url);
 				$scope.currentRecord = {};
@@ -33,16 +33,20 @@
 							self.fetchRecords();
 						});
 					}
+                                        
+                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
 				};
 				this.deleteRecord = function (record) {
 					var self = this;
 					record.remove().then(function () {
 						self.fetchRecords();
 					});
+                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
 				};
 				this.editRecord = function (record) {
 					$scope.currentRecord = RestAngular.copy(record);
 					this.editMode = true;
+                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
 				};
 			}
 			;
