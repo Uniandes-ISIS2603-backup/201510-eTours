@@ -1,5 +1,5 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelesModule', 'noticiaModule', 'paqueteModule', 'signupModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelesModule', 'noticiaModule', 'paqueteModule', 'signupModule', 'restaurantesModule', 'paseosModule', 'hotelModule', 'restauranteModule', 'hotelModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
@@ -28,15 +28,65 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         when('/hoteles', {
             templateUrl: '../src/modules/hoteles/hoteles.tpl.html'
         }).
+        when('/restaurantes', {
+            templateUrl: '../src/modules/restaurantes/restaurantes.tpl.html'
+        }).
+        when('/paseos', {
+            templateUrl: '../src/modules/paseos/paseos.tpl.html'
+        }).
+        when('/hotel', {
+            templateUrl: '../src/modules/hotel/hotel.tpl.html'
+        }).
+        when('/restaurante', {
+            templateUrl: '../src/modules/restaurante/restaurante.tpl.html'
+        }).
+        when('/paseo', {
+            templateUrl: '../src/modules/paseo/paseo.tpl.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
     }]);
 
+    //Configuracion modulo paseos
+    var paseoModule = angular.module('paseoModule', ['CrudModule', 'MockModule']);
+    paseoModule.constant('paseo.context', 'paseo');
+    paseoModule.config(['paseo.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuracion modulo paseos
+    var restauranteModule = angular.module('restauranteModule', ['CrudModule', 'MockModule']);
+    restauranteModule.constant('restaurante.context', 'restaurante');
+    restauranteModule.config(['restaurante.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuracion modulo paseos
+    var hotelModule = angular.module('hotelModule', ['CrudModule', 'MockModule']);
+    hotelModule.constant('hotel.context', 'hotel');
+    hotelModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuracion modulo paseos
+    var paseosModule = angular.module('paseosModule', ['CrudModule', 'MockModule']);
+    paseosModule.constant('paseo.context', 'paseos');
+    paseosModule.config(['paseo.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuracion modulo restaurantes
+    var restaurantesModule = angular.module('restaurantesModule', ['CrudModule', 'MockModule']);
+    restaurantesModule.constant('restaurantes.context', 'restaurantes');
+    restaurantesModule.config(['restaurantes.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
     //Configuracion modulo hoteles
     var hotelesModule = angular.module('hotelesModule', ['CrudModule', 'MockModule']);
-    hotelesModule.constant('hotel.context', 'hoteles');
-    hotelesModule.config(['hotel.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+    hotelesModule.constant('hoteles.context', 'hoteles');
+    hotelesModule.config(['hoteles.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
     
