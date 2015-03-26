@@ -1,32 +1,24 @@
-<div ng-controller="hotelesCtrl as hotelesCtrl">
+<div ng-controller="restaurantesCtrl as restaurantesCtrl">
     <div class="header">
-        <ul class="list-group">
-            <li ng-repeat="record in records">
-                <div class="panel panel-default" id="myPanel">
-                    <div class="panel-heading" id="encabezado">
-                        <h4>{{record.nombre}}</h4>
-                    </div>
-                    <div class="panel-body" id="cuerpo">
-                       <div class="panel-info">
-                            <h5>{{record.descripcion}}</h5>
-                        </div><br>
-                        <div class="panel-foto" style="text-align:center;">
-                            <img id="xxx" src="../src/assets/img/buceo.png" alt="">
-                            <img id="xxx" src="../src/assets/img/arctic.png" alt="">
-                            <img id="xxx" src="../src/assets/img/beach-guitar.jpeg" alt="">
-                            <img id="xxx" src="../src/assets/img/beach.jpeg" alt="">
-                            <img id="xxx" src="../src/assets/img/alimentacion.jpg" alt="">
-                        </div><br>
-                        <div class="panel-button" style="text-align:center;">
-                            <button class="btn btn-default btn-lg">Reservar</button>
-                            <button class="btn btn-default btn-lg">Informacion</button>
+            <div class="container">
+                <div class="row">
+                    {{restaurantesCtrl.imageFeatured()}}
+                    <div class="col-md-4 col-sm-4" ng-repeat="record in records" id="xas">
+                        <div class="contenedor">
+                            <h2>{{record.nombre}}, comida {{record.tipocomida}}</h2>
+                            <img ng-src="{{featured === 1 && '../src/assets/img/VW.jpeg' || 
+                                           featured === 2 && '../src/assets/img/beach-vigilant.jpeg' ||
+                                           featured === 3 && '../src/assets/img/Foto.png' ||
+                                                             '../src/assets/img/beach.jpeg'}}" id="xxx">
+                            <p id="pes">{{record.descripcion}}</p>
+                            <a href="" class="btn btn-default btn-lg" id="btnCartCatalog"><span>${{record.precio}}</span><p>¡Reservar!</p></a>
                         </div>
-                    </div>
+                        {{restaurantesCtrl.changeImageFeatured()}}
+                    </div> 
                 </div>
-            </li>
-        </ul>
+            </div>
     </div>
-    <div class="container">
+    <div class="container" style="background-color:rgba(246,246,246,0.5); padding-top:15px;">
     <nav class="navbar navbar-default" role="navigation" id="nav-eventos">
 		<div class="container-fluid">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -37,24 +29,30 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand">Hoteles eTours</a>
+		<a class="navbar-brand">Restaurantes eTours</a>
 	</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="evento-navbar">
-		<button class="btn btn-default navbar-btn" ng-click="hotelesCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Hoteles</button>
-		<button class="btn btn-default navbar-btn" ng-click="hotelesCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Hotel</button>
+		<button class="btn btn-default navbar-btn" ng-click="restaurantesCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Restaurantes</button>
+		<button class="btn btn-default navbar-btn" ng-click="restaurantesCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Restaurante</button>
 	</div>
 		</div>
 	</nav>
     
     <div class="form">
-        <form name="hotelesForm" role="form">
+        <form name="restaurantesForm" role="form">
             <div class="form-group">
                <br>    
-                <input class="form-control" type="text" placeholder="Nombre del Hotel" id="nombre" ng-model="currentRecord.nombre">
+                <input class="form-control" type="text" placeholder="Nombre del Restaurante" id="nombre" ng-model="currentRecord.nombre">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Descripcion del Hotel" id="descripcion" ng-model="currentRecord.descripcion">
+                <input class="form-control" type="text" placeholder="Descripcion del Restaurante" id="descripcion" ng-model="currentRecord.descripcion">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Tipo de comida" id="tipo-comida" ng-model="currentRecord.tipocomida">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Precio Promedio Por Plato" id="precio" ng-model="currentRecord.precio">
             </div>
         </form>
     </div>

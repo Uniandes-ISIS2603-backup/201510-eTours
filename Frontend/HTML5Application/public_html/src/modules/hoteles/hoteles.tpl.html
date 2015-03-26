@@ -2,13 +2,19 @@
     <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6" ng-repeat="record in records">
+                    {{hotelesCtrl.imageFeatured()}}
+                    <div class="col-md-4 col-sm-4" ng-repeat="record in records" id="xas">
                         <div class="contenedor">
                             <h1>{{record.nombre}}</h1>
-                            <img src="../src/assets/img/VW.jpeg" alt="" id="xxx">
-                            <a href="" class="btn btn-default btn-lg" id="btnCartCatalog">{{record.precio}}</a>
+                            <img ng-src="{{featured === 1 && '../src/assets/img/VW.jpeg' || 
+                                           featured === 2 && '../src/assets/img/beach-vigilant.jpeg' ||
+                                           featured === 3 && '../src/assets/img/Foto.png' ||
+                                                             '../src/assets/img/beach.jpeg'}}" id="xxx">
+                            <p id="pes">{{record.descripcion}}</p>
+                            <a href="" class="btn btn-default btn-lg" id="btnCartCatalog"><span>${{record.precio}}</span><p>¡Reservar!</p></a>
                         </div>
-                    </div>
+                        {{hotelesCtrl.changeImageFeatured()}}
+                    </div> 
                 </div>
             </div>
     </div>

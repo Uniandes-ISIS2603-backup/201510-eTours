@@ -9,6 +9,7 @@
     margin-right: 10px;
     border-radius: 5px;
     opacity: 0.9;
+    padding-bottom: 20px;
 }
 
 .miItem {
@@ -38,11 +39,32 @@
     background-color:rgba(246,246,246,0.4);
     text-align: center;
     padding-top: 30px;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
+}
+
+.contenedor:hover {
+    background-color: rgba(87,208,191,0.5);
+}
+
+#btnCartCatalog p{
+    display: none;
+}
+
+#btnCartCatalog:hover span{
+    display: none;
+}
+
+#btnCartCatalog:hover p{
+    display: inline;
 }
 
 
+#xas {
+    padding-bottom: 25px;
+}
 
-#btnCartCatalog:hover{
-    
+#pes {
+    padding-bottom: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
