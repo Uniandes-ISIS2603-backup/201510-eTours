@@ -66,8 +66,8 @@ public class NoticiaService
     }
     
     @GET
-    @Path("{fechaInicial}")
-    public List<NoticiaDTO> getNoticias(@PathParam("fechaInicial") Date fechaInicial) {
-        return noticiaLogicService.getNoticiasFecha(fechaInicial);
+    @Path("{fecha}")
+    public List<NoticiaDTO> getNoticias(@PathParam("fecha") Date fecha) {
+        return noticiaLogicService.getNoticiasFecha(fecha);
     }
 }
