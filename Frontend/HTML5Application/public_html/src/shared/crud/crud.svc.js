@@ -15,6 +15,7 @@
 						$scope.currentRecord = {};
 						self.editMode = false;
 					});
+                                        localStorage.setItem('servicios', JSON.stringify($scope.records));
 				};
                               
                                 
@@ -34,19 +35,19 @@
 						});
 					}
                                         
-                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
+                                        localStorage.setItem('servicios', JSON.stringify($scope.records));
 				};
 				this.deleteRecord = function (record) {
 					var self = this;
 					record.remove().then(function () {
 						self.fetchRecords();
 					});
-                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
+                                        localStorage.setItem('servicios', JSON.stringify($scope.records));
 				};
 				this.editRecord = function (record) {
 					$scope.currentRecord = RestAngular.copy(record);
 					this.editMode = true;
-                                        localStorage.setItem('servicios', JSON.stringify(self.fetchRecords()));
+                                        localStorage.setItem('servicios', JSON.stringify($scope.records));
 				};
 			}
 			;
