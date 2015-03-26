@@ -23,21 +23,21 @@
 		</div>
 		
 		<div class="collapse navbar-collapse" id="evento-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.createRecord()" ><span class="glyphicon glyphicon-plus"></span> Crear Paquete</button>
-					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar paquete</button>
 					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 		</div>
 	
 
 <div ng-hide="paqueteCtrl.editMode" id="paquete-edit-mode">
 		<form name="paqueteform" role="form">
-			 <div class="form-group">
-				<label for="paseo">Nombre Estadia </label>
-				<input id="paseo" class="form-control" type="text" ng-model="currentRecord.paseo" />
+				<div class="form-group">
+				<label for="estadia">Nombre Estadia</label>
+				<select id="estadia" class="form-control" ng-options="servicios.hoteles as estadia.name for servicios
+in serviciosRecords" ng-model="currentRecord.estadia"> </select>
 			</div>
 				<div class="form-group">
 				<label for="alimentacion">Nombre Alimentacion</label>
-			<select id="alimentacion" class="form-control" ng-options="servicios.id as alimentacion.name for servicios
+			<select id="alimentacion" class="form-control" ng-options="servicios.restaurantes as alimentacion.name for servicios
 in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
 			
 			
@@ -46,7 +46,8 @@ in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
 			</div>
             <div class="form-group">
 				<label for="paseo">Nombre Paseo </label>
-				<input id="paseo" class="form-control" type="text" ng-model="currentRecord.paseo" />
+				<select id="paseo" class="form-control" ng-options="servicios.paseos as paseo.name for servicios
+in serviciosRecords" ng-model="currentRecord.paseo"> </select>
 			</div>
 			
 			      <div class="form-group">
@@ -84,6 +85,7 @@ in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
                         </div>       
                         <div class="panel-body">
                             <p>Entrada: </p>
+                            <p>{{record.estadia}}</p>
                             <p>{{record.alimentacion}}</p>
                             <p>{{record.paseo}}</p>
                             <p>{{record.descuento}}</p>
