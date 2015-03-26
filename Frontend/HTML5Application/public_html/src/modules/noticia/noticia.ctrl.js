@@ -5,11 +5,30 @@
 			this.url = context;
 			CRUDUtils.extendCtrl(this, $scope);
 			this.fetchRecords();  
-                        
+        
+                          this.formatFecha = function(fechaEvento){
+                
+                fechaEvento = new Date(fechaEvento);
+                
+                var weekday = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+                
+                var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                                    "Julio", "Augosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                
+                
+                var dia = fechaEvento.getDate();                
+                var nombreMes = monthNames[fechaEvento.getMonth()];
+                var nombreDia = weekday[fechaEvento.getDay()];
+                
+                 var fechaString = nombreDia+', '+dia+' de '+nombreMes;
+                
+                return fechaString;
+                
+            };
                         this.darTitulo= function()
                                 {
                                     titulos = [];
-                                    t=$scope.record.nTitulo;
+                                    t=document.getElementById('nTitulo').value;
                                     for(var i =0;i< $scope.records.length;i++)
                                     {
                                         var actual = $scope.records[i];
@@ -19,6 +38,7 @@
                                         }
                                     }
                                     $scope.currentRecords=titulos;
+                                    this.fetchRecords(); 
                                 };
                                 
                         this.darFecha= function(nFecha)
