@@ -22,6 +22,7 @@
 				this.createRecord = function () {
 					this.editMode = true;
 					$scope.currentRecord = {};
+                                        localStorage.setItem('servicios', JSON.stringify($scope.records));
 				};
 				this.saveRecord = function () {
 					var self = this;
