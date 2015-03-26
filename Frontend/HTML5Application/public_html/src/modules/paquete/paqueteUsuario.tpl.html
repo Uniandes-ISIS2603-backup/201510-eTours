@@ -1,0 +1,98 @@
+<div ng-controller="paqueteusrCtrl as paqueteusrCtrl">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">	
+						
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					
+	<DIV ALIGN="center" ng-hide="noticiaCtrl.editMode"><a class="navbar-brand" >Seleciona los paquetes</a>
+		
+	</div>
+		
+				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+	
+			
+			</div>
+		</nav>
+	
+		</div>
+		
+		<div class="collapse navbar-collapse" id="evento-navbar">
+					<button class="btn btn-default navbar-btn" ng-hide="paqueteusrCtrl.editMode" ng-click="paqueteusrCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span>Reservar</button>
+					<button class="btn btn-default navbar-btn" ng-hide="paqueteusrCtrl.editMode" ng-click="paqueteusrCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+		</div>
+	
+
+<div ng-hide="paqueteusrCtrl.editMode" id="paquete-edit-mode">
+		<form name="paqueteform" role="form">
+				<div class="form-group">
+				<label for="estadia">Nombre Estadia</label>
+				<select id="estadia" class="form-control" ng-options="servicios.hoteles as estadia.name for servicios
+in serviciosRecords" ng-model="currentRecord.estadia"> </select>
+			</div>
+				<div class="form-group">
+				<label for="alimentacion">Nombre Alimentacion</label>
+			<select id="alimentacion" class="form-control" ng-options="servicios.restaurantes as alimentacion.name for servicios
+in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
+			
+			
+			
+			
+			</div>
+            <div class="form-group">
+				<label for="paseo">Nombre Paseo </label>
+				<select id="paseo" class="form-control" ng-options="servicios.paseos as paseo.name for servicios
+in serviciosRecords" ng-model="currentRecord.paseo"> </select>
+			</div>
+			
+
+	
+		<div id="headerer">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">					
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					
+				<DIV ALIGN="center"><a class="navbar-brand" >Paquetes disponibles  </a>
+				</div>
+				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+	 
+			</div>
+
+		</nav>
+	</div>
+	
+	
+  <div ng-s="paqueteusrCtrl.editMode">
+            <div ng-repeat="record in records">
+                              <p>Titulo: </p>
+                            {{record.titulo}}
+                        </div>       
+                        <div class="panel-body">
+                            <p>Entrada: </p>
+                            <p>{{record.estadia}}</p>
+                            <p>{{record.alimentacion}}</p>
+                            <p>{{record.paseo}}</p>
+                            <p>{{record.descuento}}</p>
+                     
+                </div>
+             </div>
+	</div>
+	
+	
+		
+	
+
+	
+	
+	
+</div>

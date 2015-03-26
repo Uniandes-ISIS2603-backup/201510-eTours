@@ -77,7 +77,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
 
     //Configuración módulo paquete
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
-	paqueteModule.constant('paquete.context', 'paquetes');
+	paqueteModule.constant('paquete.context', 'paquete');
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);

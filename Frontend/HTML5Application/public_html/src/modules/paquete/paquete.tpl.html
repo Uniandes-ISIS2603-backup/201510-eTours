@@ -1,6 +1,7 @@
 <div ng-controller="paqueteCtrl as paqueteCtrl">
+	<div class="container">
 	<div id="header">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" role="navigation"id="nav-paquetes">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">	
@@ -9,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					
-	<DIV ALIGN="center" ng-hide="noticiaCtrl.editMode"><a class="navbar-brand" >Arma tu paquete</a>
+	<DIV ALIGN="center" ng-hide="paqueteCtrl.editMode"><a class="navbar-brand" >Arma tu paquete</a>
 		
 	</div>
 		
@@ -23,8 +24,10 @@
 		</div>
 		
 		<div class="collapse navbar-collapse" id="evento-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.saveRecord()" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar paquete</button>
-					<button class="btn btn-default navbar-btn" ng-hide="paqueteCtrl.editMode" ng-click="paqueteCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+<button class="btn btn-default navbar-btn" ng-click="paqueteCtrl.armarListaScope()"><span class="glyphicons glyphicons-plus"></span> Actualizar servicios</button>
+			
+<button class="btn btn-default navbar-btn"  ng-click="paqueteCtrl.editRecord(record)" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar paquete</button>
+<button class="btn btn-default navbar-btn" ng-click="paqueteCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 		</div>
 	
 
@@ -32,13 +35,11 @@
 		<form name="paqueteform" role="form">
 				<div class="form-group">
 				<label for="estadia">Nombre Estadia</label>
-				<select id="estadia" class="form-control" ng-options="servicios.hoteles as estadia.name for servicios
-in serviciosRecords" ng-model="currentRecord.estadia"> </select>
+				<select id="estadia" class="form-control" ng-options="servicios.nombre for hotel in servicios" ng-model="currentRecord.estadia"> </select>
 			</div>
 				<div class="form-group">
 				<label for="alimentacion">Nombre Alimentacion</label>
-			<select id="alimentacion" class="form-control" ng-options="servicios.restaurantes as alimentacion.name for servicios
-in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
+			<select id="alimentacion" class="form-control" ng-options="servicios.nombre for restaurante in servicios" ng-model="currentRecord.alimentacion"> </select>
 			
 			
 			
@@ -46,8 +47,7 @@ in serviciosRecords" ng-model="currentRecord.alimentacion"> </select>
 			</div>
             <div class="form-group">
 				<label for="paseo">Nombre Paseo </label>
-				<select id="paseo" class="form-control" ng-options="servicios.paseos as paseo.name for servicios
-in serviciosRecords" ng-model="currentRecord.paseo"> </select>
+				<select id="paseo" class="form-control" ng-options="servicios.nombre for paseo in servicios" ng-model="currentRecord.paseo"> </select>
 			</div>
 			
 			      <div class="form-group">
@@ -57,48 +57,29 @@ in serviciosRecords" ng-model="currentRecord.paseo"> </select>
 		</form>
 	</div>
 
-	
-		<div id="headerer">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">					
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					
-				<DIV ALIGN="center"><a class="navbar-brand" >Paquetes disponibles  </a>
-				</div>
-				
-				<!-- Collect the nav links, forms, and other content for toggling -->
-	 
-			</div>
 
-		</nav>
-	</div>
-	
 	
   <div ng-hide="paqueteCtrl.editMode">
             <div ng-repeat="record in records">
-                              <p>Titulo: </p>
-                            {{record.titulo}}
-                        </div>       
+                              <p>Paquetes disponibles: </p>
+                           
                         <div class="panel-body">
-                            <p>Entrada: </p>
-                            <p>{{record.estadia}}</p>
-                            <p>{{record.alimentacion}}</p>
-                            <p>{{record.paseo}}</p>
-                            <p>{{record.descuento}}</p>
+                        	{{record.estadia}}
+                            {{record.alimentacion}}
+                            {{record.paseo}}
+                            {{record.descuento}}
                      
                 </div>
              </div>
 	</div>
+	    </div>
 	
 	
 		
 	
 
-	
+		</div>
+		
 	
 	
 </div>
