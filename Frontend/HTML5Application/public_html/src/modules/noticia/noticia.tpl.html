@@ -20,7 +20,7 @@
 					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
                                         <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
                                         <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo()"><span class="glyphicon glyphicon-refresh"></span> Dar por titulo</button>
-                                        <input type="text" id="nTitulo" ng-model="record.nTitulo" ng-hide="noticiaCtrl.editMode" class="form-control" required="">
+                                        <input type="text" id="nTitulo"  ng-hide="noticiaCtrl.editMode" class="form-control" required>
                                         
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
@@ -40,8 +40,8 @@
                         <div class="panel-body">
                             <p>Entrada: </p>
                             <p>{{record.entrada}}</p>
-                            <p>{{record.fechaInicial}}</p>
-                            <p>{{record.fechaFinal}}</p>
+                            <p>{{noticiaCtrl.formatFecha(record.fechaInicial)}}</p>
+                            <p>{{noticiaCtrl.formatFecha(record.fechaFinal)}}</p>
                         </div>
                         
                         <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
@@ -52,11 +52,13 @@
 	</div>
     
         <div ng-show="noticiaCtrl.editMode" id="evento-edit-mode">
-		<form name="eventoForm" role="form">
+		<div class="panel-body" href="#/login">
+                <form accept-charset="UTF-8" role="form" class="form-signin" id="form-signin" name="form" >
+                    <fieldset>
                     <div class="input-group" align="left">
                         <span class="label label-default" >Titulo:</span> 
                          <p></p>
-                        <input id="titulo" class="form-control" type="text" aria-describedby="basic-addon2" rows="3" ng-model="currentRecord.titulo" style="margin: 0px; width: 462px;" required=""/>
+                        <input class="form-control" id="titulo" type="text" ng-model="currentRecord.titulo" style="margin: 0px; width: 462px;" required>
                     </div>        
                     <p></p>
                     <div class="input-group" align="left">
@@ -66,16 +68,18 @@
                         </textarea>
                         <p></p>
                         <span class="label label-default" >Fecha inicial:</span><p></p>
-                        <input id="name" class="form-control datepicker" type="date" 
+                        <input id="name" class="form-control datepicker" type="date"  
 				ng-model="currentRecord.fechaInicial" 
-				required=""/>
+				required>
                         <p></p>
                         <span class="label label-default" >Fecha final:</span>
                         <p></p>
                         <input id="name" class="form-control datepicker" type="date" 
 				ng-model="currentRecord.fechaFinal" 
-				required=""/>
+				required>
                     </div>
-                </form>       
+                </fieldset>
+                </form>
+            </div>     
 	</div>   
 </div>
