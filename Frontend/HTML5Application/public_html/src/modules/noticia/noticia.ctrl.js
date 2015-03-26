@@ -4,6 +4,7 @@
 	app.controller('noticiaCtrl', ['$scope', 'CRUDUtils', 'noticia.context', function ($scope, CRUDUtils, context) {
 			this.url = context;
 			CRUDUtils.extendCtrl(this, $scope);
+        
 			this.fetchRecords();  
         
                           this.formatFecha = function(fechaEvento){
@@ -25,10 +26,12 @@
                 return fechaString;
                 
             };
+
                         this.darTitulo= function()
                                 {
                                     titulos = [];
                                     t=document.getElementById('nTitulo').value;
+                            console.log(t);
                                     for(var i =0;i< $scope.records.length;i++)
                                     {
                                         var actual = $scope.records[i];
