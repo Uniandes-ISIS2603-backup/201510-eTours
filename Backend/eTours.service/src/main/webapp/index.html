@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <title>eTours | Explora</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./src/assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/assets/css/css-navbar-override.css">
+    <link rel="stylesheet" href="./src/assets/css/css-footer-override.css">
+    <link rel="stylesheet" href="./src/assets/css/css-general-override.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="./src/assets/libs/underscore-min.js"></script>
+    <script src="./src/assets/libs/angular.min.js"></script>	
+    <script src="./src/assets/libs/angular-mocks.js"></script>
+    <script src="./src/assets/libs/angular-route.min.js"></script>
+	<script src="./src/assets/libs/restangular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.min.js"></script> 
+    <script src="./src/app.js"></script>
+    <script src="./src/shared/crud/crud.mod.js"></script>
+	<script src="./src/shared/crud/crud.svc.js"></script>
+	<script src="./src/shared/mocks/mock.mod.js"></script>
+	<script src="./src/shared/mocks/mock.svc.js"></script>
+	<script src="./src/assets/libs/angular-ngStorage.min.js"></script>
+	
+	<script type="text/javascript">
+        $(window).load(function() {
+            var i =0;
+            var images = ['./src/assets/img/skyline-man.jpeg','./src/assets/img/beach-guitar.jpeg'];
+            var image = $('#contenedor-full-fondo');
+            //Initial Background image setup
+            image.css('background-image', 'url(./src/assets/img/beach-guitar.jpeg)');
+            //Change image at regular intervals
+            setInterval(function(){  
+                image.fadeOut(1000, function () {
+                    image.css('background-image', 'url(' + images [i++] +')');
+                image.fadeIn(1000);
+                });
+                if(i == images.length)
+                    i = 0;
+            }, 5000);           
+        });
+</script>
+	
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="navigationBar" ng-controller="authStatus">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+              <img alt="eTours" src="src/assets/img/backpack.png">
+          </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="./index.html" id="activo">Explora <span class="sr-only">(current)</span></a></li>
+            
+            <li><a href="#">Compra</a></li>
+            <li><a href="#">Participa</a></li>        
+            <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Comunidad <span class="caret"></span>     
+            </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="pages/eventos.html" id="dropped-button-nav" ng-show="userRole==='admin'">Eventos</a></li>
+        
+            <li><a href="pages/noticias.html" id="dropped-button-nav">Noticias</a></li>
+            <li><a href="pages/servicios.html" id="dropped-button-nav">Servicios</a></li>
+
+           <li><a href="pages/paquetesUsuario.html" id="dropped-button-nav">Paquetes</a></li>
+
+                <li><a href="pages/paquetes.html" id="dropped-button-nav"ng-show="userRole==='admin'">CrearPaquetes</a></li>
+
+          </ul>
+        </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Buscar">
+                </div>
+            <button type="submit" class="btn btn-default" >
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </form>
+            <li><a href="./pages/login.html" ng-hide="loggedIn">Ingresa</a></li>
+            <li><a href="./pages/registro.html" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
+            <li><a ng-show="loggedIn">{{username}}</a></li>
+            <li><a href="" id="btn-signup" ng-show="loggedIn" ng-click="logout()">LogOut</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-full-bg" id="contenedor-full-fondo">
+        <div class="container special">
+            <div class="jumbotron" id="jumbotron-fullscreen">
+                Descansa, te lo mereces; nosotros te ayudaremos a encontrar un ecotour perfecto.
+                <!--<div class="btn-group btn-group-justified visible-lg-block visible-md-block" id="btn-all-rabbit" role="group">
+                    <a type="button" class="btn btn-default" href="#/paquete">Paquetes</a>
+                    <a type="button" class="btn btn-default" href="pages/hoteles.html">Hoteles</a>
+                    <a type="button" class="btn btn-default">Paseos</a>
+                    <a type="button" class="btn btn-default">Alimentación</a>-->
+                    <div class="btn-group btn-group-justified visible-lg-block visible-md-block" id="btn-all-rabbit" role="group">
+                    <a type="button" class="btn btn-default" href="#/paquete">Paquetes</a>
+                    <a type="button" class="btn btn-default" href="pages/hoteles.html">Hoteles</a>
+                    <a type="button" class="btn btn-default" href="pages/paseos.html">Paseos</a>
+                    <a type="button" class="btn btn-default" href="pages/restaurantes.html">Alimentación</a>
+                </div>
+                </div>
+            </div>
+             <div ng-view></div>
+        </div>
+        <div id="flecha-abajo-rabbit">
+            <a href="#scroller" style="color:inherit;" id="scroller">
+                <span class="glyphicon glyphicon-menu-down"></span>
+            </a>
+        </div>
+    </div>
+    <!--<div class="first-band">
+        <div class="container">
+        <br>
+            <h1>Estas son nuestras últimas ofertas:</h1>
+        <br>
+        <br>
+        <div>
+            
+        </div>
+        </div>
+    </div>-->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">eTours es un startup Uniandino.</p>
+        </div>
+    </footer>
+</body>
+</html>

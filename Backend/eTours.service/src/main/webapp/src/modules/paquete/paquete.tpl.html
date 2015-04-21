@@ -1,0 +1,85 @@
+<div ng-controller="paqueteCtrl as paqueteCtrl">
+	<div class="container">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation"id="nav-paquetes">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">	
+						
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					
+	<DIV ALIGN="center" ng-hide="paqueteCtrl.editMode"><a class="navbar-brand" >Arma tu paquete</a>
+		
+	</div>
+		
+				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+	
+			
+			</div>
+		</nav>
+	
+		</div>
+		
+		<div class="collapse navbar-collapse" id="evento-navbar">
+<button class="btn btn-default navbar-btn" ng-click="paqueteCtrl.armarListaScope()"><span class="glyphicons glyphicons-plus"></span> Actualizar servicios</button>
+			
+<button class="btn btn-default navbar-btn"  ng-click="paqueteCtrl.editRecord(record)" ng-disabled="eventoForm.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar paquete</button>
+<button class="btn btn-default navbar-btn" ng-click="paqueteCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+		</div>
+	
+
+<div ng-hide="paqueteCtrl.editMode" id="paquete-edit-mode">
+		<form name="paqueteform" role="form">
+				<div class="form-group">
+				<label for="estadia">Nombre Estadia</label>
+				<select id="estadia" class="form-control" ng-options="servicios.nombre for tipo=hotel in servicios" ng-model="currentRecord.estadia"> </select>
+			</div>
+				<div class="form-group">
+				<label for="alimentacion">Nombre Alimentacion</label>
+			<select id="alimentacion" class="form-control" ng-options="servicios.nombre for tipo=restaurante in servicios" ng-model="currentRecord.alimentacion"> </select>
+			
+			
+			
+			
+			</div>
+            <div class="form-group">
+				<label for="paseo">Nombre Paseo </label>
+				<select id="paseo" class="form-control" ng-options="servicios.nombre for tipo=paseo in servicios" ng-model="currentRecord.paseo"> </select>
+			</div>
+			
+			      <div class="form-group">
+				<label for="descuento">Descuento </label>
+				<input id="descuento" class="form-control" type="number" ng-model="currentRecord.descuento" />
+			</div>
+		</form>
+	</div>
+
+
+	
+  <div ng-hide="paqueteCtrl.editMode">
+            <div ng-repeat="record in records">
+                              <p>Paquetes disponibles: </p>
+                           
+                        <div class="panel-body">
+                        	{{record.estadia}}
+                            {{record.alimentacion}}
+                            {{record.paseo}}
+                            {{record.descuento}}
+                     
+                </div>
+             </div>
+	</div>
+	    </div>
+	
+	
+		
+	
+
+		</div>
+		
+	
+	
+</div>

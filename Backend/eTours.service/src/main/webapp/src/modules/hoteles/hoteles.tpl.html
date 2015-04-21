@@ -1,0 +1,58 @@
+<div ng-controller="hotelesCtrl as hotelesCtrl">
+    <div class="header">
+            <div class="container">
+                <div class="row">
+                    {{hotelesCtrl.imageFeatured()}}
+                    <div class="col-md-4 col-sm-4" ng-repeat="record in records" id="xas">
+                        <div class="contenedor">
+                            <h1>{{record.nombre}}</h1>
+                            <img ng-src="{{featured === 1 && '../src/assets/img/VW.jpeg' || 
+                                           featured === 2 && '../src/assets/img/beach-vigilant.jpeg' ||
+                                           featured === 3 && '../src/assets/img/Foto.png' ||
+                                                             '../src/assets/img/beach.jpeg'}}" id="xxx">
+                            <p id="pes">{{record.descripcion}}</p>
+                            <a href="" class="btn btn-default btn-lg" id="btnCartCatalog"><span>${{record.precio}}</span><p>¡Reservar!</p></a>
+                        </div>
+                        {{hotelesCtrl.changeImageFeatured()}}
+                    </div> 
+                </div>
+            </div>
+    </div>
+    <div class="container" style="background-color:rgba(246,246,246,0.5); padding-top:15px;">
+    <nav class="navbar navbar-default" role="navigation" id="nav-eventos">
+		<div class="container-fluid">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#evento-navbar">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">Hoteles eTours</a>
+	</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="evento-navbar">
+		<button class="btn btn-default navbar-btn" ng-click="hotelesCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar Hoteles</button>
+		<button class="btn btn-default navbar-btn" ng-click="hotelesCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Hotel</button>
+	</div>
+		</div>
+	</nav>
+    
+    <div class="form">
+        <form name="hotelesForm" role="form">
+            <div class="form-group">
+               <br>    
+                <input class="form-control" type="text" placeholder="Nombre del Hotel" id="nombre" ng-model="currentRecord.nombre">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Descripcion del Hotel" id="descripcion" ng-model="currentRecord.descripcion">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Precio Por Noche" id="precio" ng-model="currentRecord.precio">
+            </div>
+        </form>
+    </div>
+           
+    </div>
+</div>

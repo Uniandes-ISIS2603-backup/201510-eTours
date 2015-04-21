@@ -1,0 +1,21 @@
+/* Este es el CSS de la barra de navegación TOP
+----------------------------------------------*/
+#navigationBar, 
+#navigationBar a,
+#navigationBar form,
+#navigationBar img{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 0;
+    height: 90px;
+    line-height: 90px;
+    font-size: 18px;
+}
+#btn-signup {
+    color: rgb(87,207,191);
+    margin-right: 10px;
+}
+
+#navigationBar a:hover{
+    color: rgb(13,29,28);
+}
