@@ -7,7 +7,7 @@
 		}]);
             
 
-            
+            //Función para indicar a los mock que deben permitir las solicitudes de la URL  
          function skipUrl(entity_url)
        { 
            var fullUrl = baseUrl + '/' + entity_url;
