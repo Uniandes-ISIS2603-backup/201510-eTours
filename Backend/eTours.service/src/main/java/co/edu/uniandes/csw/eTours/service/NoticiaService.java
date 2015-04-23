@@ -54,11 +54,7 @@ public class NoticiaService
         return noticiaLogicService.getNoticia(page, maxRecords);
     }
     
-    @GET
-    @Path("{titulo}")
-    public NoticiaDTO getNoticia(@PathParam("titulo") String titulo) {
-        return noticiaLogicService.getNoticiaTitulo(titulo);
-    }
+
     
      @PUT
     public void updateNoticia(@PathParam("titulo") String titulo, NoticiaDTO not) {
@@ -66,7 +62,7 @@ public class NoticiaService
     }
     
     @GET
-    @Path("{fecha}")
+    @Path("fecha")
     public List<NoticiaDTO> getNoticias(@PathParam("fecha") Date fecha) {
         return noticiaLogicService.getNoticiasFecha(fecha);
     }

@@ -41,10 +41,7 @@ public class EventoService {
         return eventoLogicService.createEvento(detail);
     }
     
-    @GET
-    public List<EventoDTO> getEventos(){
-        return eventoLogicService.getEventos();
-    }
+
     
     @GET
     public EventoPageDTO getEventos(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords){
@@ -68,11 +65,7 @@ public class EventoService {
     } 
 
 
-    @GET
-    @Path("{id}")
-    public String formatFecha(@QueryParam("tipo") Integer tipo, @PathParam("id") Long id) throws Exception{
-        return eventoLogicService.formatFecha(tipo, id);
-    }
+
 
     
     

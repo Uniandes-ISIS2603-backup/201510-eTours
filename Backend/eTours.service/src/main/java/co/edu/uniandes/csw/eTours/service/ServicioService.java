@@ -79,14 +79,7 @@ public class ServicioService {
         return servicioLogicService.getServicio(id);
     }
     
-    @GET
-    @Path("/categoria/{id}" )
-    
-    public List<ServicioDTO> getServiciosCategoria(@PathParam("id") int id) 
-    {
-        return servicioLogicService.getServiciosCategoria(id);
-    }
-    
+
     @GET
     @Path("/categoria/{id}" )
     
@@ -102,28 +95,9 @@ public class ServicioService {
         return servicioLogicService.getServiciosProveedor(idProveedor);
     }
     
-    @GET
-    @Path("/proveedor/{id}" )    
-    public ServicioPageDTO getServiciosCategoria(@PathParam("id") Long id, @QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) 
-    {
-        return servicioLogicService.getServiciosProveedor(id, page, maxRecords);
-    }
-    
-    @GET
-    @Path("/provcat/{idProv}/{idCat}" )    
-    public List<ServicioDTO> getServiciosCategoria(@PathParam("idProv") Long idProveedor, @PathParam("idCat") int idCategoria) 
-    {
-        return servicioLogicService.getServiciosProveedorCategoria(idProveedor, idCategoria);
-    }
+
     
     
-    @GET
-    @Path("/provcat/{idProv}/{idCat}" )    
-    public ServicioPageDTO getServiciosCategoria(@PathParam("idProv") Long idProveedor, @PathParam("idCat") int idCat, @QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) 
-    {
-        return servicioLogicService.getServiciosProveedorCategoria(idProveedor,idCat, page, maxRecords);
-    }
-            
 
     @PUT
     public void updateServicio(@PathParam("id") Long id, ServicioDTO servicio) 

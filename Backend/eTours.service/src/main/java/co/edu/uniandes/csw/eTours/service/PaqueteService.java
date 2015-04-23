@@ -47,7 +47,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 
-@Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/paquete")
@@ -79,6 +78,7 @@ public class PaqueteService {
     }
 
     @PUT
+    @Path("{id}")
     public void updateSport(@PathParam("id") Long id, PaqueteDTO paq) {
         paqueteLogicService.updatePaquete(paq);
     }
