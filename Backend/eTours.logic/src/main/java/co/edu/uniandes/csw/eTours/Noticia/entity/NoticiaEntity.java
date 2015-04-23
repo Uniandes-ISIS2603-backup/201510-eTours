@@ -16,11 +16,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Laura Cortes
  */
 @Entity
-@XmlRootElement
 public class NoticiaEntity {
     
     @Id
-    @GeneratedValue(generator = "Paquete")
     private String titulo;
     
     private String cuerpo;

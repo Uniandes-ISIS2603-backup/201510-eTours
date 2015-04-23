@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author estudiante
  */
-public class NoticiaDTO {
+    public class NoticiaDTO {
     private String titulo;
     
     private String cuerpo;
