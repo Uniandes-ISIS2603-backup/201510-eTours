@@ -17,15 +17,15 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="country-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button id="agregar" class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
                                         <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-                    <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
-                        <div class="form-group">
-                             <input type="text" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode"                                                                          class="form-control" style="margin: 0px; width: 462px;" placeholder="Titulo">
-                        </div>
-                        <button class="btn btn-default" type="button" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo()"><span   class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                                </button>
-          </form>
+                                <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
+                                         <div class="form-group">
+                                            <input type="text" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode"                                                                          class="form-control" style="margin: 0px; width: 462px;" placeholder="Titulo">
+                                        </div>
+                                    <button class="btn btn-default" type="button" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo()"><span   class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </button>
+                                </form>
 
 
 				</div>

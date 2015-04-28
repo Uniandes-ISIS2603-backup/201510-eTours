@@ -1,36 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>co.edu.uniandes.csw.SportGroup</groupId>
-    <artifactId>SportClub.web.test</artifactId>
+    <groupId>co.edu.uniandes.csw.eTours</groupId>
+    <artifactId>eTours.web.test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
-        <!-- embedded glassfish 3.1.2 --> 
-        <dependency>
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-all</artifactId>
-            <version>4.0</version> 
-            <scope>provided</scope> 
-        </dependency>
-        <!-- Arquillian -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <version>1.0.0.Final</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- arquillian support for embedded glassfish -->
-        <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
-            <version>1.0.0.CR4</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.11</version>
             <type>jar</type>
             <scope>test</scope>
             <optional>true</optional>
@@ -47,6 +26,6 @@
             <version>2.45.0</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
-    <name>SportClubS.web.test</name>
+</dependencies>
+    <name>eTours.web.test</name>
 </project>
