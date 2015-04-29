@@ -23,9 +23,9 @@ public class NoticiaEntity {
     
     private String cuerpo;
    
-    private Date fechaInicial;
+    private String fechaInicial;
     
-    private Date fechaFinal;
+    private String fechaFinal;
     
     
     public String getTitulo()
@@ -48,22 +48,22 @@ public class NoticiaEntity {
         this.cuerpo=cuerpo;
     }
     
-    public Date getFechaInicial()
+    public String getFechaInicial()
     {
         return this.fechaInicial;
     }
     
-    public void setFechaInicial(Date fechaInicial)
+    public void setFechaInicial(String fechaInicial)
     {
         this.fechaInicial=fechaInicial;
     }
     
-    public Date getFechaFinal()
+    public String getFechaFinal()
     {
         return this.fechaFinal;
     }
     
-    public void setFechaFinal(Date fechaFinal)
+    public void setFechaFinal(String fechaFinal)
     {
         this.fechaFinal=fechaFinal;
     }
