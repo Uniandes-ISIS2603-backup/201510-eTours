@@ -43,6 +43,12 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
         when('/paseo', {
             templateUrl: '../src/modules/paseo/paseo.tpl.html'
         }).
+        when('/solicitudRetiro', {
+            templateUrl: '../src/modules/solicitudretiro/solicitudretiro.tpl.html'
+        }).
+        when('/aceptarRetiro', {
+            templateUrl: '../src/modules/aceptarretiro/aceptarretiro.tpl.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
@@ -146,7 +152,13 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
                 //creamos la cookie con el nombre que nos han pasado
                 $localStorage.username = username;
                 $localStorage.password = password;
-                $localStorage.role = "admin";
+                if(username === "admin") {
+                    $localStorage.role = "admin";
+                } else if(username === "proveedor") {
+                    $localStorage.role = "proveedor";
+                } else {
+                    $localStorage.role = "usuario";
+                }
                 //mandamos a la home
                 
                 $timeout(function () {
