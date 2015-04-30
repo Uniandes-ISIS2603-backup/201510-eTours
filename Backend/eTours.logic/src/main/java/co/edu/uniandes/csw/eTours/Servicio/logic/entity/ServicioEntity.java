@@ -86,7 +86,6 @@ public class ServicioEntity {
     
     private String puntoEncuentro;
     
-    private Date fechaPaseo;
     
     private int mesa;
     
@@ -196,13 +195,6 @@ public class ServicioEntity {
         this.puntoEncuentro = puntoEncuentro;
     }
 
-    public Date getFechaPaseo() {
-        return fechaPaseo;
-    }
-
-    public void setFechaPaseo(Date fechaPaseo) {
-        this.fechaPaseo = fechaPaseo;
-    }
 
     public int getMesa() {
         return mesa;

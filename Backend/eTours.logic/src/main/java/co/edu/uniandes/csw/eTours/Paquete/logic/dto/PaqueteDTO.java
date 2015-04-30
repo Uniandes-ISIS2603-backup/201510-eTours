@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class PaqueteDTO {
    
-    private Long id;
+        private Long id;
     
    private Double descount;
     private ArrayList<ServicioEntity> servicios = new ArrayList<ServicioEntity>();

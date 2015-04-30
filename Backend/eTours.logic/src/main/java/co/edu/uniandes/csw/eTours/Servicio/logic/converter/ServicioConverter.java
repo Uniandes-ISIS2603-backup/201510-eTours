@@ -78,7 +78,6 @@ public class ServicioConverter {
             dto.setGuia(entity.getGuia());
             dto.setCantidadPersonas(entity.getCantidadPersonas());
             dto.setPuntoEncuentro(entity.getPuntoEncuentro());
-            dto.setFechaPaseo(entity.getFechaPaseo());
             dto.setMesa(entity.getMesa());
             dto.setHoraFin(entity.getHoraFin());
             dto.setHoraInicio(entity.getHoraInicio());
@@ -108,7 +107,6 @@ public class ServicioConverter {
             entity.setGuia(dto.getGuia());
             entity.setCantidadPersonas(dto.getCantidadPersonas());
             entity.setPuntoEncuentro(dto.getPuntoEncuentro());
-            entity.setFechaPaseo(dto.getFechaPaseo());
             entity.setMesa(dto.getMesa());
             entity.setHoraFin(dto.getHoraFin());
             entity.setHoraInicio(dto.getHoraInicio());
