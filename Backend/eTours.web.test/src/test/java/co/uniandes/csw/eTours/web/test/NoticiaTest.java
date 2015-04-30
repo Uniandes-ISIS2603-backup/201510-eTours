@@ -59,7 +59,7 @@ public class NoticiaTest {
         }
         
         @Test
-    public void t1createCountry() throws Exception {
+    public void t1createNoticia() throws Exception {
  
         /**
          * Comando que realiza click sobre el link "Country". La
@@ -75,6 +75,55 @@ public class NoticiaTest {
          * el efecto 'slide down' abra la pagina createCountry.
          */
         Thread.sleep(3000);
+        
+        
+        /**
+         * Comando que busca el elemento 'titulo' en el html actual. Ver ids en country.tpl.html
+         * Posteriormente limpia su contenido (comando clear).
+         */
+        driver.findElement(By.id("titulo")).clear();
+        driver.findElement(By.id("titulo")).sendKeys("Gran espectaculo");
+          
+        /**
+         * Comando que busca el elemento 'entrada' en el html actual. Ver ids en country.tpl.html
+         * Posteriormente limpia su contenido (comando clear).
+         */
+        driver.findElement(By.id("entrada")).clear();
+        driver.findElement(By.id("entrada")).sendKeys("Un show que no se puede perder");
+        
+        /**
+         * Comando que busca el elemento 'fechaInic' en el html actual. Ver ids en country.tpl.html
+         * Posteriormente limpia su contenido (comando clear).
+         */
+        driver.findElement(By.id("fechaInic")).clear();
+        driver.findElement(By.id("fechaInic")).sendKeys("01/06/2015");
+        
+        /**
+         * Comando que busca el elemento 'fechaFinal' en el html actual. Ver ids en country.tpl.html
+         * Posteriormente limpia su contenido (comando clear).
+         */
+        driver.findElement(By.id("fechaFinal")).clear();
+        driver.findElement(By.id("fechaFinal")).sendKeys("11/06/2015");
+        
+         /**
+         * Comando que busca el boton Save y luego hace click
+         * Comando que duerme el Thread del test por 2 segundos
+         */
+        driver.findElement(By.id("save")).click();
+        Thread.sleep(2000);
+        
+        //TODO  Pedir noticias, no hay tabla.
+        
+         /**
+         * la prueba es exitosa si se encontró
+         * el nuevo elemento creado en la lista.
+         */
+        assertTrue(success);
+        Thread.sleep(2000);
+    }
+    @Test
+    public void t1deleteNoticia() throws Exception
+    {
         
     }
 }

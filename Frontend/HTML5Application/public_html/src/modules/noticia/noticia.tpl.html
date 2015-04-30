@@ -69,22 +69,22 @@
                     <div class="input-group" align="left">
                         <span class="label label-default" >Entrada:</span>
                         <p></p>
-                        <textarea class="form-control ng-pristine ng-valid ng-touched" required ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
+                        <textarea id="entrada" class="form-control ng-pristine ng-valid ng-touched" required ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
                         </textarea>
                         <p></p>
                         <span class="label label-default" >Fecha inicial:</span><p></p>
-                        <input id="name" class="form-control datepicker" type="date"  
+                        <input id="fechaInic" class="form-control datepicker" type="date"  
 				ng-model="currentRecord.fechaInicial" 
 				required/>
                         <p></p>
                         <span class="label label-default" >Fecha final:</span>
                         <p></p>
-                        <input id="name" class="form-control datepicker" type="date" 
+                        <input id="fechaFinal" class="form-control datepicker" type="date" 
 				ng-model="currentRecord.fechaFinal" 
 				required/>
                     </div>
                 </fieldset>
-                    <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.saveRecord()" ng-hide="form.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                    <button id="save" class="btn btn-default navbar-btn" ng-click="noticiaCtrl.saveRecord()" ng-hide="form.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                     <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
                 </form>
             </div>     
