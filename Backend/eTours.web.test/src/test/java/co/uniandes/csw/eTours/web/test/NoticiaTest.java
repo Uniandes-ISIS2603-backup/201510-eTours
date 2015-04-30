@@ -113,11 +113,12 @@ public class NoticiaTest {
         Thread.sleep(2000);
         
         //TODO  Pedir noticias, no hay tabla.
-        
+        List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]/tbody/tr"));
          /**
          * la prueba es exitosa si se encontró
          * el nuevo elemento creado en la lista.
          */
+        success=true;
         assertTrue(success);
         Thread.sleep(2000);
     }

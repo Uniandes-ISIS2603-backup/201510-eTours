@@ -34,7 +34,7 @@
 	</div>
     
         <div ng-hide="noticiaCtrl.editMode">
-            <div ng-repeat="record in records">
+            <div id="noticiasAgregadas" ng-repeat="record in records">
                 <div class="col-lg-4">
                     <div class="panel panel-green">  
                         <div class="panel-heading">
@@ -63,7 +63,7 @@
                         <span class="label label-default" >Titulo:</span> 
                          <p></p>
                         <input class="form-control" name="titulo" id="titulo" type="text" ng-model="currentRecord.titulo" style="margin: 0px; width: 462px;" required />
-                        <span ng-show="form.titulo.$error.required">Es requerido el campo</span>
+                        
                     </div>        
                     <p></p>
                     <div class="input-group" align="left">
@@ -84,7 +84,7 @@
 				required/>
                     </div>
                 </fieldset>
-                    <button id="save" class="btn btn-default navbar-btn" ng-click="noticiaCtrl.saveRecord()" ng-hide="form.$invalid"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                    <button id="save" class="btn btn-default navbar-btn" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                     <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
                 </form>
             </div>     
