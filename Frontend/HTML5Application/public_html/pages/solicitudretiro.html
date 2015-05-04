@@ -80,13 +80,17 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        <div class="jumbotron" id="jumbotron-de-eventos">
-        <div class="container">
+        <div class="jumbotron" id="jumbotron-de-eventos" ng-controller="authStatus">
+        <div class="container" ng-show="userRole==='proveedor'">
             <h1>¿ Deseas darte de baja ?</h1>
             <h3>Rectifica tus datos para proceder con el retiro.</h3>
             <a id="showEvents" class="button btn-default" href="#/solicitudRetiro"></a>
             <div ng-view>            
-            </div>
+        </div>
+        <div class="container" ng-show="userRole!='proveedor'">
+            <h1>Debes iniciar sesión para darte de baja.</h1>
+            <button class="btn btn-danger"><a href="login.html" style="text-decoration:none; color:white;">Iniciar Sesion</a></button>
+        </div>
         </div>
             
     </div>

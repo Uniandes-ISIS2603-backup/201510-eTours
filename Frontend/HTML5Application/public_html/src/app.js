@@ -1,5 +1,5 @@
 (function() {
-var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelesModule', 'noticiaModule', 'paqueteModule', 'signupModule', 'restaurantesModule', 'paseosModule', 'hotelModule', 'restauranteModule', 'hotelModule']);
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' , 'servicioModule', 'hotelesModule', 'noticiaModule', 'paqueteModule', 'signupModule', 'restaurantesModule', 'paseosModule', 'hotelModule', 'restauranteModule', 'hotelModule', 'solicitudRetiroModule', 'aceptarRetiroModule']);
 
 	mainApp.config(['$routeProvider', function ($routeProvider) { 
     
@@ -132,14 +132,25 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngStorage', 'eventoModule' 
 	}]);  
 
     //Configuración módulo paquete
+	var solicitudRetiroModule = angular.module('solicitudRetiroModule', ['CrudModule', 'MockModule']);
+	solicitudRetiroModule.constant('solicitudRetiro.context', 'solicitudRetiro');
+	solicitudRetiroModule.config(['solicitudRetiro.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
+    
+    //Configuración módulo paquete
 	var paqueteModule = angular.module('paqueteModule', ['CrudModule', 'MockModule']);
 	paqueteModule.constant('paquete.context', 'paquete');
 	paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
         urlsProvider.registerUrl(context);
     }]);
 
-
-
+    //Configuración módulo paquete
+	var aceptarRetiroModule = angular.module('aceptarRetiroModule', ['CrudModule', 'MockModule']);
+	aceptarRetiroModule.constant('aceptarRetiro.context', 'aceptarRetiro');
+	aceptarRetiroModule.config(['aceptarRetiro.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+        urlsProvider.registerUrl(context);
+    }]);
 
     //factoria que controla la autentificación, devuelve un objeto
     //$location para cargar otras rutas
