@@ -51,11 +51,11 @@ public class SolicitudIngresoLogic implements ISolicitudIngresoLogic{
         SolicitudIngresoConverter.entity2PersistenceDTO(entity);
     }
 
-    public SolicitudIngresoDTO updateSolicitudIngreso(Long id, int pNuevoEstado) {
+    public void updateSolicitudIngreso(Long id, int pNuevoEstado) {
         SolicitudIngresoDTO ingreso = getSolicitudIngreso(id);
         ingreso.setEstado(pNuevoEstado);
         updateSolicitudIngreso(ingreso);
-        return ingreso;
+        
     }
     
     public List<SolicitudIngresoDTO> getSolicitudesIngreso() {
