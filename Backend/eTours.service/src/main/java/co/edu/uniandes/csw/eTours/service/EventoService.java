@@ -60,6 +60,7 @@ public class EventoService {
     }
     
     @PUT
+    @Path("{id}")
     public void updateEvento(@PathParam("id") Long id, EventoDTO detail){
         eventoLogicService.updateEvento(detail);
     } 

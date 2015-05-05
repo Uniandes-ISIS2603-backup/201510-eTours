@@ -103,7 +103,10 @@ public class SolicitudRetiroLogic implements ISolicitudRetiroLogic
 
 
     public void updateSolicitudRetiro(Long id, int pNuevoEstado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SolicitudRetiroDTO retiro = getSolicitudRetiro(id);
+        retiro.setEstado(pNuevoEstado);
+        updateSolicitudRetiro(retiro);
+        
     }
 
  
