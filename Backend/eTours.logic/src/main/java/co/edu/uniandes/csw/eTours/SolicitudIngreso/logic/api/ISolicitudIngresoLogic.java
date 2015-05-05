@@ -43,7 +43,7 @@ public interface ISolicitudIngresoLogic {
 
     public void deleteSolicitudIngreso(Long id);
 
-    public void updateSolicitudIngreso(Long id, int pNuevoEstado);
+    public SolicitudIngresoDTO updateSolicitudIngreso(Long id, int pNuevoEstado);
 
     public List<SolicitudIngresoDTO> getSolicitudesIngreso();
             

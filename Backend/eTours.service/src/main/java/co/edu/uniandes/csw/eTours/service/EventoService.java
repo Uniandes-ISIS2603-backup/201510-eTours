@@ -47,6 +47,7 @@ public class EventoService {
     public EventoPageDTO getEventos(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords){
         return eventoLogicService.getEventos(page, maxRecords);
     }
+    
     @GET
     @Path("{id}")
     public EventoDTO getEvento(@PathParam("id") Long id){
