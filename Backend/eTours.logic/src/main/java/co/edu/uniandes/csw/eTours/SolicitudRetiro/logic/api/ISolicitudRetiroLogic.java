@@ -39,7 +39,7 @@ public interface ISolicitudRetiroLogic {
 
     public void deleteSolicitudRetiro(Long id);
 
-    public void updateSolicitudRetiro(Long id, int pNuevoEstado);
+    public SolicitudRetiroDTO updateSolicitudRetiro(Long id, int pNuevoEstado);
 
     public List<SolicitudRetiroDTO> getSolicitudesRetiro();
             

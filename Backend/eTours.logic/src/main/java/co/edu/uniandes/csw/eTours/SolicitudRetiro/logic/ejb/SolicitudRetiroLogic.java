@@ -38,6 +38,7 @@ import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.converter.SolicitudRetir
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.dto.SolicitudRetiroDTO;
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.dto.SolicitudRetiroPageDTO;
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.entity.SolicitudRetiroEntity;
+import com.edu.uniandes.csw.eTours.Proveedor.entity.ProveedorEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -102,37 +103,86 @@ public class SolicitudRetiroLogic implements ISolicitudRetiroLogic
     
 
 
-    public void updateSolicitudRetiro(Long id, int pNuevoEstado) {
-        SolicitudRetiroDTO retiro = getSolicitudRetiro(id);
-        retiro.setEstado(pNuevoEstado);
-        updateSolicitudRetiro(retiro);
-        
+    public SolicitudRetiroDTO updateSolicitudRetiro(Long id, int pNuevoEstado) 
+    {
+        SolicitudRetiroEntity entity = entityManager.find(SolicitudRetiroEntity.class, id);       
+        //Elimina el proveedor de la lista de proveedores
+        ProveedorEntity entityProveedor = entityManager.find(ProveedorEntity.class, entity.getIdProveedor());
+        entityManager.remove(entityProveedor);
+        //Modifica la solicitud
+        entity.setEstado(pNuevoEstado);
+        SolicitudRetiroConverter.entity2PersistenceDTO(entity);
+        return SolicitudRetiroConverter.entity2PersistenceDTO(entity);
     }
 
  
 
-    public List<SolicitudRetiroDTO> getSolicitudesRetiroEstado(int pEstado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<SolicitudRetiroDTO> getSolicitudesRetiroEstado(int pEstado) 
+    {
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.estado="+pEstado+"");
+        return SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public SolicitudRetiroPageDTO getSolicitudesRetiroEstado(int pEstado, Integer page, Integer maxRecords) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public SolicitudRetiroPageDTO getSolicitudesRetiroEstado(int pEstado, Integer page, Integer maxRecords) 
+    {
+        Query count = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.estado="+pEstado+"");
+        Long regCount = 0L;
+        regCount = Long.parseLong(count.getSingleResult().toString());
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.estado="+pEstado+"");
+        if (page != null && maxRecords != null) 
+        {
+            q.setFirstResult((page - 1) * maxRecords);
+            q.setMaxResults(maxRecords);
+        }
+        SolicitudRetiroPageDTO response = new SolicitudRetiroPageDTO();
+        response.setTotalRecords(regCount);
+        response.setRecords(SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList()));
+        return response;
     }
 
-    public List<SolicitudRetiroDTO> getSolicitudesRetiroFecha(String pFecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<SolicitudRetiroDTO> getSolicitudesRetiroFecha(String pFecha) 
+    {
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.fecha"+pFecha+"");
+        return SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public SolicitudRetiroPageDTO getSolicitudesRetiroFecha(String pFecha, Integer page, Integer maxRecords) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query count = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.fecha"+pFecha+"");
+        Long regCount = 0L;
+        regCount = Long.parseLong(count.getSingleResult().toString());
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.fecha"+pFecha+"");
+        if (page != null && maxRecords != null) 
+        {
+            q.setFirstResult((page - 1) * maxRecords);
+            q.setMaxResults(maxRecords);
+        }
+        SolicitudRetiroPageDTO response = new SolicitudRetiroPageDTO();
+        response.setTotalRecords(regCount);
+        response.setRecords(SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList()));
+        return response;
     }
 
-    public List<SolicitudRetiroDTO> getSolicitudesRetiroProveedor(Long id_Proveedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<SolicitudRetiroDTO> getSolicitudesRetiroProveedor(Long id_Proveedor) 
+    {
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.idProveedor"+id_Proveedor+"");
+        return SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public SolicitudRetiroPageDTO getSolicitudesRetiroProveedor(Long id_Proveedor, Integer page, Integer maxRecords) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public SolicitudRetiroPageDTO getSolicitudesRetiroProveedor(Long id_Proveedor, Integer page, Integer maxRecords) 
+    {
+        Query count = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.idProveedor"+id_Proveedor+"");
+        Long regCount = 0L;
+        regCount = Long.parseLong(count.getSingleResult().toString());
+        Query q = entityManager.createQuery("select u from SolicitudRetiroEntity u where u.idProveedor"+id_Proveedor+"");
+        if (page != null && maxRecords != null) 
+        {
+            q.setFirstResult((page - 1) * maxRecords);
+            q.setMaxResults(maxRecords);
+        }
+        SolicitudRetiroPageDTO response = new SolicitudRetiroPageDTO();
+        response.setTotalRecords(regCount);
+        response.setRecords(SolicitudRetiroConverter.entity2PersistenceDTOList(q.getResultList()));
+        return response;
     }
 
     
