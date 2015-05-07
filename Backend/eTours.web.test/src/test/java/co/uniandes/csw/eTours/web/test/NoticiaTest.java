@@ -68,6 +68,14 @@ public class NoticiaTest {
          * expresiones definidas por el web driver y xpath*/
  
         boolean success = false;
+        
+        driver.findElement(By.partialLinkText("Noticia")).click();
+        /**
+         * Comando que duerme el Thread del test por 3 segundos para dejar que
+         * el efecto 'slide down' abra la pagina de Sport.
+         */
+ 
+        Thread.sleep(3000);
         driver.findElement(By.partialLinkText("agregar")).click();
 
         /**
@@ -112,19 +120,54 @@ public class NoticiaTest {
         driver.findElement(By.id("save")).click();
         Thread.sleep(2000);
         
-        //TODO  Pedir noticias, no hay tabla.
-        List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]/tbody/tr"));
+        
+        List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+        for (WebElement webElement : rows) {
+            List<WebElement> elems = webElement.findElements(By.xpath("p"));
+            if (elems.get(1).getText().equals("Gran espectaculo")) {
+                success = true;
+            }
+        }
          /**
          * la prueba es exitosa si se encontró
          * el nuevo elemento creado en la lista.
          */
-        success=true;
+        
         assertTrue(success);
         Thread.sleep(2000);
     }
     @Test
     public void t1deleteNoticia() throws Exception
     {
-        
+        boolean success = false;
+        driver.findElement(By.partialLinkText("Noticia")).click();
+        Thread.sleep(3000);
+        //Busca las noticias ya existentes
+        List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+        for (WebElement webElement : rows) {
+            List<WebElement> elems = webElement.findElements(By.xpath("p"));
+            if (elems.get(1).getText().equals("Gran espectaculo")) {
+                List<WebElement> buttons = elems.get(7).findElements(By.xpath("button"));
+                buttons.get(1).click();
+                success = true;
+                break;
+            }
+        }
+        Thread.sleep(3000);
+        //Se busca el objeto que fue eliminado, si se encuentra hay error al eliminar
+        rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+        if(rows.size()>0){
+            for (WebElement webElement : rows) {
+                List<WebElement> elems = webElement.findElements(By.xpath("p"));
+                if (elems.get(1).getText().equals("Gran espectaculo")) {
+                    success = false;
+                    break;
+                }
+            }
+        }
+ 
+        Thread.sleep(3000);
+        assertTrue(success);
     }
 }
+
