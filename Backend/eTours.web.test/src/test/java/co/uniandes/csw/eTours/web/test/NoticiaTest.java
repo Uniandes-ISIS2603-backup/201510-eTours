@@ -123,7 +123,7 @@ public class NoticiaTest {
         
         List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
         for (WebElement webElement : rows) {
-            List<WebElement> elems = webElement.findElements(By.xpath("p"));
+            List<WebElement> elems = webElement.findElements(By.xpath("div/div/div/p"));
             if (elems.get(1).getText().equals("Gran espectaculo")) {
                 success = true;
             }

@@ -1,6 +1,6 @@
 (function () {
 	var mocksModule = angular.module('MockModule', ['ngMockE2E']);
-
+        mocksModule.constant('MockModule.baseUrl', 'webresources');
 	mocksModule.run(['$httpBackend', 'MockModule.urls', function ($httpBackend, urls) {
 			function mockUrls(url) {
 				var records = [];

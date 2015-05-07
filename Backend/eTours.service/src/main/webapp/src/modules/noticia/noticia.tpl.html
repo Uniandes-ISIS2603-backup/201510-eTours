@@ -34,12 +34,12 @@
 	</div>
     
         <div ng-hide="noticiaCtrl.editMode">
-            <div ng-repeat="record in records">
+            <div id="noticiasAgregadas" ng-repeat="record in records">
                 <div class="col-lg-4">
                     <div class="panel panel-green">  
                         <div class="panel-heading">
                             <p>Titulo: </p>
-                            {{record.titulo}}
+                            <p>{{record.titulo}}</p>
                         </div>       
                         <div class="panel-body">
                             <p>Entrada: </p>
