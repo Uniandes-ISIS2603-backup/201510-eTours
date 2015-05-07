@@ -42,10 +42,40 @@
 					});
 					return [200, null, {}];
 				});
+                                
+                                 //Función para indicar a los mock que deben permitir las solicitudes de la URL
+             function skipUrl(entity_url) {
+                var fullUrl = baseUrl + '/' + entity_url;
+                var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
+                $httpBackend.whenGET(fullUrl).passThrough();
+                $httpBackend.whenGET(url_regexp).passThrough();
+                $httpBackend.whenPOST(fullUrl).passThrough();
+                $httpBackend.whenPUT(url_regexp).passThrough();
+            $httpBackend.whenDELETE(url_regexp).passThrough();
+            }
+            var ignore_regexp = new RegExp('^((?!' + baseUrl + ').)*$');
+            $httpBackend.whenGET(ignore_regexp).passThrough();
+                                
+                                
+                                
 				$httpBackend.whenGET(/^((?!webresources).)*$/).passThrough();
 			};
 			for (var i in urls) {
-				mockUrls(urls[i])
-			}
+                        	if (urls.hasOwnProperty(i)) {
+                     /*
+                     Cuando la URL a registrar tiene el flag de ignorar en true,
+                    se llama la función creada para permitir el paso de las solicitudes.
+                    De lo contrario se activan los mock para dicha URL.
+                    */
+                    if (urls[i].skip) {
+                         skipUrl(urls[i].url);
+                     } else {
+                         mockUrls(urls[i].url);
+                    }
+                                }
+                        
+                        
+                        }
+			
 		}]);
 })();
