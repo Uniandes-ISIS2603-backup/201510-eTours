@@ -124,7 +124,15 @@
     paqueteModule.config(['paquete.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
             urlsProvider.registerUrl(context);
         }]);
+    
+var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
+    noticiaModule.constant('noticia.skipMock', true);
+    noticiaModule.constant('noticia.context', 'notica');
 
+
+     noticiaModule.config(['noticia.context', 'MockModule.urlsProvider','noticia.skipMock', function (context, urlsProvider, skipMock) {
+             urlsProvider.registerUrl(context, skipMock);
+         }]);
 
 
 
@@ -218,20 +226,6 @@
         }
     });
 
-    var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
-    noticiaModule.constant('noticia.skipMock', true);
-    noticiaModule.constant('noticia.context', 'not');
-
-    noticiaModule.config(['noticia.context', 'MockModule.urlsProvider', 'noticia.skipMock', function (context, urlsProvider, skipMock)
-        {
-            urlsProvider.registerUrl(context, skipMock)
-        }]);
-
-    noticiaModule.run(['$httpBackend', 'noticia.context', 'MockModule.mockRecords', 'noticia.skipMock', 'MockModule.baseUrl', function ($httpBackend, context, skipMock, baseUrl) {
-            if (skipMock) {
-                $httpBackend.whenGET(baseUrl + '/' + context + '/darNoticia').passThrough();
-            }
-        }]);
 
 
     //mientras corre la aplicación, comprobamos si el usuario tiene acceso a la ruta a la que está accediendo
