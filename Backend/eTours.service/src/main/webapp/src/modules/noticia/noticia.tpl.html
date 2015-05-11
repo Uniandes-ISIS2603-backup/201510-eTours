@@ -1,67 +1,67 @@
 <div ng-controller="noticiaCtrl as noticiaCtrl">
-	<div id="header">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
-						<span ng-hide="noticiaCtrl.editMode">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-                                    <a class="navbar-brand" href="#">
-                                        
-                                    </a>
-				</div>
+    <div id="header">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+                        <span ng-hide="noticiaCtrl.editMode">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="country-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
-                                        <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="country-navbar">
+                    <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+                    <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
                     <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
                         <div class="form-group">
-                             <input type="text" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode"                                                                          class="form-control" style="margin: 0px; width: 462px;" placeholder="Titulo">
+                            <input ng-model="fecha" type="text" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode" class="form-control" style="margin: 0px; width: 462px;" placeholder="Titulo">
                         </div>
-                        <button class="btn btn-default" type="button" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darTitulo()"><span   class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                                </button>
-          </form>
+                        <button class="btn btn-default" type="button" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darPorFecha()"><span   class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </form>
 
 
-				</div>
-			</div>
-		</nav>
-	</div>
-    
-        <div ng-hide="noticiaCtrl.editMode">
-            <div id="noticiasAgregadas" ng-repeat="record in records">
-                <div class="col-lg-4">
-                    <div class="panel panel-green">  
-                        <div class="panel-heading">
-                            <p>Titulo: </p>
-                            <p>{{record.titulo}}</p>
-                        </div>       
-                        <div class="panel-body">
-                            <p>Entrada: </p>
-                            <p>{{record.entrada}}</p>
-                            <p>{{noticiaCtrl.formatFecha(record.fechaInicial)}}</p>
-                            <p>{{noticiaCtrl.formatFecha(record.fechaFinal)}}</p>
-                        </div>
-                        
-                        <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-                        <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
-                    </div>       
                 </div>
-             </div>
-	</div>
-    
-        <div ng-show="noticiaCtrl.editMode" id="evento-edit-mode">
-		<div class="panel-body" href="#/login">
-                <form accept-charset="UTF-8" role="form" class="form-signin" id="form-signin" name="form" >
-                    <fieldset>
+            </div>
+        </nav>
+    </div>
+
+    <div ng-hide="noticiaCtrl.editMode">
+        <div id="noticiasAgregadas" ng-repeat="record in records">
+            <div class="col-lg-4">
+                <div class="panel panel-green">  
+                    <div class="panel-heading">
+                        <p>Titulo: </p>
+                        <p>{{record.titulo}}</p>
+                    </div>       
+                    <div class="panel-body">
+                        <p>Entrada: </p>
+                        <p>{{record.entrada}}</p>
+                        <p>{{record.fechaInicial | date}}</p>
+                        <p>{{record.fechaFinal | date}}</p>
+                    </div>
+
+                    <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                    <button class="btn btn-default btn-sm" ng-click="noticiaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+                </div>       
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="noticiaCtrl.editMode" id="evento-edit-mode">
+        <div class="panel-body" href="#/login">
+            <form accept-charset="UTF-8" role="form" class="form-signin" id="form-signin" name="form" >
+                <fieldset>
                     <div class="input-group" align="left">
                         <span class="label label-default" >Titulo:</span> 
-                         <p></p>
+                        <p></p>
                         <input class="form-control" name="titulo" id="titulo" type="text" ng-model="currentRecord.titulo" style="margin: 0px; width: 462px;" required />
                     </div>        
                     <p></p>
@@ -73,19 +73,19 @@
                         <p></p>
                         <span class="label label-default" >Fecha inicial:</span><p></p>
                         <input id="name" class="form-control datepicker" type="date"  
-				ng-model="currentRecord.fechaInicial" 
-				required/>
+                               ng-model="currentRecord.fechaInicial" 
+                               required/>
                         <p></p>
                         <span class="label label-default" >Fecha final:</span>
                         <p></p>
                         <input id="name" class="form-control datepicker" type="date" 
-				ng-model="currentRecord.fechaFinal" 
-				required/>
+                               ng-model="currentRecord.fechaFinal" 
+                               required/>
                     </div>
                 </fieldset>
-                    <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.skipUrl('noticia')"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-                    <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                </form>
-            </div>     
-	</div>   
+                <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                <button class="btn btn-default navbar-btn" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            </form>
+        </div>     
+    </div>   
 </div>

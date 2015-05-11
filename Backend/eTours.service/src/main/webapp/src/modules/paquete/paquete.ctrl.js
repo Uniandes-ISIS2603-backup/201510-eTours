@@ -10,13 +10,7 @@
 
 
 
-             this.armarListaScope = function($scope){
-                
-var servicios = JSON.parse(servicios);  
-for(var i = 0; i < servicios.length; i++ )  
-  alert('Servicio: ' + servicios[i].nombre + ' es: ' + servicios[i].tipo);  
-                
-            };
+            
             
             
             

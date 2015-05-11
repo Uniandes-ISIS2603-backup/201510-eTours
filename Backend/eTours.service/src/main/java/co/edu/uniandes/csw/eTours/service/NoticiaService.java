@@ -31,38 +31,34 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class NoticiaService 
-{
-    
+public class NoticiaService {
+
     @Inject
     protected INoticiaLogic noticiaLogicService;
-    
+
     @POST
-    public NoticiaDTO createNoticia(NoticiaDTO not) 
-    {
+    public NoticiaDTO createNoticia(NoticiaDTO not) {
         return noticiaLogicService.createNoticia(not);
     }
-    
-     @DELETE
+
+    @DELETE
     @Path("{titulo}")
     public void deleteNoticia(@PathParam("titulo") String titulo) {
         noticiaLogicService.deleteNoticia(titulo);
     }
-    
+
     @GET
     public NoticiaPageDTO getNoticia(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
         return noticiaLogicService.getNoticia(page, maxRecords);
     }
-    
 
-    
-     @PUT
+    @PUT
     public void updateNoticia(@PathParam("titulo") String titulo, NoticiaDTO not) {
         noticiaLogicService.updateNoticia(not);
     }
-    
+
     @GET
-    @Path("fecha")
+    @Path("fecha/{fecha}")
     public List<NoticiaDTO> getNoticias(@PathParam("fecha") Date fecha) {
         return noticiaLogicService.getNoticiasFecha(fecha);
     }

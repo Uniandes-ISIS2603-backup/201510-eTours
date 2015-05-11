@@ -125,15 +125,9 @@
             urlsProvider.registerUrl(context);
         }]);
     
-var noticiaModule = angular.module('noticiaModule', ['CrudModule', 'MockModule']);
-    noticiaModule.constant('noticia.skipMock', true);
-    noticiaModule.constant('noticia.context', 'notica');
 
 
-     noticiaModule.config(['noticia.context', 'MockModule.urlsProvider','noticia.skipMock', function (context, urlsProvider, skipMock) {
-             urlsProvider.registerUrl(context, skipMock);
-         }]);
-
+ 
 
 
     //factoria que controla la autentificación, devuelve un objeto
