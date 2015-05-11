@@ -1,6 +1,7 @@
 (function () {
 	var mocksModule = angular.module('MockModule', ['ngMockE2E']);
         mocksModule.constant('MockModule.baseUrl', 'webresources');
+       var  baseUrl='http://localhost:8080/eTours.service';
 	mocksModule.run(['$httpBackend', 'MockModule.urls', function ($httpBackend, urls) {
 			function mockUrls(url) {
 				var records = [];
@@ -45,7 +46,9 @@
                                 
                                  //Función para indicar a los mock que deben permitir las solicitudes de la URL
              function skipUrl(entity_url) {
+                 
                 var fullUrl = baseUrl + '/' + entity_url;
+                
                 var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
                 $httpBackend.whenGET(fullUrl).passThrough();
                 $httpBackend.whenGET(url_regexp).passThrough();
