@@ -1,8 +1,10 @@
-(function () 
+(function (ng) 
 {
-    var servicioModule = angular.module('servicioModule');
+    var servicioModule = ng.module('servicioModule',['CrudModule']);
+    servicioModule.constant('servicio.context', 'servicio');
+
     var idCat;
-    servicioModule.run(['$httpBackend', 'servicio.context', 'MockModule.mockRecords', function ($httpBackend, context, mockRecords) 
+    servicioModule.run(['$httpBackend', 'servicio.context', function ($httpBackend, context, mockRecords) 
         {
             $httpBackend.whenGET('webresources/' + context + '/categoria/:'+ idCat).respond(function (idCat) 
             {
@@ -29,4 +31,4 @@
 
            
         }]);
-})();
+})(window.angular);

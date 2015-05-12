@@ -1,8 +1,8 @@
-(function () {
+(function (angular) {
     var app = angular.module('servicioModule');
-    app.controller('servicioCtrl', ['$scope', 'CRUDUtils', 'servicio.context', function ($scope, CRUDUtils, context, $localStorage) {
+    app.controller('servicioCtrl', ['$scope','servicioService', function ($scope, svc) {
             this.url = context;
-            CRUDUtils.extendCtrl(this, $scope);
+            svc.extendCtrl(this, $scope);
             this.fetchRecords();
 
             this.fetchRecords = function ()
@@ -13,9 +13,7 @@
                     $scope.currentRecord = {};
                     self.editMode = false;
                 });
-                localStorage.setItem('servicios-persistencia', JSON.stringify($scope.records));
 
             };
-            this.fetchRecords();
         }]);
-})();
+})(window.angular);
