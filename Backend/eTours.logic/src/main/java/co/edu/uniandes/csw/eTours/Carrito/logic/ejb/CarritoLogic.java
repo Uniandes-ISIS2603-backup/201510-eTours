@@ -9,6 +9,5 @@ package co.edu.uniandes.csw.eTours.Carrito.logic.ejb;
  *
  * @author estudiante
  */
-public class CarritoLogic {
-    
-}
+public class CarritoLogic{}
+  

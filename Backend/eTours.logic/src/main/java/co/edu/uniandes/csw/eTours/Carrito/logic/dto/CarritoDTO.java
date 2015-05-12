@@ -9,6 +9,17 @@ package co.edu.uniandes.csw.eTours.Carrito.logic.dto;
  *
  * @author estudiante
  */
-public class CarritoDTO {
+public class CarritoDTO 
+{
+    private int id;
+
+    public int getId()
+    {
+        return id;
+    }        
     
+    public void setId(int id)
+    {
+        this.id=id;
+    }
 }
