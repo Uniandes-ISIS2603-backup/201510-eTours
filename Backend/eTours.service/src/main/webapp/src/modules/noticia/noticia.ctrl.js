@@ -1,72 +1,18 @@
-(function () {
-	var app = angular.module('noticiaModule');
+(function (angular) {
+    var app = angular.module('noticiaModule');
 
-	app.controller('noticiaCtrl', ['$scope', 'CRUDUtils', 'noticia.context', function ($scope, CRUDUtils, context) {
-			this.url = context;
-			CRUDUtils.extendCtrl(this, $scope);
-        
-			this.fetchRecords();  
-        
-                          this.formatFecha = function(fechaEvento){
-                
-                fechaEvento = new Date(fechaEvento);
-                
-                var weekday = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
-                
-                var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                                    "Julio", "Augosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-                
-                
-                var dia = fechaEvento.getDate();                
-                var nombreMes = monthNames[fechaEvento.getMonth()];
-                var nombreDia = weekday[fechaEvento.getDay()];
-                
-                 var fechaString = nombreDia+', '+dia+' de '+nombreMes;
-                
-                return fechaString;
-                
+    app.controller('noticiaCtrl', ['$scope', 'noticiaService', function ($scope, svc) {
+            svc.extendCtrl(this, $scope);
+            this.fetchRecords();
+            this.darPorFecha = function(){
+                svc.darPorFecha($scope.fecha).then(function(data){
+                    $scope.records = data;
+                    $scope.totalItems = data.totalRecords;
+                    $scope.currentRecord = {}
+                    ctrl.editMode = false;
+                    return data;
+                    
+                });
             };
-                //Función para indicar a los mock que deben permitir las solicitudes de la URL  
-                function skipUrl(entity_url)
-                { 
-                    var fullUrl = baseUrl + '/' + entity_url;
-                    var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
-                    $httpBackend.whenGET(fullUrl).passThrough();
-                    $httpBackend.whenGET(url_regexp).passThrough(); 
-                    $httpBackend.whenPOST(fullUrl).passThrough();
-                    $httpBackend.whenPUT(url_regexp).passThrough(); 
-                    $httpBackend.whenDELETE(url_regexp).passThrough();
-                }   
-                
-                        this.darTitulo= function()
-                                {
-                                    titulos = [];
-                                    t=document.getElementById('nTitulo').value;
-                            console.log(t);
-                                    for(var i =0;i< $scope.records.length;i++)
-                                    {
-                                        var actual = $scope.records[i];
-                                        if(actual.titulo===t)
-                                        {
-                                           titulos.push(actual);
-                                        }
-                                    }
-                                    $scope.currentRecords=titulos;
-                                    this.fetchRecords(); 
-                                };
-                                
-                        this.darFecha= function(nFecha)
-                            {
-                                    titulos = [];
-                                    for(var i =0;i< $scope.records.length;i++)
-                                    {
-                                        var actual = $scope.records[i];
-                                        if(actual.fechaInicial<=nFecha && actual.fechaFinal>=nFecha)
-                                        {
-                                           titulos.push(actual);
-                                        }
-                                    }
-                                    $scope.currentRecords=titulos;
-                            };
-		}]);
-})();
+        }]);
+})(window.angular);
