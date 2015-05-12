@@ -21,7 +21,7 @@
                     <button class="btn btn-default navbar-btn" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
                     <form class="navbar-form navbar-left visible-lg-block visible-md-block" role="search">
                         <div class="form-group">
-                            <input ng-model="fecha" type="text" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode" class="form-control" style="margin: 0px; width: 462px;" placeholder="Titulo">
+                            <input ng-model="fecha" type="date" id="nTitulo" class="busqueda" ng-hide="noticiaCtrl.editMode" class="form-control" style="margin: 0px; width: 462px;" placeholder="Fecha">
                         </div>
                         <button class="btn btn-default" type="button" ng-hide="noticiaCtrl.editMode" ng-click="noticiaCtrl.darPorFecha()"><span   class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
@@ -43,6 +43,7 @@
                     </div>       
                     <div class="panel-body">
                         <p>Entrada: </p>
+                        
                         <p>{{record.entrada}}</p>
                         <p>{{record.fechaInicial | date}}</p>
                         <p>{{record.fechaFinal | date}}</p>
@@ -68,7 +69,7 @@
                     <div class="input-group" align="left">
                         <span class="label label-default" >Entrada:</span>
                         <p></p>
-                        <textarea class="form-control ng-pristine ng-valid ng-touched" required ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
+                        <textarea class="form-control ng-pristine ng-valid ng-touched" ng-model="currentRecord.entrada" style="margin: 0px; width: 462px; height: 158px; resize: none;">
                         </textarea>
                         <p></p>
                         <span class="label label-default" >Fecha inicial:</span><p></p>

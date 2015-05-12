@@ -1,4 +1,4 @@
-package co.edu.uniandes.scw.eTours.Proveedor.logic.ejb;
+package co.edu.uniandes.csw.eTours.Proveedor.logic.ejb;
 
 import co.edu.uniandes.csw.eTours.Paquete.logic.ejb.*;
 import co.edu.uniandes.csw.eTours.Paquete.logic.api.IPaqueteLogic;
@@ -6,7 +6,7 @@ import co.edu.uniandes.csw.eTours.Paquete.logic.converter.PaqueteConverter;
 import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaqueteDTO;
 import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaquetePageDTO;
 import co.edu.uniandes.csw.eTours.Paquete.entity.PaqueteEntity;
-import com.edu.uniandes.scw.eTours.Proveedor.logic.api.IProveedorLogic;
+import co.edu.uniandes.scw.eTours.Proveedor.logic.api.IProveedorLogic;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
