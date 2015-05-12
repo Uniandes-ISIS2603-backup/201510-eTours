@@ -38,6 +38,7 @@ import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.converter.SolicitudRetir
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.dto.SolicitudRetiroDTO;
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.dto.SolicitudRetiroPageDTO;
 import co.edu.uniandes.csw.eTours.SolicitudRetiro.logic.entity.SolicitudRetiroEntity;
+import com.edu.uniandes.csw.eTours.Proveedor.entity.ProveedorEntity;
 import java.util.List;
 import java.util.List;
 import javax.persistence.EntityManager;
