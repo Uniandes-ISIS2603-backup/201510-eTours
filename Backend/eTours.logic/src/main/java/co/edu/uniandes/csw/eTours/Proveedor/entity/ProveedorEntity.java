@@ -1,4 +1,4 @@
-package com.edu.uniandes.csw.eTours.Proveedor.entity;
+package co.edu.uniandes.csw.eTours.Proveedor.entity;
 
 import co.edu.uniandes.csw.eTours.Paquete.entity.*;
 import javax.persistence.Entity;

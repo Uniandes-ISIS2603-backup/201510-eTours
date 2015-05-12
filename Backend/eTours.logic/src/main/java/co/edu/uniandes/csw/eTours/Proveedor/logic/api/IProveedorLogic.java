@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.uniandes.scw.eTours.Proveedor.logic.api;
+package co.edu.uniandes.scw.eTours.Proveedor.logic.api;
 
 import co.edu.uniandes.csw.eTours.Paquete.logic.api.*;
 import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaqueteDTO;

@@ -1,4 +1,4 @@
-package com.edu.uniandes.scw.eTours.Proveedor.logic.ejb;
+package co.edu.uniandes.scw.eTours.Proveedor.logic.ejb;
 
 import co.edu.uniandes.csw.eTours.Paquete.logic.ejb.*;
 import co.edu.uniandes.csw.eTours.Paquete.logic.api.IPaqueteLogic;
