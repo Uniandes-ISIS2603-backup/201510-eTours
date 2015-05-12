@@ -4,6 +4,7 @@
     app.controller('noticiaCtrl', ['$scope', 'noticiaService', function ($scope, svc) {
             svc.extendCtrl(this, $scope);
             this.fetchRecords();
+            
             this.darPorFecha = function(){
                 svc.darPorFecha($scope.fecha).then(function(data){
                     $scope.records = data;

@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import org.glassfish.ejb.deployment.node.EjbBundleNode;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -27,7 +28,7 @@ import org.junit.Test;
  *
  * @author estudiante
  */
-public class NoticiaLogic {
+public class NoticiaLogicTest {
      public static final String DEPLOY = "Prueba";
 
     @Deployment
@@ -36,7 +37,7 @@ public class NoticiaLogic {
                 .addPackage(NoticiaEntity.class.getPackage())
                 .addPackage(NoticiaDTO.class.getPackage())
                 .addPackage(NoticiaConverter.class.getPackage())
-                .addPackage(NoticiaLogic.class.getPackage())
+                .addPackage(NoticiaLogicTest.class.getPackage())
                 .addPackage(INoticiaLogic.class.getPackage())
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource("META-INF/beans.xml", "beans.xml");

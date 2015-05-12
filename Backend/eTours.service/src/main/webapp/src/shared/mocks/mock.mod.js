@@ -1,9 +1,9 @@
 (function (angular) {
-	var mocksModule = angular.module('MockModule', ['ngMockE2E']);
-        mocksModule.constant('MockModule.baseUrl', 'rest');
-       var  baseUrl='http://localhost:8080/eTours.service';
-	
-         mocksModule.run(['$httpBackend', 'MockModule.urls', 'MockModule.mockRecords', 'MockModule.baseUrl', function ($httpBackend, urls, mockRecords, baseUrl) {
+    var mocksModule = angular.module('MockModule', ['ngMockE2E']);
+
+    mocksModule.constant('MockModule.baseUrl', 'webresources');
+
+    mocksModule.run(['$httpBackend', 'MockModule.urls', 'MockModule.mockRecords', 'MockModule.baseUrl', function ($httpBackend, urls, mockRecords, baseUrl) {
             function mockUrls(entity_url) {
                 mockRecords[entity_url] = [];
                 var fullUrl = baseUrl + '/' + entity_url;
@@ -13,8 +13,8 @@
                     if (params && params.page && params.maxRecords) {
                         var start_index = (params.page - 1) * params.maxRecords;
                         var end_index = start_index + params.maxRecords;
-                        responseObj.records = mockRecords[entity_url].slice(start_index,end_index);
-                    }else {
+                        responseObj.records = mockRecords[entity_url].slice(start_index, end_index);
+                    } else {
                         responseObj.records = mockRecords[entity_url];
                     }
                     return [200, responseObj, {}];
@@ -54,6 +54,7 @@
                     return [200, null, {}];
                 });
             }
+
             function skipUrl(entity_url) {
                 var fullUrl = baseUrl + '/' + entity_url;
                 var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
@@ -76,4 +77,3 @@
             }
         }]);
 })(window.angular);
-        

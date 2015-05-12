@@ -53,12 +53,13 @@ public class NoticiaService {
     }
 
     @PUT
+    @Path("{titulo}")
     public void updateNoticia(@PathParam("titulo") String titulo, NoticiaDTO not) {
         noticiaLogicService.updateNoticia(not);
     }
 
     @GET
-    @Path("fecha/{fecha}")
+    @Path("{fecha}")
     public List<NoticiaDTO> getNoticias(@PathParam("fecha") Date fecha) {
         return noticiaLogicService.getNoticiasFecha(fecha);
     }

@@ -12,6 +12,8 @@ import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaDTO;
 import co.edu.uniandes.csw.eTours.Noticia.logic.dto.NoticiaPageDTO;
 import java.util.Date;
 import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,18 +22,22 @@ import javax.persistence.Query;
  *
  * @author estudiante
  */
+@Stateless 
+@LocalBean
 public class NoticiaLogic implements INoticiaLogic{
+    
     @PersistenceContext(unitName = "eToursClassPU")
     protected EntityManager entityManager;
 
-    public NoticiaDTO createNoticia(NoticiaDTO details) {
+    public NoticiaDTO createNoticia(NoticiaDTO details) 
+    {
         NoticiaEntity entity = NoticiaConverter.persistenceDTO2Entity(details);
         entityManager.persist(entity);
         return NoticiaConverter.entity2PersistenceDTO(entity);
     }
 
     public List<NoticiaDTO> getNoticias() {
-        Query q = entityManager.createQuery("select u from PaqueteEntity u");
+        Query q = entityManager.createQuery("select u from NoticiaEntity u");
         return NoticiaConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
