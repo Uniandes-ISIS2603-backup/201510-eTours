@@ -5,10 +5,22 @@
  */
 package co.edu.uniandes.csw.eTours.Carrito.logic.api;
 
+import co.edu.uniandes.csw.eTours.Servicio.logic.dto.ServicioDTO;
+import java.util.List;
+
 /**
  *
  * @author estudiante
  */
-public interface ICarritoLogic {
-    
+public interface ICarritoLogic 
+{
+    public ServicioDTO agregarItem(ServicioDTO details);
+
+    public List<ServicioDTO> getItems();
+
+    public void deleteItem(int id_servicio);
+
+    public void pagarCarrito();
+
+    public void desocuparCarrito();
 }

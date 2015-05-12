@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.eTours.Noticia.logic.dto;
 
-import java.util.Date;
+
 
 /**
  *
