@@ -1,11 +1,11 @@
 (function(angular){
     var mod = angular.module('servicioModule');
     
-    mod.service('servicioService', ['CRUDBase','servicio.context', function(CRUDBase, ctx){
+    mod.service('servicioService', ['CRUDBase','servicio.context', function(bse, ctx){
             this.url = ctx;
-            CRUDBase.extendService(this);
-            this.darServiciosCat = function(){
-                return this.api.customGET('categoria');
+            bse.extendService(this);
+            this.darServiciosCat = function(categoria){
+                return this.api.customGET('categoria'+ categoria);
             };
     }]);
-})();
+})(window.angular);
