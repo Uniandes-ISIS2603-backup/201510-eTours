@@ -40,7 +40,7 @@
                             <ul class="timeline">
 <!--                                NG-repeat y cada evento es un li-->
                                 {{eventoCtrl.initTimeline()}}
-                                <li ng-class="inverted" ng-repeat="record in records">
+                                <li id="eventoD" ng-class="inverted" ng-repeat="record in records">
                                     <div class="timeline-badge primary"><i><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></i>
                                     </div>
                                     <div class="timeline-panel" style="background-color:rgba(246,246,246, 0.7);">
@@ -50,7 +50,7 @@
                                             <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{record.hora}}</small>
                                             </p>
                                         </div>
-                                        <div class="timeline-body">
+                                        <div id="eventoContent" class="timeline-body">
                                             <p class="wordwrap">{{record.contenido}}</p>
                                         </div>
                                          <hr>
@@ -61,7 +61,7 @@
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li><a ng-click="eventoCtrl.editRecord(record)">Editar evento</a>
                                                     </li>
-                                                    <li><a ng-click="eventoCtrl.deleteRecord(record)">Eliminar evnto</a>
+                                                    <li><a ng-click="eventoCtrl.deleteRecord(record)">Eliminar evento</a>
                                                     </li>
                                                 </ul>
                                             </div>
