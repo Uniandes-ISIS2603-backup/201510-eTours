@@ -10,7 +10,7 @@ public class PaqueteDTO {
         private Long id;
     
    private Double descount;
-    private ArrayList<ServicioEntity> servicios = new ArrayList<ServicioEntity>();
+    private String servicios ;
     public Long getId() {
         return id;
     }
@@ -27,21 +27,21 @@ public class PaqueteDTO {
         this.descount = descuento;
     }
     
-    public ArrayList<ServicioEntity> getServices()
+    public String getServices()
     {
         return servicios;
     }
     
-    public void setServices(ArrayList<ServicioEntity> pServicios)
+    public void setServices(String pServicios)
     {
     
         this.servicios =pServicios; 
     }
     
-    public void addServices(ServicioEntity pServicio)
+    public void addServices(String pServicio)
     {
     
-        servicios.add(pServicio);
+        servicios += ("|"+ pServicio);
     }
     
 }

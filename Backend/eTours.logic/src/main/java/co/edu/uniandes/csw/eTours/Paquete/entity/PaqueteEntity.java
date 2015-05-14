@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 import co.edu.uniandes.csw.eTours.Servicio.logic.entity.ServicioEntity;
+import javax.persistence.OneToMany;
 @Entity
 public class PaqueteEntity {
 
@@ -13,7 +14,7 @@ public class PaqueteEntity {
     @GeneratedValue(generator = "Paquete")
     private Long id;
     private Double descount;
-    private ArrayList<ServicioEntity> servicios = new ArrayList<ServicioEntity>();
+    private String servicios;
 
      
     
@@ -34,21 +35,21 @@ public class PaqueteEntity {
         this.descount = descuento;
     }
     
-    public ArrayList<ServicioEntity>  getServices()
+    public String getServices()
     {
         return servicios;
     }
     
-    public void setServices(ArrayList<ServicioEntity> pServicios)
+    public void setServices(String pServicios)
     {
     
         this.servicios =pServicios; 
     }
     
-    public void addServices(ServicioEntity pServicio)
+    public void addServices(String pServicio)
     {
     
-        servicios.add(pServicio);
+        servicios +=("|" +pServicio);
     }
     
 }
