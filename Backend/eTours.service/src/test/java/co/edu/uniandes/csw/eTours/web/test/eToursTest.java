@@ -428,4 +428,586 @@ public class eToursTest {
 		assertTrue(success);
 		Thread.sleep(2000);
 	}
+        
+        @Test
+	public void tRegistroI() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/login.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		driver.findElement(By.partialLinkText("Registrate")).click();
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("user")).clear();
+		driver.findElement(By.id("user")).sendKeys("usuario1");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("clave")).clear();
+		driver.findElement(By.id("clave")).sendKeys("1234");
+
+		
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Listo")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'usuario')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("nav/div//ul"));
+			if (elems.get(0).getText().equals("usuario1")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+        
+        @Test
+	public void tRegistroR() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/login.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("user")).clear();
+		driver.findElement(By.id("user")).sendKeys("usuario1");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("clave")).clear();
+		driver.findElement(By.id("clave")).sendKeys("1234");
+
+		
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Iniciar")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'usuario')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("nav/div//ul"));
+			if (elems.get(0).getText().equals("usuario1")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+        
+        @Test
+	public void tServicios() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/servicios.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		driver.findElement(By.partialLinkText("Crear Servicio")).click();
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys("Servicio test");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("hora")).clear();
+		driver.findElement(By.id("hora")).sendKeys("10:30 am");
+
+		/**
+		 * Comando que busca el elemento 'contenido' en el html actual. 
+		 */
+		driver.findElement(By.id("contenido")).clear();
+		driver.findElement(By.id("contenido")).sendKeys("Un servicio de prueba para Selenium, sonrie :)");
+
+
+                /**
+		 * Comando que busca el elemento 'contenido' en el html actual. 
+		 */
+		driver.findElement(By.id("organizador")).clear();
+		driver.findElement(By.id("organizador")).sendKeys("Un servicio de prueba para Selenium, sonrie :)");
+
+                /**
+		 * Comando que busca el elemento 'contenido' en el html actual. 
+		 */
+		driver.findElement(By.id("reqIns")).clear();
+		driver.findElement(By.id("reqIns")).sendKeys("Si");
+
+                /**
+		 * Comando que busca el elemento 'contenido' en el html actual. 
+		 */
+		driver.findElement(By.id("lugar")).clear();
+		driver.findElement(By.id("lugar")).sendKeys("Un Servicio de prueba para Selenium, sonrie :)");
+
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Guardar")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'eventoD')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+			if (elems.get(0).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+        
+        @Test
+	public void tSolicitudIngreso() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/solicitudIngreso.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("user")).clear();
+		driver.findElement(By.id("user")).sendKeys("usuario1");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("clave")).clear();
+		driver.findElement(By.id("clave")).sendKeys("1234");
+
+		
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Iniciar")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'usuario')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("nav/div//ul"));
+			if (elems.get(0).getText().equals("usuario1")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+        
+        @Test
+	public void tSolicitudIngresoAceptar() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/solicitudIngreso.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+		//Busca las noticias ya existentes
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'eventoD')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+			if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+				List<WebElement> buttons = webElement.findElements(By.xpath("div/ul/li"));
+				buttons.get(1).click();
+				success = true;
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		//Se busca el objeto que fue eliminado, si se encuentra hay error al eliminar
+		rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+		if(rows.size()>0){
+			for (WebElement webElement : rows) {
+				List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+				if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+					success = false;
+					break;
+				}
+			}
+		}
+
+		Thread.sleep(3000);
+		assertTrue(success);
+	}
+        
+        @Test
+	public void tSolicitudRetiro() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/solicitudRetiro.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("user")).clear();
+		driver.findElement(By.id("user")).sendKeys("usuario1");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("clave")).clear();
+		driver.findElement(By.id("clave")).sendKeys("1234");
+
+		
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Iniciar")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'usuario')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("nav/div//ul"));
+			if (elems.get(0).getText().equals("usuario1")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+        
+        @Test
+	public void tSolicitudRetiroAceptar() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/solicitudRetiro.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+		//Busca las noticias ya existentes
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'eventoD')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+			if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+				List<WebElement> buttons = webElement.findElements(By.xpath("div/ul/li"));
+				buttons.get(1).click();
+				success = true;
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		//Se busca el objeto que fue eliminado, si se encuentra hay error al eliminar
+		rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+		if(rows.size()>0){
+			for (WebElement webElement : rows) {
+				List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+				if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+					success = false;
+					break;
+				}
+			}
+		}
+
+		Thread.sleep(3000);
+		assertTrue(success);
+	}
+        
+        @Test
+	public void tcarroAgregar() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/carro.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		driver.findElement(By.partialLinkText("Crear Evento")).click();
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+
+		/**
+		 * Comando que busca el elemento 'name' en el html actual. 
+		 */
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys("Evento test");
+
+		/**
+		 * Comando que busca el elemento 'hora' en el html actual. 
+		 */
+		driver.findElement(By.id("hora")).clear();
+		driver.findElement(By.id("hora")).sendKeys("10:30 am");
+
+		/**
+		 * Comando que busca el elemento 'contenido' en el html actual. 
+		 */
+		driver.findElement(By.id("contenido")).clear();
+		driver.findElement(By.id("contenido")).sendKeys("Un evento de prueba para Selenium, sonrie :)");
+
+
+		/**
+		 * Comando que busca el boton Save y luego hace click
+		 * Comando que duerme el Thread del test por 2 segundos
+		 */
+		driver.findElement(By.partialLinkText("Guardar")).click();
+		Thread.sleep(2000);
+
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'eventoD')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+			if (elems.get(0).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
+	@Test
+	public void tcarroRetirar() throws Exception
+	{
+		getUrlOnBase("/eTours.service/pages/carro.html");
+
+		boolean success = false;
+		//Busca las noticias ya existentes
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'eventoD')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+			if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+				List<WebElement> buttons = webElement.findElements(By.xpath("div/ul/li"));
+				buttons.get(1).click();
+				success = true;
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		//Se busca el objeto que fue eliminado, si se encuentra hay error al eliminar
+		rows = driver.findElements(By.xpath("//div[contains(@id,'noticiasAgregadas')]"));
+		if(rows.size()>0){
+			for (WebElement webElement : rows) {
+				List<WebElement> elems = webElement.findElements(By.xpath("div/p"));
+				if (elems.get(1).getText().equals("Un evento de prueba para Selenium, sonrie :)")) {
+					success = false;
+					break;
+				}
+			}
+		}
+
+		Thread.sleep(3000);
+		assertTrue(success);
+	}
+        
+        @Test
+	public void tcarroComprar() throws Exception {
+
+		getUrlOnBase("/eTours.service/pages/carro.html");
+
+		/**
+		 * Comando que realiza click sobre el link "Country". La
+		 * funci�n 'find' encuentra el control y posteriormente hace clic en el
+		 * mismo. La forma en la que se busca el control es utilizando
+		 * expresiones definidas por el web driver y xpath*/
+
+		boolean success = false;
+
+		driver.findElement(By.partialLinkText("Comprar")).click();
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina de Sport.
+		 */
+
+		//        Thread.sleep(3000);
+		//        driver.findElement(By.partialLinkText("agregar")).click();
+
+		/**
+		 * Comando que duerme el Thread del test por 3 segundos para dejar que
+		 * el efecto 'slide down' abra la pagina createCountry.
+		 */
+		Thread.sleep(3000);
+
+		
+
+		List<WebElement> rows = driver.findElements(By.xpath("//div[contains(@id,'compra')]"));
+		for (WebElement webElement : rows) {
+			List<WebElement> elems = webElement.findElements(By.xpath("nav/div//ul"));
+			if (elems.get(0).getText().equals("item1")) {
+				success = true;
+			}
+		}
+		/**
+		 * la prueba es exitosa si se encontr�
+		 * el nuevo elemento creado en la lista.
+		 */
+
+		assertTrue(success);
+		Thread.sleep(2000);
+	}
 }
