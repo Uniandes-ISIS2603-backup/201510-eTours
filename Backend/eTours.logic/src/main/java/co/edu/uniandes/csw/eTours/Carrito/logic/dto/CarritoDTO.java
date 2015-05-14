@@ -11,15 +11,40 @@ package co.edu.uniandes.csw.eTours.Carrito.logic.dto;
  */
 public class CarritoDTO 
 {
-    private int id;
-
-    public int getId()
-    {
-        return id;
-    }        
+ private Long id;
     
-    public void setId(int id)
+    private int cantidad;
+    
+    private String servicios;
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+    
+       public int getCantidad(){
+        return cantidad;
+    }
+    public void setCantidad(int pcantidad){
+        this.cantidad = pcantidad;
+    }
+    
+    public String getServices()
     {
-        this.id=id;
+        return servicios;
+    }
+    
+    public void setServices(String pServicios)
+    {
+    
+        this.servicios =pServicios; 
+    }
+    
+    public void addServices(String pServicio)
+    {
+    
+        servicios +=("|" +pServicio);
     }
 }

@@ -48,6 +48,7 @@ import javax.ws.rs.core.MediaType;
 
 
 @Consumes(MediaType.APPLICATION_JSON)
+@Stateless
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/paquete")
 public class PaqueteService {
@@ -79,7 +80,7 @@ public class PaqueteService {
 
     @PUT
     @Path("{id}")
-    public void updateSport(@PathParam("id") Long id, PaqueteDTO paq) {
+    public void updatePaquete(@PathParam("id") Long id, PaqueteDTO paq) {
         paqueteLogicService.updatePaquete(paq);
     }
 

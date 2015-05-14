@@ -20,6 +20,10 @@ public class CarritoEntity {
     @Id
     @GeneratedValue(generator = "Carrito")
     private Long id;
+    
+    private int cantidad;
+    
+    private String servicios;
 
     public Long getId(){
         return id;
@@ -27,4 +31,30 @@ public class CarritoEntity {
     public void setId(Long id){
         this.id = id;
     }
+    
+       public int getCantidad(){
+        return cantidad;
+    }
+    public void setCantidad(int pcantidad){
+        this.cantidad = pcantidad;
+    }
+    
+    public String getServices()
+    {
+        return servicios;
+    }
+    
+    public void setServices(String pServicios)
+    {
+    
+        this.servicios =pServicios; 
+    }
+    
+    public void addServices(String pServicio)
+    {
+    
+        servicios +=("|" +pServicio);
+    }
+    
+    
 }
