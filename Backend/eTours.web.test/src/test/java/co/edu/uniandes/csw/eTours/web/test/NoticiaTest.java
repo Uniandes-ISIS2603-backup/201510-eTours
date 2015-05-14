@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.eTours.web.test;
+package co.edu.uniandes.csw.eTours.web.test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,11 +21,11 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
  
 public class NoticiaTest {
-        // Es la instancia inicial del web driver que controlará el navegador firefox
+        // Es la instancia inicial del web driver que controlarï¿½ el navegador firefox
         private static WebDriver driver;
-        // url en el cual se aloja la página web (en este caso localhost:8080)
+        // url en el cual se aloja la pï¿½gina web (en este caso localhost:8080)
         private static String baseUrl;
-        // variable que indica si varios alert consecutivos (alert javascript) se tomarán
+        // variable que indica si varios alert consecutivos (alert javascript) se tomarï¿½n
         private static boolean acceptNextAlert = true;
         private static StringBuffer verificationErrors = new StringBuffer();
  
@@ -33,7 +33,7 @@ public class NoticiaTest {
          public void setUpUrl() {
              driver.get(baseUrl + "/noticia.service");
         }
-       /*La anotación @BeforeClass indica lo que se debe ejecutar ANTES de correr el archivo de pruebas. Este método instancia un nuevo driver firefox (causando la apertura de una ventana física de firefox).*/
+       /*La anotaciï¿½n @BeforeClass indica lo que se debe ejecutar ANTES de correr el archivo de pruebas. Este mï¿½todo instancia un nuevo driver firefox (causando la apertura de una ventana fï¿½sica de firefox).*/
         @BeforeClass
         public static void setUp() throws Exception {
             driver = new FirefoxDriver();
@@ -44,9 +44,9 @@ public class NoticiaTest {
         }
  
  
-        // La anotación @AfterClass indica lo que se debe ejecutar DESPUES de ejecutar
-        // el archivo de pruebas. Este método cierra la ventana de firefox
-        // abierta por @BeforeClass que se utilizó para la prueba.
+        // La anotaciï¿½n @AfterClass indica lo que se debe ejecutar DESPUES de ejecutar
+        // el archivo de pruebas. Este mï¿½todo cierra la ventana de firefox
+        // abierta por @BeforeClass que se utilizï¿½ para la prueba.
         @AfterClass
         public static void tearDown() throws Exception {
             // Se cierra el navegador.
@@ -63,7 +63,7 @@ public class NoticiaTest {
  
         /**
          * Comando que realiza click sobre el link "Country". La
-         * función 'find' encuentra el control y posteriormente hace clic en el
+         * funciï¿½n 'find' encuentra el control y posteriormente hace clic en el
          * mismo. La forma en la que se busca el control es utilizando
          * expresiones definidas por el web driver y xpath*/
  
@@ -129,7 +129,7 @@ public class NoticiaTest {
             }
         }
          /**
-         * la prueba es exitosa si se encontró
+         * la prueba es exitosa si se encontrï¿½
          * el nuevo elemento creado en la lista.
          */
         
