@@ -62,7 +62,7 @@ public class PaqueteLogic implements IPaqueteLogic{
     }
 
     public List<PaqueteDTO> getServices() {
-        Query query = entityManager.createQuery("select u.servicios from PaqueteEntity u");
+        Query query = entityManager.createQuery("select u.services from PaqueteEntity u");
          PaqueteConverter.entity2PersistenceDTO((PaqueteEntity)query.getResultList());
          return null;
     }
