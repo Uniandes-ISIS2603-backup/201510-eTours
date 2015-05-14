@@ -3,8 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.eTours.web.test;
+package co.edu.uniandes.csw.eTours.web.test;
 
+import co.edu.uniandes.csw.eTours.service.CarritoService;
+import co.edu.uniandes.csw.eTours.service.EventoService;
+import co.edu.uniandes.csw.eTours.service.NoticiaService;
+import co.edu.uniandes.csw.eTours.service.PaqueteService;
+import co.edu.uniandes.csw.eTours.service.ServicioService;
+import co.edu.uniandes.csw.eTours.service.SolicitudIngresoService;
+import co.edu.uniandes.csw.eTours.service.SolicitudRetiroService;
 import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +50,7 @@ public class eToursTest {
 	private static WebDriver driver;
 	// url en el cual se aloja la p�gina web (en este caso localhost:8080)
 	private static String baseUrl;
+        public static String URLRESOURCES = "src/main/webapp";
 	// variable que indica si varios alert consecutivos (alert javascript) se tomar�n
 	private static boolean acceptNextAlert = true;
 	private static StringBuffer verificationErrors = new StringBuffer();

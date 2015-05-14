@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.eTours.web.test;
+package co.edu.uniandes.csw.eTours.web.test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -61,7 +61,7 @@ public class PaqueteTest
  
         /**
          * Comando que realiza click sobre el link "Country". La
-         * función 'find' encuentra el control y posteriormente hace clic en el
+         * funciï¿½n 'find' encuentra el control y posteriormente hace clic en el
          * mismo. La forma en la que se busca el control es utilizando
          * expresiones definidas por el web driver y xpath*/
  
@@ -127,7 +127,7 @@ public class PaqueteTest
             }
         }
          /**
-         * la prueba es exitosa si se encontró
+         * la prueba es exitosa si se encontrï¿½
          * el nuevo elemento creado en la lista.
          */
         
