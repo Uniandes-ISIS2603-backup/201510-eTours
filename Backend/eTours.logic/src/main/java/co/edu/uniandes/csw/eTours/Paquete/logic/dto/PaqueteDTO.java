@@ -9,7 +9,7 @@ public class PaqueteDTO {
    
         private Long id;
     
-   private Double descount;
+   private int descount;
     private String servicios ;
     public Long getId() {
         return id;
@@ -19,11 +19,11 @@ public class PaqueteDTO {
         this.id = id;
     }
 
-    public Double getDescuento() {
+    public int getDescuento() {
         return descount;
     }
 
-    public void setDescuento(Double descuento) {
+    public void setDescuento(int descuento) {
         this.descount = descuento;
     }
     
