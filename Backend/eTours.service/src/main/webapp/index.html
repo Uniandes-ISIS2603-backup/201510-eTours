@@ -21,8 +21,6 @@
 	<script src="./src/shared/crud/crud.svc.js"></script>
 	<script src="./src/shared/mocks/mock.mod.js"></script>
 	<script src="./src/shared/mocks/mock.svc.js"></script>
-        <script src="./src/modules/noticia/noticia.mod.js"></script>
-	<script src="./src/modules/noticia/noticia.ctrl.js"></script>
 	<script src="./src/assets/libs/angular-ngStorage.min.js"></script>
 	
 	<script type="text/javascript">
@@ -72,14 +70,14 @@
                 Comunidad <span class="caret"></span>     
             </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="pages/eventos.html" id="dropped-button-nav" ng-show="userRole==='admin'">Eventos</a></li>
+            <li><a id="Evento" href="pages/eventos.html" id="dropped-button-nav" ng-show="userRole==='admin'">Eventos</a></li>
         
-            <li><a href="noticias.html" id="dropped-button-nav">Noticias</a></li>
-            <li><a href="servicios.html" id="dropped-button-nav">Servicios</a></li>
+            <li><a id="Noticia" href="noticias.html" id="dropped-button-nav">Noticias</a></li>
+            <li><a id="Servicio" href="servicios.html" id="dropped-button-nav">Servicios</a></li>
 
-           <li><a href="pages/paquetesUsuario.html" id="dropped-button-nav">Paquetes</a></li>
+            <li><a id="Paquete" href="pages/paquetesUsuario.html" id="dropped-button-nav">Paquetes</a></li>
 
-                <li><a href="pages/paquetes.html" id="dropped-button-nav"ng-show="userRole==='admin'">CrearPaquetes</a></li>
+            <li><a href="pages/paquetes.html" id="dropped-button-nav"ng-show="userRole==='admin'">CrearPaquetes</a></li>
 
           </ul>
         </li>
@@ -97,6 +95,7 @@
             <li><a href="./pages/registro.html" id="btn-signup" ng-hide="loggedIn">Únete</a></li>
             <li><a ng-show="loggedIn">{{username}}</a></li>
             <li><a href="" id="btn-signup" ng-show="loggedIn" ng-click="logout()">LogOut</a></li>
+            <li><a href="" id="Carrito" ng-show="userRole==='cliente'">Carrito</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -105,11 +104,6 @@
         <div class="container special">
             <div class="jumbotron" id="jumbotron-fullscreen">
                 Descansa, te lo mereces; nosotros te ayudaremos a encontrar un ecotour perfecto.
-                <!--<div class="btn-group btn-group-justified visible-lg-block visible-md-block" id="btn-all-rabbit" role="group">
-                    <a type="button" class="btn btn-default" href="#/paquete">Paquetes</a>
-                    <a type="button" class="btn btn-default" href="pages/hoteles.html">Hoteles</a>
-                    <a type="button" class="btn btn-default">Paseos</a>
-                    <a type="button" class="btn btn-default">Alimentación</a>-->
                     <div class="btn-group btn-group-justified visible-lg-block visible-md-block" id="btn-all-rabbit" role="group">
                     <a type="button" class="btn btn-default" href="#/paquete">Paquetes</a>
                     <a type="button" class="btn btn-default" href="pages/hoteles.html">Hoteles</a>
