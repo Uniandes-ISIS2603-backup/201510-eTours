@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package co.edu.uniandes.csw.eTours.Carrito.logic.api;
 
 import co.edu.uniandes.csw.eTours.Carrito.logic.dto.CarritoDTO;
 import java.util.List;
@@ -24,8 +25,9 @@ public interface ICarritoLogic
     public void desocuparCarrito();
     
     
-    
-    public CarritoDTO getCarrito(Long id);
+        public CarritoDTO getCarrito(Integer page, Integer maxRecords);
+
+    public CarritoDTO getCarrito(Long asd);
 
 
     public void deleteCarrito(Long id);

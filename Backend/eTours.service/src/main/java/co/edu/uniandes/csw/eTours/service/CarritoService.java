@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.eTours.service;
-import co.edu.uniandes.csw.eTours.Carrito.logic.api.ICarritoLogic;
 
+import co.edu.uniandes.csw.eTours.Carrito.logic.api.ICarritoLogic;
 import co.edu.uniandes.csw.eTours.Carrito.logic.dto.CarritoDTO;
 import co.edu.uniandes.csw.eTours.Carrito.logic.dto.CarritoPageDTO;
 import javax.ejb.Stateless;
@@ -35,8 +35,8 @@ public class CarritoService
     protected ICarritoLogic carritoLogicService;
 
     @POST
-    public CarritoDTO createCarrito(CarritoDTO paq) {
-        return carritoLogicService.createCarrito(paq);
+    public CarritoDTO agregarItem(CarritoDTO paq) {
+        return carritoLogicService.agregarItem(paq);
     }
 
     @DELETE
@@ -46,7 +46,7 @@ public class CarritoService
     }
 
     @GET
-    public CarritoPageDTO getCarrito(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+    public CarritoDTO getCarrito(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
         return carritoLogicService.getCarrito(page, maxRecords);
     }
 
@@ -58,7 +58,7 @@ public class CarritoService
 
     @PUT
     @Path("{id}")
-    public void updateCarrito(@PathParam("id") Long id, CarritoDTO paq) {
-        carritoLogicService.updateCarrito(paq);
+    public void agregarItem(@PathParam("id") Long id, CarritoDTO paq) {
+        carritoLogicService.agregarItem(paq);
     }    
 }
