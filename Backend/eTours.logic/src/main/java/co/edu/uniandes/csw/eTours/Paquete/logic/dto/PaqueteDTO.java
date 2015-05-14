@@ -1,17 +1,17 @@
 package co.edu.uniandes.csw.eTours.Paquete.logic.dto;
 
-import co.edu.uniandes.csw.eTours.Servicio.logic.entity.ServicioEntity;
-import java.util.ArrayList;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class PaqueteDTO {
    
-        private Long id;
+  private Long id;
     
    private int descount;
-    private String servicios ;
-    public Long getId() {
+   
+    private String servicios = "" ;
+    
+    
+    public Long getId()
+    {
         return id;
     }
 
@@ -41,7 +41,7 @@ public class PaqueteDTO {
     public void addServices(String pServicio)
     {
     
-        servicios += ("|"+ pServicio);
+        servicios += ( pServicio+"|");
     }
     
 }

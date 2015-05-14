@@ -14,7 +14,7 @@ public class PaqueteEntity {
     @GeneratedValue(generator = "Paquete")
     private Long id;
     private int descount;
-    private String servicios;
+    private String servicios = "";
 
      
     

@@ -6,10 +6,15 @@ import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaqueteDTO;
 import co.edu.uniandes.csw.eTours.Paquete.logic.dto.PaquetePageDTO;
 import co.edu.uniandes.csw.eTours.Paquete.entity.PaqueteEntity;
 import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+
+@Stateless 
+@LocalBean
 public class PaqueteLogic implements IPaqueteLogic{
 
     @PersistenceContext(unitName = "eToursClassPU")
