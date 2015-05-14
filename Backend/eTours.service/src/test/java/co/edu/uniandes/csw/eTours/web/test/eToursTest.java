@@ -13,10 +13,13 @@ import co.edu.uniandes.csw.eTours.service.ServicioService;
 import co.edu.uniandes.csw.eTours.service.SolicitudIngresoService;
 import co.edu.uniandes.csw.eTours.service.SolicitudRetiroService;
 import java.io.File;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.Filters;
 import org.jboss.shrinkwrap.api.GenericArchive;
@@ -38,6 +41,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  *
